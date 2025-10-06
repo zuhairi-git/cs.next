@@ -79,7 +79,7 @@ export default function HowItWorks() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's start with the <span className="text-gradient">obvious</span>
+              Let&apos;s start with the <span className="text-gradient">obvious</span>
             </h2>
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
               What do you pay for?
@@ -88,13 +88,13 @@ export default function HowItWorks() {
 
           <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-12 border border-gray-100">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              When it comes to designing your website using <span className="font-semibold text-[#6366f1]">HubSpot</span>, <span className="font-semibold text-[#ec4899]">Wix</span>, or <span className="font-semibold text-[#6366f1]">WordPress</span>, you'll need to budget for the website design service itself.
+              When it comes to designing your website using <span className="font-semibold text-[#6366f1]">HubSpot</span>, <span className="font-semibold text-[#ec4899]">Wix</span>, or <span className="font-semibold text-[#6366f1]">WordPress</span>, you&apos;ll need to budget for the website design service itself.
             </p>
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              In addition to this, there are some other costs to keep in mind. For instance, you'll need to cover the expenses for your domain name. If you opt for a custom domain with WordPress, there might be a premium cost involved. Similarly, with Wix, choosing premium features can give your site a more professional look. The same principle applies to HubSpot.
+              In addition to this, there are some other costs to keep in mind. For instance, you&apos;ll need to cover the expenses for your domain name. If you opt for a custom domain with WordPress, there might be a premium cost involved. Similarly, with Wix, choosing premium features can give your site a more professional look. The same principle applies to HubSpot.
             </p>
             <p className="text-xl text-gray-700 leading-relaxed">
-              However, if you're looking to save money, you also have the option of setting up your own server to install WordPress. In summary, along with our design service, you should be prepared for these additional expenses that are part of the website development process.
+              However, if you&apos;re looking to save money, you also have the option of setting up your own server to install WordPress. In summary, along with our design service, you should be prepared for these additional expenses that are part of the website development process.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function HowItWorks() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-8 py-3 rounded-full font-bold text-xl mb-6">
-              WE'VE GOT YOU COVERED!
+              WE&apos;VE GOT YOU COVERED!
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Explore our website <span className="text-gradient">maintenance</span> and credit options
@@ -114,10 +114,10 @@ export default function HowItWorks() {
 
           <div className="bg-white rounded-3xl shadow-xl p-12">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              If you're interested in outsourcing the maintenance of your website, we can provide that service as well.
+              If you&apos;re interested in outsourcing the maintenance of your website, we can provide that service as well.
             </p>
             <p className="text-xl text-gray-700 leading-relaxed">
-              The extent of the services and the frequency at which you require them can be credited based on your previous purchases. If you've previously acquired website services from us, you'll accumulate credits that can be used for future website purchases or maintenance needs.
+              The extent of the services and the frequency at which you require them can be credited based on your previous purchases. If you&apos;ve previously acquired website services from us, you&apos;ll accumulate credits that can be used for future website purchases or maintenance needs.
             </p>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function HowItWorks() {
             Ready to Invest in Your Success?
           </h2>
           <p className="text-xl mb-12 opacity-90">
-            Let's discuss how we can help you achieve your digital goals
+            Let&apos;s discuss how we can help you achieve your digital goals
           </p>
           <Link href="/#contact" className="inline-block bg-white text-[#6366f1] px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             Get Your Quote Today
@@ -270,10 +270,10 @@ export default function HowItWorks() {
             <div>
               <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>
               <p className="text-gray-400 leading-relaxed max-w-md">
-                Whether you're a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
+                Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
               </p>
               <div className="mt-6">
-                <p className="font-semibold mb-2">Let's connect.</p>
+                <p className="font-semibold mb-2">Let&apos;s connect.</p>
                 <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
                   LinkedIn →
                 </a>

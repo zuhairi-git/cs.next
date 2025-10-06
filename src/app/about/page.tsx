@@ -104,7 +104,7 @@ export default function About() {
               },
               {
                 title: 'Exceptional Expertise',
-                description: 'With our team of seasoned professionals, you\'ll benefit from exceptional web design and development expertise to realize your vision.',
+                description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
                 icon: <FaBullseye />,
                 gradient: 'from-orange-500 to-red-500'
               },
@@ -122,7 +122,7 @@ export default function About() {
               },
               {
                 title: 'Proven Results',
-                description: 'Our track record speaks for itself. We\'ve helped numerous businesses transform their online presence and achieve their digital goals.',
+                description: 'Our track record speaks for itself. We&apos;ve helped numerous businesses transform their online presence and achieve their digital goals.',
                 icon: <FaChartLine />,
                 gradient: 'from-indigo-500 to-purple-500'
               }
@@ -150,14 +150,14 @@ export default function About() {
                 <div className="text-6xl mb-6"><FaMapMarkerAlt /></div>
                 <h2 className="text-4xl font-bold mb-6">Our Location?</h2>
                 <p className="text-xl leading-relaxed">
-                  We're in <span className="font-bold">Espoo</span>, a city in Finland.
+                  We&apos;re in <span className="font-bold">Espoo</span>, a city in Finland.
                 </p>
               </div>
               <div className="p-12 flex items-center">
                 <div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Let's Meet!</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Let&apos;s Meet!</h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    If your location is in Finland, we're more than willing to coordinate a face-to-face meeting in either <span className="font-semibold text-[#6366f1]">Espoo</span> or <span className="font-semibold text-[#ec4899]">Helsinki</span>.
+                    If your location is in Finland, we&apos;re more than willing to coordinate a face-to-face meeting in either <span className="font-semibold text-[#6366f1]">Espoo</span> or <span className="font-semibold text-[#ec4899]">Helsinki</span>.
                   </p>
                   <div className="mt-8">
                     <Link href="/#contact" className="inline-block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -181,7 +181,7 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              Whether you're a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential.
+              Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential.
             </p>
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
               At CoreScene, we believe in the power of exceptional web design to transform businesses. Our mission is to provide innovative, efficient, and expert solutions that help you stand out in the digital landscape.
@@ -200,7 +200,7 @@ export default function About() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-12 opacity-90">
-            Let's create something amazing together
+            Let&apos;s create something amazing together
           </p>
           <Link href="/#contact" className="inline-block bg-white text-[#6366f1] px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             Contact Us Today
@@ -215,10 +215,10 @@ export default function About() {
             <div>
               <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>
               <p className="text-gray-400 leading-relaxed max-w-md">
-                Whether you're a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
+                Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
               </p>
               <div className="mt-6">
-                <p className="font-semibold mb-2">Let's connect.</p>
+                <p className="font-semibold mb-2">Let&apos;s connect.</p>
                 <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
                   LinkedIn →
                 </a>

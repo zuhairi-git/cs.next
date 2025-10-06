@@ -29,7 +29,7 @@ export default function Home() {
       );
       
       setFormStatus('success');
-      setFormMessage('Message sent successfully! We\'ll get back to you soon.');
+      setFormMessage('Message sent successfully! We&apos;ll get back to you soon.');
       formRef.current.reset();
       
       // Reset form status after 5 seconds
@@ -108,13 +108,13 @@ export default function Home() {
               <span className="text-gradient font-semibold flex items-center justify-center gap-2"><FaRocket className="inline" /> Premium Web Design Solutions</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Don't miss out on potential leads because of a{" "}
+              Don&apos;t miss out on potential leads because of a{", "}
               <span className="text-gradient">poorly designed website</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed">
               Choose your platform —<span className="font-semibold text-[#6366f1]">HubSpot</span>, 
               <span className="font-semibold text-[#ec4899]"> Wix</span>, 
-              <span className="font-semibold text-[#6366f1]"> WordPress</span>— and we're here to help.
+              <span className="font-semibold text-[#6366f1]"> WordPress</span>— and we&apos;re here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link href="#pricing" className="bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-block w-full sm:w-auto text-center">
@@ -184,7 +184,7 @@ export default function Home() {
               },
               {
                 title: 'Exceptional Expertise',
-                description: 'With our team of seasoned professionals, you\'ll benefit from exceptional web design and development expertise to realize your vision.',
+                description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
                 icon: <FaBullseye />,
                 gradient: 'from-orange-500 to-red-500'
               }
@@ -220,7 +220,7 @@ export default function Home() {
               {
                 step: '01',
                 title: 'Discovery & Vision',
-                description: 'Define your project\'s objectives and vision. Understand your target audience, goals, and the message you want to convey through your design.'
+                description: 'Define your project&apos;s objectives and vision. Understand your target audience, goals, and the message you want to convey through your design.'
               },
               {
                 step: '02',
@@ -276,11 +276,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client\'s budget constraints and provide transparent pricing.', icon: <FaDollarSign />, color: 'text-green-500', bgColor: 'bg-green-50' },
+              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client&apos;s budget constraints and provide transparent pricing.', icon: <FaDollarSign />, color: 'text-green-500', bgColor: 'bg-green-50' },
               { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: <FaUnlock />, color: 'text-blue-500', bgColor: 'bg-blue-50' },
-              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client\'s branding.', icon: <FaPalette />, color: 'text-purple-500', bgColor: 'bg-purple-50' },
+              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client&apos;s branding.', icon: <FaPalette />, color: 'text-purple-500', bgColor: 'bg-purple-50' },
               { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: <FaCog />, color: 'text-orange-500', bgColor: 'bg-orange-50' },
-              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website\'s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools />, color: 'text-red-500', bgColor: 'bg-red-50' },
+              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website&apos;s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools />, color: 'text-red-500', bgColor: 'bg-red-50' },
               { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: <FaBook />, color: 'text-indigo-500', bgColor: 'bg-indigo-50' }
             ].map((service, index) => (
               <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group">
@@ -392,7 +392,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-2">Elite Plan</h3>
               <p className="text-gray-400 mb-6">One-time or Subscription</p>
               <div className="mb-8">
-                <span className="text-4xl font-bold">Let's Talk</span>
+                <span className="text-4xl font-bold">Let&apos;s Talk</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
@@ -433,10 +433,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Don't be shy
+              Don&apos;t be shy
             </h2>
             <p className="text-3xl font-bold text-gradient">
-              Let's Talk
+              Let&apos;s Talk
             </p>
           </div>
 
@@ -497,10 +497,10 @@ export default function Home() {
             <div>
               <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>
               <p className="text-gray-400 leading-relaxed max-w-md">
-                Whether you're a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
+                Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
               </p>
               <div className="mt-6">
-                <p className="font-semibold mb-2">Let's connect.</p>
+                <p className="font-semibold mb-2">Let&apos;s connect.</p>
                 <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
                   LinkedIn →
                 </a>
