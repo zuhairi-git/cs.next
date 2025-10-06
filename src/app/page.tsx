@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaRocket, FaBullseye, FaLightbulb, FaDollarSign, FaUnlock, FaPalette, FaCog, FaTools, FaBook, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
+import { FaRocket, FaBullseye, FaBolt, FaLightbulb, FaDollarSign, FaUnlock, FaPalette, FaCog, FaTools, FaBook, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -99,9 +99,9 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'HubSpot', color: 'from-orange-400 to-red-500', icon: <FaBullseye /> },
-              { name: 'WordPress', color: 'from-blue-500 to-purple-600', icon: <FaPencilAlt /> },
-              { name: 'Wix', color: 'from-purple-500 to-pink-500', icon: <FaBolt /> }
+              { name: 'HubSpot', color: 'from-orange-400 to-red-500', icon: <FaHubspot /> },
+              { name: 'WordPress', color: 'from-blue-500 to-purple-600', icon: <FaWordpress /> },
+              { name: 'Wix', color: 'from-purple-500 to-pink-500', icon: <FaWix /> }
             ].map((platform) => (
               <div key={platform.name} className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
