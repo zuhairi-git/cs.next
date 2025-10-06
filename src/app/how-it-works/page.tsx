@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FaUsers, FaTrophy, FaDollarSign, FaPalette, FaChartLine, FaSmile, FaCheck, FaChartBar, FaRocket } from 'react-icons/fa';
 
 export default function HowItWorks() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -139,37 +140,37 @@ export default function HowItWorks() {
               {
                 title: 'Attracting Customers',
                 description: 'Good design can help bring in more customers, keeping them engaged and possibly boosting your income and customer satisfaction.',
-                icon: '👥',
+                icon: <FaUsers />,
                 gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Competing Better',
                 description: 'Effective design sets you apart from rivals, making your product or service more appealing to customers.',
-                icon: '🏆',
+                icon: <FaTrophy />,
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Saving Costs',
                 description: 'Proper design and development can make your operations more efficient, cutting long-term expenses.',
-                icon: '💰',
+                icon: <FaDollarSign />,
                 gradient: 'from-green-500 to-emerald-500'
               },
               {
                 title: 'Building Your Brand',
                 description: 'A strong visual style helps more people recognize your brand and stick with it.',
-                icon: '🎨',
+                icon: <FaPalette />,
                 gradient: 'from-orange-500 to-red-500'
               },
               {
                 title: 'Boosting Income',
                 description: 'If you make money from your product, user-friendly design can increase sales and your overall revenue.',
-                icon: '📈',
+                icon: <FaChartLine />,
                 gradient: 'from-indigo-500 to-purple-500'
               },
               {
                 title: 'Happy Customers',
                 description: 'Well-thought-out design often means satisfied customers who stay loyal to your business.',
-                icon: '😊',
+                icon: <FaSmile />,
                 gradient: 'from-pink-500 to-rose-500'
               }
             ].map((benefit, index) => (
@@ -201,44 +202,44 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-4">📊 Short-term Benefits</h3>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaChartBar /> Short-term Benefits</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Immediate professional online presence</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Fast deployment and launch</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Enhanced credibility with customers</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Mobile-responsive design from day one</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-4">🚀 Long-term Benefits</h3>
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaRocket /> Long-term Benefits</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Increased customer conversion rates</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Better search engine rankings</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Reduced marketing costs</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3">✓</span>
+                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
                   <span>Scalable platform for growth</span>
                 </li>
               </ul>

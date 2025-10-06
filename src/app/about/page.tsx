@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -92,37 +93,37 @@ export default function About() {
               {
                 title: 'Innovative Edge',
                 description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
-                icon: '💡',
+                icon: <FaLightbulb />,
                 gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Speed and Efficiency',
                 description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
-                icon: '⚡',
+                icon: <FaBolt />,
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Exceptional Expertise',
                 description: 'With our team of seasoned professionals, you\'ll benefit from exceptional web design and development expertise to realize your vision.',
-                icon: '🎯',
+                icon: <FaBullseye />,
                 gradient: 'from-orange-500 to-red-500'
               },
               {
                 title: 'Tailored Solutions',
                 description: 'We specialize in crafting tailored web solutions, ensuring your online presence aligns perfectly with your unique goals and needs.',
-                icon: '🎨',
+                icon: <FaPalette />,
                 gradient: 'from-green-500 to-teal-500'
               },
               {
                 title: 'Ongoing Support',
                 description: 'Count on CoreScene for ongoing support and maintenance, guaranteeing your website remains at its peak performance.',
-                icon: '🛡️',
+                icon: <FaShieldAlt />,
                 gradient: 'from-red-500 to-pink-500'
               },
               {
                 title: 'Proven Results',
                 description: 'Our track record speaks for itself. We\'ve helped numerous businesses transform their online presence and achieve their digital goals.',
-                icon: '📈',
+                icon: <FaChartLine />,
                 gradient: 'from-indigo-500 to-purple-500'
               }
             ].map((feature, index) => (
@@ -146,7 +147,7 @@ export default function About() {
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-12 bg-gradient-to-br from-[#6366f1] to-[#ec4899] text-white">
-                <div className="text-6xl mb-6">📍</div>
+                <div className="text-6xl mb-6"><FaMapMarkerAlt /></div>
                 <h2 className="text-4xl font-bold mb-6">Our Location?</h2>
                 <p className="text-xl leading-relaxed">
                   We're in <span className="font-bold">Espoo</span>, a city in Finland.

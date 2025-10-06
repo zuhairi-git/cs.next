@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FaRocket, FaBullseye, FaLightbulb, FaDollarSign, FaUnlock, FaPalette, FaCog, FaTools, FaBook, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,7 +68,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full">
-              <span className="text-gradient font-semibold">🚀 Premium Web Design Solutions</span>
+              <span className="text-gradient font-semibold flex items-center justify-center gap-2"><FaRocket className="inline" /> Premium Web Design Solutions</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Don't miss out on potential leads because of a{" "}
@@ -98,9 +99,9 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'HubSpot', color: 'from-orange-400 to-red-500', icon: '🎯' },
-              { name: 'WordPress', color: 'from-blue-500 to-purple-600', icon: '📝' },
-              { name: 'Wix', color: 'from-purple-500 to-pink-500', icon: '⚡' }
+              { name: 'HubSpot', color: 'from-orange-400 to-red-500', icon: <FaBullseye /> },
+              { name: 'WordPress', color: 'from-blue-500 to-purple-600', icon: <FaPencilAlt /> },
+              { name: 'Wix', color: 'from-purple-500 to-pink-500', icon: <FaBolt /> }
             ].map((platform) => (
               <div key={platform.name} className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
@@ -133,19 +134,19 @@ export default function Home() {
               {
                 title: 'Innovative Edge',
                 description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
-                icon: '💡',
+                icon: <FaLightbulb />,
                 gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Speed and Efficiency',
                 description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
-                icon: '⚡',
+                icon: <FaBolt />,
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Exceptional Expertise',
                 description: 'With our team of seasoned professionals, you\'ll benefit from exceptional web design and development expertise to realize your vision.',
-                icon: '🎯',
+                icon: <FaBullseye />,
                 gradient: 'from-orange-500 to-red-500'
               }
             ].map((feature, index) => (
@@ -236,12 +237,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client\'s budget constraints and provide transparent pricing.', icon: '💰' },
-              { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: '🔓' },
-              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client\'s branding.', icon: '🎨' },
-              { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: '⚙️' },
-              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website\'s longevity. Regular updates, security patches, and content updates bundled.', icon: '🛠️' },
-              { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: '📚' }
+              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client\'s budget constraints and provide transparent pricing.', icon: <FaDollarSign /> },
+              { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: <FaUnlock /> },
+              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client\'s branding.', icon: <FaPalette /> },
+              { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: <FaCog /> },
+              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website\'s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools /> },
+              { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: <FaBook /> }
             ].map((service, index) => (
               <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300">
                 <div className="text-5xl mb-4">{service.icon}</div>
@@ -281,23 +282,23 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>HubSpot, Wix, and WordPress</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Single Page Design</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Single Language</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Two Revisions</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>10 Euros / Professional Image</span>
                 </li>
               </ul>
@@ -318,27 +319,27 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Everything in Starter Plan</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Up to 3 Pages</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Up to 2 Langs Per Page</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Up to 3 Revisions Per Page</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Custom Domain Setup</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-white mr-3 text-xl">✓</span>
+                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Business E-mail Setup</span>
                 </li>
               </ul>
@@ -356,27 +357,27 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Product and Service Design</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Scope of Work</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Tech Stack (ReactJS & Flutter)</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Timeline</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Understanding Your Budget</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-400 mr-3 text-xl">✓</span>
+                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
                   <span>Streamline and Plan</span>
                 </li>
               </ul>
