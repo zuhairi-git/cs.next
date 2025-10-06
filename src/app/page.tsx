@@ -1,11 +1,48 @@
 'use client';
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { FaRocket, FaBullseye, FaBolt, FaLightbulb, FaDollarSign, FaUnlock, FaPalette, FaCog, FaTools, FaBook, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!formRef.current) return;
+    
+    setFormStatus('sending');
+    setFormMessage('');
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      await emailjs.sendForm(
+        'YOUR_SERVICE_ID',      // Replace with your EmailJS Service ID
+        'YOUR_TEMPLATE_ID',     // Replace with your EmailJS Template ID
+        formRef.current,
+        'YOUR_PUBLIC_KEY'       // Replace with your EmailJS Public Key
+      );
+      
+      setFormStatus('success');
+      setFormMessage('Message sent successfully! We\'ll get back to you soon.');
+      formRef.current.reset();
+      
+      // Reset form status after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle');
+        setFormMessage('');
+      }, 5000);
+    } catch (error) {
+      setFormStatus('error');
+      setFormMessage('Failed to send message. Please try again or contact us directly.');
+      console.error('EmailJS error:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -403,33 +440,51 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div>
               <input
                 type="text"
+                name="user_name"
                 placeholder="Name"
+                required
                 className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
               />
             </div>
             <div>
               <input
                 type="email"
+                name="user_email"
                 placeholder="Email"
+                required
                 className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
               />
             </div>
             <div>
               <textarea
+                name="message"
                 placeholder="Message"
                 rows={6}
+                required
                 className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg resize-none"
               ></textarea>
             </div>
+            
+            {formMessage && (
+              <div className={`p-4 rounded-xl text-center font-semibold ${
+                formStatus === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+              }`}>
+                {formMessage}
+              </div>
+            )}
+            
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              disabled={formStatus === 'sending'}
+              className={`w-full bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 ${
+                formStatus === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
+              }`}
             >
-              Send Message
+              {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
