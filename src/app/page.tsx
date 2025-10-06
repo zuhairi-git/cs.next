@@ -99,14 +99,16 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'HubSpot', color: 'from-orange-400 to-red-500', icon: <FaHubspot /> },
-              { name: 'WordPress', color: 'from-blue-500 to-purple-600', icon: <FaWordpress /> },
-              { name: 'Wix', color: 'from-purple-500 to-pink-500', icon: <FaWix /> }
-            ].map((platform) => (
+              { name: 'HubSpot', color: 'from-[#ff7a59] to-[#ff5c35]', iconColor: 'text-[#ff7a59]', bgHover: 'from-[#ff7a59]/10 to-[#ff5c35]/10' },
+              { name: 'WordPress', color: 'from-[#21759b] to-[#1e6a8d]', iconColor: 'text-[#21759b]', bgHover: 'from-[#21759b]/10 to-[#1e6a8d]/10' },
+              { name: 'Wix', color: 'from-[#0c6efd] to-[#0a58ca]', iconColor: 'text-[#0c6efd]', bgHover: 'from-[#0c6efd]/10 to-[#0a58ca]/10' }
+            ].map((platform, index) => (
               <div key={platform.name} className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className={`absolute inset-0 bg-gradient-to-br ${platform.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${platform.bgHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                 <div className="relative">
-                  <div className="text-6xl mb-4">{platform.icon}</div>
+                  <div className={`text-6xl mb-4 ${platform.iconColor} transition-transform duration-300 group-hover:scale-110`}>
+                    {index === 0 ? <FaHubspot /> : index === 1 ? <FaWordpress /> : <FaWix />}
+                  </div>
                   <h3 className="text-3xl font-bold mb-3">{platform.name}</h3>
                   <p className="text-gray-600">Professional design and development tailored for {platform.name}</p>
                 </div>
@@ -152,7 +154,7 @@ export default function Home() {
             ].map((feature, index) => (
               <div key={index} className="relative group">
                 <div className="gradient-border p-8 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                  <div className={`text-6xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl`}>
+                  <div className={`text-6xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg text-white transition-transform duration-300 group-hover:scale-110`}>
                     {feature.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
@@ -237,15 +239,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client\'s budget constraints and provide transparent pricing.', icon: <FaDollarSign /> },
-              { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: <FaUnlock /> },
-              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client\'s branding.', icon: <FaPalette /> },
-              { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: <FaCog /> },
-              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website\'s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools /> },
-              { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: <FaBook /> }
+              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client\'s budget constraints and provide transparent pricing.', icon: <FaDollarSign />, color: 'text-green-500', bgColor: 'bg-green-50' },
+              { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: <FaUnlock />, color: 'text-blue-500', bgColor: 'bg-blue-50' },
+              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client\'s branding.', icon: <FaPalette />, color: 'text-purple-500', bgColor: 'bg-purple-50' },
+              { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: <FaCog />, color: 'text-orange-500', bgColor: 'bg-orange-50' },
+              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website\'s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools />, color: 'text-red-500', bgColor: 'bg-red-50' },
+              { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: <FaBook />, color: 'text-indigo-500', bgColor: 'bg-indigo-50' }
             ].map((service, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300">
-                <div className="text-5xl mb-4">{service.icon}</div>
+              <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group">
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl ${service.bgColor} ${service.color} text-3xl mb-4 transition-transform duration-300 group-hover:scale-110`}>{service.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
               </div>
@@ -389,25 +391,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            We've got you covered!
-          </h2>
-          <p className="text-2xl mb-4">
-            Do You Need Website Maintenance Assistance?
-          </p>
-          <p className="text-xl mb-12 opacity-90">
-            Ready to ignite your new business vision?<br />
-            Unlocking the Path to Success: Turning Your Business Dreams into Reality
-          </p>
-          <Link href="#contact" className="inline-block bg-white text-[#6366f1] px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            Let's Talk
-          </Link>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
         <div className="max-w-4xl mx-auto">
@@ -463,7 +446,7 @@ export default function Home() {
               </p>
               <div className="mt-6">
                 <p className="font-semibold mb-2">Let's connect.</p>
-                <a href="#" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
+                <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
                   LinkedIn →
                 </a>
               </div>

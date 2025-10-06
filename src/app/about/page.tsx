@@ -219,7 +219,7 @@ export default function About() {
               </p>
               <div className="mt-6">
                 <p className="font-semibold mb-2">Let's connect.</p>
-                <a href="#" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
+                <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
                   LinkedIn →
                 </a>
               </div>
