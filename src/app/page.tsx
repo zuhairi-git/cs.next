@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, FormEvent } from "react";
-import { FaRocket, FaBullseye, FaBolt, FaLightbulb, FaDollarSign, FaUnlock, FaPalette, FaCog, FaTools, FaBook, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
+import { FaRocket, FaBullseye, FaBolt, FaLightbulb, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
