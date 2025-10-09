@@ -317,7 +317,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-2">Starter Plan</h3>
               <p className="text-gray-400 mb-6">One-time Payment</p>
               <div className="mb-8">
-                <span className="text-5xl font-bold">€400</span>
+                <span className="text-5xl font-bold">€1400</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
@@ -354,7 +354,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-2">Performance Plan</h3>
               <p className="text-white/80 mb-6">One-time Payment</p>
               <div className="mb-8">
-                <span className="text-5xl font-bold">€900</span>
+                <span className="text-5xl font-bold">€1900</span>
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">

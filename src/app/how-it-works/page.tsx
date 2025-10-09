@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaUsers, FaTrophy, FaDollarSign, FaPalette, FaChartLine, FaSmile, FaCheck, FaChartBar, FaRocket } from 'react-icons/fa';
+import { FaRocket, FaCheck, FaHeart, FaLightbulb, FaBolt, FaStar } from 'react-icons/fa';
 
 export default function HowItWorks() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,203 +63,225 @@ export default function HowItWorks() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1]/10 via-white to-[#ec4899]/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
-            How it <span className="text-gradient">works?</span>
+      <section className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899]"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-white rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        <div className="max-w-7xl mx-auto text-center relative z-10 text-white w-full">
+          <div className="inline-block mb-8 px-8 py-3 bg-white/20 backdrop-blur-md rounded-full animate-float">
+            <span className="font-bold flex items-center justify-center gap-3 text-lg">
+              <FaRocket className="text-2xl" /> Simple, Bold, Beautiful
+            </span>
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-tight">
+            How it <span className="block mt-2">WORKS</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            What do you pay for and what are the returns on your investments?
+          <p className="text-2xl md:text-4xl font-bold mb-16 max-w-5xl mx-auto leading-tight opacity-95">
+            Three simple steps to your dream website
           </p>
-        </div>
-      </section>
-
-      {/* What Do You Pay For */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let&apos;s start with the <span className="text-gradient">obvious</span>
-            </h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
-              What do you pay for?
-            </h3>
-          </div>
-
-          <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl p-12 border border-gray-100">
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              When it comes to designing your website using <span className="font-semibold text-[#6366f1]">HubSpot</span>, <span className="font-semibold text-[#ec4899]">Wix</span>, or <span className="font-semibold text-[#6366f1]">WordPress</span>, you&apos;ll need to budget for the website design service itself.
-            </p>
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              In addition to this, there are some other costs to keep in mind. For instance, you&apos;ll need to cover the expenses for your domain name. If you opt for a custom domain with WordPress, there might be a premium cost involved. Similarly, with Wix, choosing premium features can give your site a more professional look. The same principle applies to HubSpot.
-            </p>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              However, if you&apos;re looking to save money, you also have the option of setting up your own server to install WordPress. In summary, along with our design service, you should be prepared for these additional expenses that are part of the website development process.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Maintenance Options */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1]/5 to-[#ec4899]/5">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-8 py-3 rounded-full font-bold text-xl mb-6">
-              WE&apos;VE GOT YOU COVERED!
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4 font-black">01</div>
+              <div className="text-4xl mb-3">💰</div>
+              <div className="text-3xl font-bold mb-2">€1400+</div>
+              <div className="text-lg font-medium opacity-90">Starting Price</div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Explore our website <span className="text-gradient">maintenance</span> and credit options
-            </h2>
-          </div>
-
-          <div className="bg-white rounded-3xl shadow-xl p-12">
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              If you&apos;re interested in outsourcing the maintenance of your website, we can provide that service as well.
-            </p>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              The extent of the services and the frequency at which you require them can be credited based on your previous purchases. If you&apos;ve previously acquired website services from us, you&apos;ll accumulate credits that can be used for future website purchases or maintenance needs.
-            </p>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4 font-black">02</div>
+              <div className="text-4xl mb-3">⚡</div>
+              <div className="text-3xl font-bold mb-2">1-2 Weeks</div>
+              <div className="text-lg font-medium opacity-90">Fast Delivery</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4 font-black">03</div>
+              <div className="text-4xl mb-3">🚀</div>
+              <div className="text-3xl font-bold mb-2">Launch!</div>
+              <div className="text-lg font-medium opacity-90">Go Live</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* The Power of Design */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* What You Get */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              The Power of <span className="text-gradient">Design!</span>
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              What You <span className="text-gradient">GET</span>
             </h2>
-            <p className="text-2xl text-gray-600 font-semibold">
-              Enhancing Customer Engagement
+            <p className="text-3xl md:text-4xl text-gray-700 font-bold max-w-4xl mx-auto">
+              Everything you need for a stunning online presence
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Attracting Customers',
-                description: 'Good design can help bring in more customers, keeping them engaged and possibly boosting your income and customer satisfaction.',
-                icon: <FaUsers />,
-                gradient: 'from-blue-500 to-cyan-500'
-              },
-              {
-                title: 'Competing Better',
-                description: 'Effective design sets you apart from rivals, making your product or service more appealing to customers.',
-                icon: <FaTrophy />,
-                gradient: 'from-purple-500 to-pink-500'
-              },
-              {
-                title: 'Saving Costs',
-                description: 'Proper design and development can make your operations more efficient, cutting long-term expenses.',
-                icon: <FaDollarSign />,
-                gradient: 'from-green-500 to-emerald-500'
-              },
-              {
-                title: 'Building Your Brand',
-                description: 'A strong visual style helps more people recognize your brand and stick with it.',
-                icon: <FaPalette />,
-                gradient: 'from-orange-500 to-red-500'
-              },
-              {
-                title: 'Boosting Income',
-                description: 'If you make money from your product, user-friendly design can increase sales and your overall revenue.',
-                icon: <FaChartLine />,
-                gradient: 'from-indigo-500 to-purple-500'
-              },
-              {
-                title: 'Happy Customers',
-                description: 'Well-thought-out design often means satisfied customers who stay loyal to your business.',
-                icon: <FaSmile />,
-                gradient: 'from-pink-500 to-rose-500'
-              }
-            ].map((benefit, index) => (
-              <div key={index} className="relative group">
-                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
-                  <div className={`text-6xl mb-6 inline-block p-4 bg-gradient-to-br ${benefit.gradient} rounded-2xl shadow-lg`}>
-                    {benefit.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="group relative bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
+              <div className="text-7xl mb-6"><FaLightbulb /></div>
+              <h3 className="text-3xl font-black mb-4">Custom Design</h3>
+              <p className="text-lg opacity-90 leading-relaxed">Unique, tailored design that perfectly captures your brand identity</p>
+            </div>
+            <div className="group relative bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
+              <div className="text-7xl mb-6"><FaBolt /></div>
+              <h3 className="text-3xl font-black mb-4">Lightning Fast</h3>
+              <p className="text-lg opacity-90 leading-relaxed">Optimized performance for speed and seamless user experience</p>
+            </div>
+            <div className="group relative bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
+              <div className="text-7xl mb-6"><FaStar /></div>
+              <h3 className="text-3xl font-black mb-4">Mobile Perfect</h3>
+              <p className="text-lg opacity-90 leading-relaxed">Flawless display on every device, from phone to desktop</p>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 md:p-16 text-white text-center shadow-2xl">
+            <div className="text-7xl mb-8">💎</div>
+            <h3 className="text-4xl md:text-5xl font-black mb-6">All-Inclusive Package</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="flex items-center gap-3 justify-center">
+                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <span className="text-lg font-semibold">Design Consultation</span>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <span className="text-lg font-semibold">Custom Branding</span>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <span className="text-lg font-semibold">SEO Optimized</span>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <span className="text-lg font-semibold">2-3 Revisions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Process */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              The <span className="text-gradient">PROCESS</span>
+            </h2>
+            <p className="text-3xl md:text-4xl text-gray-700 font-bold">
+              Simple, transparent, effective
+            </p>
+          </div>
+
+          <div className="space-y-8 max-w-5xl mx-auto">
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#6366f1] hover:scale-105 transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="text-8xl font-black text-[#6366f1] flex-shrink-0">1</div>
+                <div>
+                  <h3 className="text-4xl font-black mb-4">Talk & Plan</h3>
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    We discuss your vision, goals, and requirements. Share your ideas, and we&apos;ll craft the perfect strategy.
+                  </p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#ec4899] hover:scale-105 transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="text-8xl font-black text-[#ec4899] flex-shrink-0">2</div>
+                <div>
+                  <h3 className="text-4xl font-black mb-4">Design & Build</h3>
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    Our team creates your stunning website. You review, we refine. 2-3 revision rounds ensure perfection.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#8b5cf6] hover:scale-105 transition-all duration-300">
+              <div className="flex items-start gap-6">
+                <div className="text-8xl font-black text-[#8b5cf6] flex-shrink-0">3</div>
+                <div>
+                  <h3 className="text-4xl font-black mb-4">Launch & Grow</h3>
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    Go live in 1-2 weeks! Plus, optional maintenance support to keep your site fresh and secure.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Investment Returns */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Your Investment, <span className="text-gradient">Your Returns</span>
+      {/* Why It Matters */}
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl md:text-8xl font-black mb-8">
+              Why It <span className="text-gradient">MATTERS</span>
             </h2>
-            <p className="text-xl text-gray-300">
-              Understanding the value of professional web design
+            <p className="text-3xl md:text-4xl text-gray-700 font-bold">
+              Real results for your business
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaChartBar /> Short-term Benefits</h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Immediate professional online presence</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Fast deployment and launch</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Enhanced credibility with customers</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Mobile-responsive design from day one</span>
-                </li>
-              </ul>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
+                3x
+              </div>
+              <h3 className="text-3xl font-black mb-3">More Customers</h3>
+              <p className="text-xl text-gray-600">Professional design converts 3x better than DIY sites</p>
             </div>
-
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaRocket /> Long-term Benefits</h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Increased customer conversion rates</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Better search engine rankings</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Reduced marketing costs</span>
-                </li>
-                <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 mt-1 flex-shrink-0" />
-                  <span>Scalable platform for growth</span>
-                </li>
-              </ul>
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
+                98%
+              </div>
+              <h3 className="text-3xl font-black mb-3">Satisfaction</h3>
+              <p className="text-xl text-gray-600">Our clients love their websites and see real growth</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
+                24/7
+              </div>
+              <h3 className="text-3xl font-black mb-3">Always Working</h3>
+              <p className="text-xl text-gray-600">Your website works around the clock to grow your business</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Invest in Your Success?
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <div className="text-8xl mb-8"><FaHeart /></div>
+          <h2 className="text-5xl md:text-8xl font-black mb-10 leading-tight">
+            Ready to START?
           </h2>
-          <p className="text-xl mb-12 opacity-90">
-            Let&apos;s discuss how we can help you achieve your digital goals
+          <p className="text-2xl md:text-4xl mb-16 font-bold max-w-4xl mx-auto leading-tight">
+            Let&apos;s create something amazing together
           </p>
-          <Link href="/#contact" className="inline-block bg-white text-[#6366f1] px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            Get Your Quote Today
+          <Link href="/#contact" className="inline-flex items-center gap-4 bg-white text-[#6366f1] px-16 py-8 rounded-full font-black text-2xl md:text-3xl hover:shadow-2xl transition-all duration-300 hover:scale-110 shadow-2xl">
+            <span>Get Started Now</span>
+            <span>→</span>
           </Link>
+          <div className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
+              <div className="text-5xl font-black mb-2">€1400+</div>
+              <div className="text-lg font-semibold opacity-90">Starting</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
+              <div className="text-5xl font-black mb-2">1-2w</div>
+              <div className="text-lg font-semibold opacity-90">Delivery</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
+              <div className="text-5xl font-black mb-2">100%</div>
+              <div className="text-lg font-semibold opacity-90">Quality</div>
+            </div>
+          </div>
         </div>
       </section>
 

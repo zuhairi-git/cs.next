@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt, FaRocket, FaHeart, FaStar, FaUsers, FaAward, FaHandshake } from 'react-icons/fa';
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,15 +63,92 @@ export default function About() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1]/10 via-white to-[#ec4899]/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
-            About <span className="text-gradient">Us</span>
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 via-white to-[#ec4899]/10"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#6366f1]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#ec4899]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full animate-float">
+            <span className="text-gradient font-semibold flex items-center justify-center gap-2">
+              <FaRocket className="inline" /> Your Web Design Partner
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-fade-in">
+            About <span className="text-gradient">CoreScene</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Empowering Your Web Presence with<br />
-            <span className="font-bold text-gradient">HubSpot, WordPress & Wix</span>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
+            We're not just a web design agency—we're your strategic partner in creating digital experiences that <span className="font-bold text-gradient">captivate, convert, and grow</span> your business.
           </p>
+          <div className="flex flex-wrap justify-center gap-6 text-center">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl font-bold text-gradient mb-2">50+</div>
+              <div className="text-gray-600 font-medium">Projects Delivered</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl font-bold text-gradient mb-2">98%</div>
+              <div className="text-gray-600 font-medium">Client Satisfaction</div>
+            </div>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl font-bold text-gradient mb-2">3</div>
+              <div className="text-gray-600 font-medium">Platforms Mastered</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block mb-4 px-4 py-2 bg-[#6366f1]/10 rounded-full">
+                <span className="text-[#6366f1] font-semibold text-sm uppercase tracking-wide">Our Mission</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Transforming Ideas into <span className="text-gradient">Digital Reality</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                At CoreScene, we believe every business deserves a stunning online presence. Our mission is to democratize world-class web design by making it accessible, affordable, and tailored to your unique vision.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Whether you're a startup founder, a growing business, or an established enterprise, we're here to turn your digital dreams into reality with expertise, creativity, and unwavering dedication.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl transform rotate-3"></div>
+              <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] p-3 rounded-xl">
+                      <FaHeart className="text-white text-2xl" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Client-Focused</h3>
+                      <p className="text-gray-600">Your success is our priority</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-br from-[#ec4899] to-[#f472b6] p-3 rounded-xl">
+                      <FaStar className="text-white text-2xl" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Quality Driven</h3>
+                      <p className="text-gray-600">Excellence in every pixel</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-gradient-to-br from-[#8b5cf6] to-[#6366f1] p-3 rounded-xl">
+                      <FaRocket className="text-white text-2xl" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1">Innovation Led</h3>
+                      <p className="text-gray-600">Cutting-edge solutions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -82,9 +159,8 @@ export default function About() {
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Why choose <span className="text-gradient">CoreScene</span>?
             </h2>
-            <p className="text-2xl text-gray-600">
-              Empowering Your Web Presence with<br />
-              <span className="font-semibold text-gradient">HubSpot, WordPress & Wix</span>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We combine technical expertise with creative excellence to deliver websites that don't just look great—they perform exceptionally.
             </p>
           </div>
 
@@ -92,47 +168,67 @@ export default function About() {
             {[
               {
                 title: 'Innovative Edge',
-                description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
+                description: 'Stay ahead with cutting-edge design trends and technologies that make your brand stand out in the digital landscape.',
                 icon: <FaLightbulb />,
-                gradient: 'from-blue-500 to-cyan-500'
+                gradient: 'from-blue-500 to-cyan-500',
+                stat: '100%',
+                statLabel: 'Custom Designs'
               },
               {
-                title: 'Speed and Efficiency',
-                description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
+                title: 'Lightning Fast',
+                description: 'Experience rapid turnaround times without compromising quality. Your website goes live faster than you expect.',
                 icon: <FaBolt />,
-                gradient: 'from-purple-500 to-pink-500'
+                gradient: 'from-purple-500 to-pink-500',
+                stat: '< 2 weeks',
+                statLabel: 'Average Delivery'
               },
               {
-                title: 'Exceptional Expertise',
-                description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
+                title: 'Expert Team',
+                description: 'Benefit from years of combined expertise in design, development, and digital strategy from our passionate team.',
                 icon: <FaBullseye />,
-                gradient: 'from-orange-500 to-red-500'
+                gradient: 'from-orange-500 to-red-500',
+                stat: '10+ years',
+                statLabel: 'Experience'
               },
               {
                 title: 'Tailored Solutions',
-                description: 'We specialize in crafting tailored web solutions, ensuring your online presence aligns perfectly with your unique goals and needs.',
+                description: 'No templates, no shortcuts. Every website is crafted uniquely to match your brand identity and business goals.',
                 icon: <FaPalette />,
-                gradient: 'from-green-500 to-teal-500'
+                gradient: 'from-green-500 to-teal-500',
+                stat: 'Your Way',
+                statLabel: 'Customization'
               },
               {
                 title: 'Ongoing Support',
-                description: 'Count on CoreScene for ongoing support and maintenance, guaranteeing your website remains at its peak performance.',
+                description: 'Our partnership doesn&apos;t end at launch. Enjoy continuous support, updates, and maintenance to keep you ahead.',
                 icon: <FaShieldAlt />,
-                gradient: 'from-red-500 to-pink-500'
+                gradient: 'from-red-500 to-pink-500',
+                stat: '24/7',
+                statLabel: 'Available'
               },
               {
                 title: 'Proven Results',
-                description: 'Our track record speaks for itself. We&apos;ve helped numerous businesses transform their online presence and achieve their digital goals.',
+                description: 'Join dozens of satisfied clients who&apos;ve seen real growth and improved conversions with their new websites.',
                 icon: <FaChartLine />,
-                gradient: 'from-indigo-500 to-purple-500'
+                gradient: 'from-indigo-500 to-purple-500',
+                stat: '98%',
+                statLabel: 'Happy Clients'
               }
             ].map((feature, index) => (
               <div key={index} className="relative group">
-                <div className="gradient-border p-8 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                  <div className={`text-6xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg`}>
+                <div className="bg-white rounded-3xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 border-2 border-gray-100 hover:border-transparent">
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="text-right">
+                      <div className={`text-2xl font-bold bg-gradient-to-br ${feature.gradient} bg-clip-text text-transparent`}>
+                        {feature.stat}
+                      </div>
+                      <div className="text-xs text-gray-500 font-medium">{feature.statLabel}</div>
+                    </div>
+                  </div>
+                  <div className={`text-5xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-gradient transition-colors">{feature.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
               </div>
@@ -141,29 +237,84 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Location */}
+      {/* Our Values */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="p-12 bg-gradient-to-br from-[#6366f1] to-[#ec4899] text-white">
-                <div className="text-6xl mb-6"><FaMapMarkerAlt /></div>
-                <h2 className="text-4xl font-bold mb-6">Our Location?</h2>
-                <p className="text-xl leading-relaxed">
-                  We&apos;re in <span className="font-bold">Espoo</span>, a city in Finland.
-                </p>
-              </div>
-              <div className="p-12 flex items-center">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Let&apos;s Meet!</h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
-                    If your location is in Finland, we&apos;re more than willing to coordinate a face-to-face meeting in either <span className="font-semibold text-[#6366f1]">Espoo</span> or <span className="font-semibold text-[#ec4899]">Helsinki</span>.
-                  </p>
-                  <div className="mt-8">
-                    <Link href="/#contact" className="inline-block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      Schedule a Meeting
-                    </Link>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Our <span className="text-gradient">Core Values</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Transparency',
+                description: 'Clear communication, honest pricing, and no hidden surprises. We believe in building trust through openness.',
+                icon: <FaUsers />,
+                color: 'from-blue-500 to-cyan-500'
+              },
+              {
+                title: 'Excellence',
+                description: 'We never settle for good enough. Every project gets our full attention and expertise for outstanding results.',
+                icon: <FaAward />,
+                color: 'from-purple-500 to-pink-500'
+              },
+              {
+                title: 'Partnership',
+                description: 'Your success is our success. We work alongside you as a dedicated partner, not just a service provider.',
+                icon: <FaHandshake />,
+                color: 'from-orange-500 to-red-500'
+              }
+            ].map((value, index) => (
+              <div key={index} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-3xl"></div>
+                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative z-10">
+                  <div className={`inline-block p-4 bg-gradient-to-br ${value.color} rounded-2xl mb-6 text-white text-4xl`}>
+                    {value.icon}
                   </div>
+                  <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Location */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl shadow-2xl overflow-hidden relative">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 relative z-10">
+              <div className="p-12 text-white">
+                <div className="inline-block p-4 bg-white/20 rounded-2xl mb-6">
+                  <FaMapMarkerAlt className="text-5xl" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Based in Finland</h2>
+                <p className="text-xl leading-relaxed mb-6">
+                  We&apos;re proudly located in <span className="font-bold">Espoo</span>, serving clients locally and globally.
+                </p>
+                <div className="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full">
+                  <p className="font-semibold">📍 Espoo, Finland</p>
+                </div>
+              </div>
+              <div className="p-12 bg-white flex items-center">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4 text-gray-900">Let&apos;s Meet!</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg mb-8">
+                    Located in Finland? We&apos;d love to meet you in person! Let&apos;s grab a coffee in <span className="font-semibold text-[#6366f1]">Espoo</span> or <span className="font-semibold text-[#ec4899]">Helsinki</span> and discuss your project face-to-face.
+                  </p>
+                  <Link href="/#contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-8 py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <span>Schedule a Meeting</span>
+                    <span>→</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -172,39 +323,90 @@ export default function About() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              Our <span className="text-gradient">Story</span>
-            </h2>
-          </div>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              At CoreScene, we believe in the power of exceptional web design to transform businesses. Our mission is to provide innovative, efficient, and expert solutions that help you stand out in the digital landscape.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Together, we can make your entrepreneurial dreams a reality.
-            </p>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block mb-4 px-4 py-2 bg-[#ec4899]/10 rounded-full">
+                <span className="text-[#ec4899] font-semibold text-sm uppercase tracking-wide">Our Journey</span>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold mb-8">
+                Our <span className="text-gradient">Story</span>
+              </h2>
+              <div className="space-y-6">
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  CoreScene was born from a simple belief: <span className="font-semibold text-gray-900">every business deserves a beautiful, functional website</span> that truly represents their brand and vision.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Whether you&apos;re a seasoned entrepreneur or just starting your journey, we&apos;re here to accompany you on this exhilarating adventure. Your aspirations and ambitions deserve a digital presence that matches their potential.
+                </p>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  We combine years of expertise with a passion for innovation, delivering web solutions that don&apos;t just look good—they <span className="font-semibold text-gray-900">drive real business results</span>.
+                </p>
+                <div className="pt-6">
+                  <Link href="/how-it-works" className="inline-flex items-center gap-2 text-[#6366f1] font-bold text-lg hover:gap-4 transition-all duration-300">
+                    <span>Learn How We Work</span>
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl p-8 shadow-2xl">
+                <div className="bg-white rounded-2xl p-8 space-y-6">
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
+                    <div className="text-4xl">🚀</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Founded on Innovation</h4>
+                      <p className="text-gray-600 text-sm">Started with a passion for creating exceptional digital experiences</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl">
+                    <div className="text-4xl">💼</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Business Focused</h4>
+                      <p className="text-gray-600 text-sm">Every decision driven by your success and growth</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl">
+                    <div className="text-4xl">🌟</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Future Ready</h4>
+                      <p className="text-gray-600 text-sm">Building websites that grow with your business</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Get Started?
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <div className="mb-6">
+            <span className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full font-semibold text-sm uppercase tracking-wide">Let&apos;s Build Together</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Ready to Transform Your Digital Presence?
           </h2>
-          <p className="text-xl mb-12 opacity-90">
-            Let&apos;s create something amazing together
+          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Join the growing list of businesses that trust CoreScene with their online success. Let&apos;s create something extraordinary together.
           </p>
-          <Link href="/#contact" className="inline-block bg-white text-[#6366f1] px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            Contact Us Today
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link href="/#contact" className="inline-flex items-center gap-2 bg-white text-[#6366f1] px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <span>Start Your Project</span>
+              <span>→</span>
+            </Link>
+            <Link href="/how-it-works" className="inline-flex items-center gap-2 border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-[#6366f1] transition-all duration-300">
+              <span>How It Works</span>
+            </Link>
+          </div>
         </div>
       </section>
 
