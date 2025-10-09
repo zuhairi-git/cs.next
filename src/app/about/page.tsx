@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt, FaRocket, FaHeart, FaStar, FaUsers, FaAward, FaHandshake } from 'react-icons/fa';
+import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt, FaRocket, FaHeart, FaStar, FaUsers, FaAward, FaHandshake, FaBriefcase } from 'react-icons/fa';
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -301,8 +301,9 @@ export default function About() {
                 <p className="text-xl leading-relaxed mb-6">
                   We&apos;re proudly located in <span className="font-bold">Espoo</span>, serving clients locally and globally.
                 </p>
-                <div className="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full">
-                  <p className="font-semibold">📍 Espoo, Finland</p>
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full">
+                  <FaMapMarkerAlt className="text-white" />
+                  <p className="font-semibold">Espoo, Finland</p>
                 </div>
               </div>
               <div className="p-12 bg-white flex items-center">
@@ -355,21 +356,21 @@ export default function About() {
               <div className="bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl p-8 shadow-2xl">
                 <div className="bg-white rounded-2xl p-8 space-y-6">
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-                    <div className="text-4xl">🚀</div>
+                    <FaRocket className="text-4xl" />
                     <div>
                       <h4 className="font-bold text-lg mb-1">Founded on Innovation</h4>
                       <p className="text-gray-600 text-sm">Started with a passion for creating exceptional digital experiences</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl">
-                    <div className="text-4xl">💼</div>
+                    <FaBriefcase className="text-4xl" />
                     <div>
                       <h4 className="font-bold text-lg mb-1">Business Focused</h4>
                       <p className="text-gray-600 text-sm">Every decision driven by your success and growth</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl">
-                    <div className="text-4xl">🌟</div>
+                    <FaStar className="text-4xl" />
                     <div>
                       <h4 className="font-bold text-lg mb-1">Future Ready</h4>
                       <p className="text-gray-600 text-sm">Building websites that grow with your business</p>

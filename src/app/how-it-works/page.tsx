@@ -219,7 +219,9 @@ export default function HowItWorks() {
           <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
         </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <div className="text-8xl mb-8"><FaHeart /></div>
+          <div className="mb-8">
+            <FaHeart className="inline-block text-8xl" />
+          </div>
           <h2 className="text-5xl md:text-8xl font-black mb-10 leading-tight">
             Ready to START?
           </h2>
