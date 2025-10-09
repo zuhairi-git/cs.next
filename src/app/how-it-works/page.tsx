@@ -212,44 +212,6 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      {/* Why It Matters */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
-              Why It <span className="text-gradient">MATTERS</span>
-            </h2>
-            <p className="text-3xl md:text-4xl text-gray-700 font-bold">
-              Real results for your business
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
-                3x
-              </div>
-              <h3 className="text-3xl font-black mb-3">More Customers</h3>
-              <p className="text-xl text-gray-600">Professional design converts 3x better than DIY sites</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
-                98%
-              </div>
-              <h3 className="text-3xl font-black mb-3">Satisfaction</h3>
-              <p className="text-xl text-gray-600">Our clients love their websites and see real growth</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 text-white text-5xl font-black shadow-2xl">
-                24/7
-              </div>
-              <h3 className="text-3xl font-black mb-3">Always Working</h3>
-              <p className="text-xl text-gray-600">Your website works around the clock to grow your business</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

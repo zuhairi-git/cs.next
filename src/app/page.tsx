@@ -265,34 +265,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Budget-Friendly Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Budget-friendly</span> Services
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: 'Cost Analysis', description: 'Conduct a thorough cost analysis before starting any project. Understand the client&apos;s budget constraints and provide transparent pricing.', icon: <FaDollarSign />, color: 'text-green-500', bgColor: 'bg-green-50' },
-              { title: 'Open Source Platforms', description: 'Utilize open-source platforms like WordPress whenever possible. These platforms offer cost-effective solutions with a wide range of plugins.', icon: <FaUnlock />, color: 'text-blue-500', bgColor: 'bg-blue-50' },
-              { title: 'Template Usage', description: 'In the case of Wix, leverage pre-designed templates to save time and costs. Customize these templates to align with the client&apos;s branding.', icon: <FaPalette />, color: 'text-purple-500', bgColor: 'bg-purple-50' },
-              { title: 'Efficient Development', description: 'Streamline your development process to reduce man-hours and costs. Efficient coding practices and reusable components help speed up development.', icon: <FaCog />, color: 'text-orange-500', bgColor: 'bg-orange-50' },
-              { title: 'Maintenance Plans', description: 'Offer cost-effective maintenance plans to ensure the website&apos;s longevity. Regular updates, security patches, and content updates bundled.', icon: <FaTools />, color: 'text-red-500', bgColor: 'bg-red-50' },
-              { title: 'Training and Support', description: 'Empower clients with the knowledge to make minor updates themselves, reducing the need for constant developer intervention.', icon: <FaBook />, color: 'text-indigo-500', bgColor: 'bg-indigo-50' }
-            ].map((service, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 group">
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl ${service.bgColor} ${service.color} text-3xl mb-4 transition-transform duration-300 group-hover:scale-110`}>{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white" id="pricing">
         <div className="max-w-7xl mx-auto">
