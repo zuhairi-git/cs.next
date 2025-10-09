@@ -77,7 +77,7 @@ export default function About() {
             About <span className="text-gradient">CoreScene</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
-            We're not just a web design agency—we're your strategic partner in creating digital experiences that <span className="font-bold text-gradient">captivate, convert, and grow</span> your business.
+            We&apos;re not just a web design agency—we&apos;re your strategic partner in creating digital experiences that <span className="font-bold text-gradient">captivate, convert, and grow</span> your business.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-center">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
@@ -111,7 +111,7 @@ export default function About() {
                 At CoreScene, we believe every business deserves a stunning online presence. Our mission is to democratize world-class web design by making it accessible, affordable, and tailored to your unique vision.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Whether you're a startup founder, a growing business, or an established enterprise, we're here to turn your digital dreams into reality with expertise, creativity, and unwavering dedication.
+                Whether you&apos;re a startup founder, a growing business, or an established enterprise, we&apos;re here to turn your digital dreams into reality with expertise, creativity, and unwavering dedication.
               </p>
             </div>
             <div className="relative">
@@ -160,7 +160,7 @@ export default function About() {
               Why choose <span className="text-gradient">CoreScene</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine technical expertise with creative excellence to deliver websites that don't just look great—they perform exceptionally.
+              We combine technical expertise with creative excellence to deliver websites that don&apos;t just look great—they perform exceptionally.
             </p>
           </div>
 
