@@ -16,6 +16,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CoreScene - Premium Web Design for HubSpot, WordPress & Wix",
   description: "Empowering Your Web Presence with innovative, cutting-edge website solutions for HubSpot, WordPress & Wix.",
+  icons: {
+    icon: [
+      { url: "/img/logo.png", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/img/logo.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/img/logo.png" },
+    ],
+  },
 };
 
 export default function RootLayout({

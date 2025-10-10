@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { FaRocket, FaCheck, FaHeart, FaLightbulb, FaBolt, FaStar } from 'react-icons/fa';
 
@@ -14,8 +15,9 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <Link href="/" className="text-3xl font-bold text-gradient">
-                CoreScene
+              <Link href="/" className="flex items-center gap-3">
+                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} priority />
+                <span className="text-3xl font-bold text-gradient">CoreScene</span>
               </Link>
             </div>
             
