@@ -103,7 +103,16 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5"></div>
+        <div className="absolute inset-0">
+          <Image 
+            src="/img/hero.jpg" 
+            alt="Hero background" 
+            fill 
+            className="object-cover opacity-5"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5"></div>
+        </div>
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full">
@@ -469,8 +478,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image 
+            src="/img/footer.jpg" 
+            alt="Footer background" 
+            fill 
+            className="object-cover opacity-10"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
               <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>

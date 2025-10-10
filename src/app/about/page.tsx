@@ -66,7 +66,16 @@ export default function About() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 via-white to-[#ec4899]/10"></div>
+        <div className="absolute inset-0">
+          <Image 
+            src="/img/aboutus.jpg" 
+            alt="About CoreScene" 
+            fill 
+            className="object-cover opacity-10"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 via-white to-[#ec4899]/10"></div>
+        </div>
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#6366f1]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#ec4899]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
@@ -316,8 +325,16 @@ export default function About() {
                   <p className="font-semibold">Espoo, Finland</p>
                 </div>
               </div>
-              <div className="p-12 bg-white flex items-center">
-                <div>
+              <div className="p-12 bg-white flex items-center relative overflow-hidden">
+                <div className="absolute inset-0">
+                  <Image 
+                    src="/img/office.jpg" 
+                    alt="Our office" 
+                    fill 
+                    className="object-cover opacity-5"
+                  />
+                </div>
+                <div className="relative z-10">
                   <h3 className="text-3xl font-bold mb-4 text-gray-900">Let&apos;s Meet!</h3>
                   <p className="text-gray-600 leading-relaxed text-lg mb-8">
                     Located in Finland? We&apos;d love to meet you in person! Let&apos;s grab a coffee in <span className="font-semibold text-[#6366f1]">Espoo</span> or <span className="font-semibold text-[#ec4899]">Helsinki</span> and discuss your project face-to-face.
@@ -422,8 +439,16 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image 
+            src="/img/footer.jpg" 
+            alt="Footer background" 
+            fill 
+            className="object-cover opacity-10"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
               <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>
