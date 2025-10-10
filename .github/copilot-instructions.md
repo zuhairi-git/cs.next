@@ -161,4 +161,5 @@ npm run lint         # ESLint (Next.js config + TypeScript)
 - **Styling**: Tailwind utility classes inline (no separate CSS modules)
 - **Type safety**: TypeScript strict mode - avoid `any`, use proper interfaces
 - **Animations**: Prefer Tailwind animation utilities + custom CSS keyframes in globals.css
-- **No Emojis**: Never use emoji characters in code, comments, or UI text - use react-icons instead
+- **No Emojis**: Never use emoji characters in code, comments, or UI text - use FontAwesome duotone+thin icons or react-icons instead
+- **Icon Usage**: Prefer FontAwesome webfonts (duotone + thin) for consistent branding; react-icons as fallback
