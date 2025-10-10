@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, FormEvent } from "react";
 import emailjs from '@emailjs/browser';
+import Icon from '@/components/Icon';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -174,27 +175,31 @@ export default function Home() {
               {
                 title: 'Innovative Edge',
                 description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
-                icon: <i className="fa-duotone fa-thin fa-lightbulb"></i>,
+                iconName: 'lightbulb',
                 gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Speed and Efficiency',
                 description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
-                icon: <i className="fa-duotone fa-thin fa-bolt"></i>,
+                iconName: 'bolt',
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Exceptional Expertise',
                 description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
-                icon: <i className="fa-duotone fa-thin fa-bullseye"></i>,
+                iconName: 'bullseye',
                 gradient: 'from-orange-500 to-red-500'
               }
             ].map((feature, index) => (
               <div key={index} className="relative group">
                 <div className="gradient-border p-8 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                  <div className={`text-6xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg text-white transition-transform duration-300 group-hover:scale-110`}>
-                    {feature.icon}
-                  </div>
+                  <Icon 
+                    name={feature.iconName} 
+                    size="xl" 
+                    gradient={feature.gradient} 
+                    variant="square"
+                    className="mb-6"
+                  />
                   <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>

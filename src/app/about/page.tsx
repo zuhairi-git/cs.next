@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import Icon from '@/components/Icon';
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -170,7 +171,7 @@ export default function About() {
               {
                 title: 'Innovative Edge',
                 description: 'Stay ahead with cutting-edge design trends and technologies that make your brand stand out in the digital landscape.',
-                icon: <i className="fa-duotone fa-thin fa-lightbulb"></i>,
+                iconName: 'lightbulb',
                 gradient: 'from-blue-500 to-cyan-500',
                 stat: '100%',
                 statLabel: 'Custom Designs'
@@ -178,7 +179,7 @@ export default function About() {
               {
                 title: 'Lightning Fast',
                 description: 'Experience rapid turnaround times without compromising quality. Your website goes live faster than you expect.',
-                icon: <i className="fa-duotone fa-thin fa-bolt"></i>,
+                iconName: 'bolt',
                 gradient: 'from-purple-500 to-pink-500',
                 stat: '< 2 weeks',
                 statLabel: 'Average Delivery'
@@ -186,7 +187,7 @@ export default function About() {
               {
                 title: 'Expert Team',
                 description: 'Benefit from years of combined expertise in design, development, and digital strategy from our passionate team.',
-                icon: <i className="fa-duotone fa-thin fa-bullseye"></i>,
+                iconName: 'bullseye',
                 gradient: 'from-orange-500 to-red-500',
                 stat: '10+ years',
                 statLabel: 'Experience'
@@ -194,7 +195,7 @@ export default function About() {
               {
                 title: 'Tailored Solutions',
                 description: 'No templates, no shortcuts. Every website is crafted uniquely to match your brand identity and business goals.',
-                icon: <i className="fa-duotone fa-thin fa-palette"></i>,
+                iconName: 'palette',
                 gradient: 'from-green-500 to-teal-500',
                 stat: 'Your Way',
                 statLabel: 'Customization'
@@ -202,7 +203,7 @@ export default function About() {
               {
                 title: 'Ongoing Support',
                 description: 'Our partnership doesn&apos;t end at launch. Enjoy continuous support, updates, and maintenance to keep you ahead.',
-                icon: <i className="fa-duotone fa-thin fa-shield"></i>,
+                iconName: 'shield',
                 gradient: 'from-red-500 to-pink-500',
                 stat: '24/7',
                 statLabel: 'Available'
@@ -210,7 +211,7 @@ export default function About() {
               {
                 title: 'Proven Results',
                 description: 'Join dozens of satisfied clients who&apos;ve seen real growth and improved conversions with their new websites.',
-                icon: <i className="fa-duotone fa-thin fa-chart-line"></i>,
+                iconName: 'chart-line',
                 gradient: 'from-indigo-500 to-purple-500',
                 stat: '98%',
                 statLabel: 'Happy Clients'
@@ -226,9 +227,13 @@ export default function About() {
                       <div className="text-xs text-gray-500 font-medium">{feature.statLabel}</div>
                     </div>
                   </div>
-                  <div className={`text-5xl mb-6 inline-block p-4 bg-gradient-to-br ${feature.gradient} rounded-2xl shadow-lg text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                    {feature.icon}
-                  </div>
+                  <Icon 
+                    name={feature.iconName} 
+                    size="lg" 
+                    gradient={feature.gradient} 
+                    variant="square"
+                    className="mb-6 group-hover:rotate-6"
+                  />
                   <h3 className="text-2xl font-bold mb-4 group-hover:text-gradient transition-colors">{feature.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
@@ -254,28 +259,32 @@ export default function About() {
               {
                 title: 'Transparency',
                 description: 'Clear communication, honest pricing, and no hidden surprises. We believe in building trust through openness.',
-                icon: <i className="fa-duotone fa-thin fa-users"></i>,
+                iconName: 'users',
                 color: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Excellence',
                 description: 'We never settle for good enough. Every project gets our full attention and expertise for outstanding results.',
-                icon: <i className="fa-duotone fa-thin fa-award"></i>,
+                iconName: 'award',
                 color: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Partnership',
                 description: 'Your success is our success. We work alongside you as a dedicated partner, not just a service provider.',
-                icon: <i className="fa-duotone fa-thin fa-handshake"></i>,
+                iconName: 'handshake',
                 color: 'from-orange-500 to-red-500'
               }
             ].map((value, index) => (
               <div key={index} className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-3xl"></div>
                 <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative z-10">
-                  <div className={`inline-block p-4 bg-gradient-to-br ${value.color} rounded-2xl mb-6 text-white text-4xl`}>
-                    {value.icon}
-                  </div>
+                  <Icon 
+                    name={value.iconName} 
+                    size="md" 
+                    gradient={value.color} 
+                    variant="square"
+                    className="mb-6"
+                  />
                   <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
