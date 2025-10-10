@@ -85,19 +85,16 @@ export default function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <div className="text-6xl mb-4 font-black">01</div>
-              <div className="text-4xl mb-3">💰</div>
               <div className="text-3xl font-bold mb-2">€1400+</div>
               <div className="text-lg font-medium opacity-90">Starting Price</div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <div className="text-6xl mb-4 font-black">02</div>
-              <div className="text-4xl mb-3">⚡</div>
               <div className="text-3xl font-bold mb-2">1-2 Weeks</div>
               <div className="text-lg font-medium opacity-90">Fast Delivery</div>
             </div>
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <div className="text-6xl mb-4 font-black">03</div>
-              <div className="text-4xl mb-3">🚀</div>
               <div className="text-3xl font-bold mb-2">Launch!</div>
               <div className="text-lg font-medium opacity-90">Go Live</div>
             </div>
@@ -232,18 +229,18 @@ export default function HowItWorks() {
             <span>Get Started Now</span>
             <span>→</span>
           </Link>
-          <div className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
-              <div className="text-5xl font-black mb-2">€1400+</div>
-              <div className="text-lg font-semibold opacity-90">Starting</div>
+          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
+              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">€1400+</div>
+              <div className="text-base sm:text-lg font-semibold opacity-90">Starting</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
-              <div className="text-5xl font-black mb-2">1-2w</div>
-              <div className="text-lg font-semibold opacity-90">Delivery</div>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
+              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">1-2w</div>
+              <div className="text-base sm:text-lg font-semibold opacity-90">Delivery</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/30">
-              <div className="text-5xl font-black mb-2">100%</div>
-              <div className="text-lg font-semibold opacity-90">Quality</div>
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
+              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">100%</div>
+              <div className="text-base sm:text-lg font-semibold opacity-90">Quality</div>
             </div>
           </div>
         </div>
