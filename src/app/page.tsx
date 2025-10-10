@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, FormEvent } from "react";
-import { FaRocket, FaBullseye, FaBolt, FaLightbulb, FaCheck, FaHubspot, FaWordpress, FaWix } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
@@ -107,7 +106,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full">
-              <span className="text-gradient font-semibold flex items-center justify-center gap-2"><FaRocket className="inline" /> Premium Web Design Solutions</span>
+              <span className="text-gradient font-semibold flex items-center justify-center gap-2"><i className="fa-duotone fa-thin fa-rocket"></i> Premium Web Design Solutions</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Don&apos;t miss out on potential leads because of a{", "}
@@ -146,7 +145,7 @@ export default function Home() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${platform.bgHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                 <div className="relative">
                   <div className={`text-6xl mb-4 ${platform.iconColor} transition-transform duration-300 group-hover:scale-110`}>
-                    {index === 0 ? <FaHubspot /> : index === 1 ? <FaWordpress /> : <FaWix />}
+                    {index === 0 ? <i className="fa-brands fa-hubspot"></i> : index === 1 ? <i className="fa-brands fa-wordpress"></i> : <i className="fa-brands fa-wix"></i>}
                   </div>
                   <h3 className="text-3xl font-bold mb-3">{platform.name}</h3>
                   <p className="text-gray-600">Professional design and development tailored for {platform.name}</p>
@@ -175,19 +174,19 @@ export default function Home() {
               {
                 title: 'Innovative Edge',
                 description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
-                icon: <FaLightbulb />,
+                icon: <i className="fa-duotone fa-thin fa-lightbulb"></i>,
                 gradient: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Speed and Efficiency',
                 description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
-                icon: <FaBolt />,
+                icon: <i className="fa-duotone fa-thin fa-bolt"></i>,
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Exceptional Expertise',
                 description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
-                icon: <FaBullseye />,
+                icon: <i className="fa-duotone fa-thin fa-bullseye"></i>,
                 gradient: 'from-orange-500 to-red-500'
               }
             ].map((feature, index) => (
@@ -295,23 +294,23 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>HubSpot, Wix, and WordPress</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Single Page Design</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Single Language</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Two Revisions</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>10 Euros / Professional Image</span>
                 </li>
               </ul>
@@ -332,27 +331,27 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Everything in Starter Plan</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Up to 3 Pages</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Up to 2 Langs Per Page</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Up to 3 Revisions Per Page</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Custom Domain Setup</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-white mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Business E-mail Setup</span>
                 </li>
               </ul>
@@ -370,27 +369,27 @@ export default function Home() {
               </div>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Product and Service Design</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Scope of Work</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Tech Stack (ReactJS & Flutter)</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Timeline</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Understanding Your Budget</span>
                 </li>
                 <li className="flex items-start">
-                  <FaCheck className="text-green-400 mr-3 text-xl mt-1 flex-shrink-0" />
+                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
                   <span>Streamline and Plan</span>
                 </li>
               </ul>

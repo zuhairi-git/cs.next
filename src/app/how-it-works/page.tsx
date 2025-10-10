@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaRocket, FaCheck, FaHeart, FaLightbulb, FaBolt, FaStar } from 'react-icons/fa';
 
 export default function HowItWorks() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -75,7 +74,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto text-center relative z-10 text-white w-full">
           <div className="inline-block mb-8 px-8 py-3 bg-white/20 backdrop-blur-md rounded-full animate-float">
             <span className="font-bold flex items-center justify-center gap-3 text-lg">
-              <FaRocket className="text-2xl" /> Simple, Bold, Beautiful
+              <i className="fa-duotone fa-thin fa-rocket text-2xl"></i> Simple, Bold, Beautiful
             </span>
           </div>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-tight">
@@ -118,40 +117,42 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="group relative bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><FaLightbulb /></div>
+              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-lightbulb"></i></div>
               <h3 className="text-3xl font-black mb-4">Custom Design</h3>
               <p className="text-lg opacity-90 leading-relaxed">Unique, tailored design that perfectly captures your brand identity</p>
             </div>
             <div className="group relative bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><FaBolt /></div>
+              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-bolt"></i></div>
               <h3 className="text-3xl font-black mb-4">Lightning Fast</h3>
               <p className="text-lg opacity-90 leading-relaxed">Optimized performance for speed and seamless user experience</p>
             </div>
             <div className="group relative bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><FaStar /></div>
+              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-star"></i></div>
               <h3 className="text-3xl font-black mb-4">Mobile Perfect</h3>
               <p className="text-lg opacity-90 leading-relaxed">Flawless display on every device, from phone to desktop</p>
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 md:p-16 text-white text-center shadow-2xl">
-            <div className="text-7xl mb-8">💎</div>
+            <div className="text-7xl mb-8 flex justify-center">
+              <i className="fa-duotone fa-thin fa-gem text-yellow-400"></i>
+            </div>
             <h3 className="text-4xl md:text-5xl font-black mb-6">All-Inclusive Package</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               <div className="flex items-center gap-3 justify-center">
-                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
                 <span className="text-lg font-semibold">Design Consultation</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
-                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
                 <span className="text-lg font-semibold">Custom Branding</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
-                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
                 <span className="text-lg font-semibold">SEO Optimized</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
-                <FaCheck className="text-green-400 text-2xl flex-shrink-0" />
+                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
                 <span className="text-lg font-semibold">2-3 Revisions</span>
               </div>
             </div>
@@ -219,7 +220,7 @@ export default function HowItWorks() {
         </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="mb-8">
-            <FaHeart className="inline-block text-8xl" />
+            <i className="fa-duotone fa-thin fa-heart inline-block text-8xl"></i>
           </div>
           <h2 className="text-5xl md:text-8xl font-black mb-10 leading-tight">
             Ready to START?

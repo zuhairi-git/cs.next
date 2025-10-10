@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FaLightbulb, FaBolt, FaBullseye, FaPalette, FaShieldAlt, FaChartLine, FaMapMarkerAlt, FaRocket, FaHeart, FaStar, FaUsers, FaAward, FaHandshake, FaBriefcase } from 'react-icons/fa';
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,7 +71,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full animate-float">
             <span className="text-gradient font-semibold flex items-center justify-center gap-2">
-              <FaRocket className="inline" /> Your Web Design Partner
+              <i className="fa-duotone fa-thin fa-rocket"></i> Your Web Design Partner
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-fade-in">
@@ -122,7 +121,7 @@ export default function About() {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] p-3 rounded-xl">
-                      <FaHeart className="text-white text-2xl" />
+                      <i className="fa-duotone fa-thin fa-heart text-white text-2xl"></i>
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Client-Focused</h3>
@@ -131,7 +130,7 @@ export default function About() {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-br from-[#ec4899] to-[#f472b6] p-3 rounded-xl">
-                      <FaStar className="text-white text-2xl" />
+                      <i className="fa-duotone fa-thin fa-star text-white text-2xl"></i>
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Quality Driven</h3>
@@ -140,7 +139,7 @@ export default function About() {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-br from-[#8b5cf6] to-[#6366f1] p-3 rounded-xl">
-                      <FaRocket className="text-white text-2xl" />
+                      <i className="fa-duotone fa-thin fa-rocket text-white text-2xl"></i>
                     </div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Innovation Led</h3>
@@ -171,7 +170,7 @@ export default function About() {
               {
                 title: 'Innovative Edge',
                 description: 'Stay ahead with cutting-edge design trends and technologies that make your brand stand out in the digital landscape.',
-                icon: <FaLightbulb />,
+                icon: <i className="fa-duotone fa-thin fa-lightbulb"></i>,
                 gradient: 'from-blue-500 to-cyan-500',
                 stat: '100%',
                 statLabel: 'Custom Designs'
@@ -179,7 +178,7 @@ export default function About() {
               {
                 title: 'Lightning Fast',
                 description: 'Experience rapid turnaround times without compromising quality. Your website goes live faster than you expect.',
-                icon: <FaBolt />,
+                icon: <i className="fa-duotone fa-thin fa-bolt"></i>,
                 gradient: 'from-purple-500 to-pink-500',
                 stat: '< 2 weeks',
                 statLabel: 'Average Delivery'
@@ -187,7 +186,7 @@ export default function About() {
               {
                 title: 'Expert Team',
                 description: 'Benefit from years of combined expertise in design, development, and digital strategy from our passionate team.',
-                icon: <FaBullseye />,
+                icon: <i className="fa-duotone fa-thin fa-bullseye"></i>,
                 gradient: 'from-orange-500 to-red-500',
                 stat: '10+ years',
                 statLabel: 'Experience'
@@ -195,7 +194,7 @@ export default function About() {
               {
                 title: 'Tailored Solutions',
                 description: 'No templates, no shortcuts. Every website is crafted uniquely to match your brand identity and business goals.',
-                icon: <FaPalette />,
+                icon: <i className="fa-duotone fa-thin fa-palette"></i>,
                 gradient: 'from-green-500 to-teal-500',
                 stat: 'Your Way',
                 statLabel: 'Customization'
@@ -203,7 +202,7 @@ export default function About() {
               {
                 title: 'Ongoing Support',
                 description: 'Our partnership doesn&apos;t end at launch. Enjoy continuous support, updates, and maintenance to keep you ahead.',
-                icon: <FaShieldAlt />,
+                icon: <i className="fa-duotone fa-thin fa-shield"></i>,
                 gradient: 'from-red-500 to-pink-500',
                 stat: '24/7',
                 statLabel: 'Available'
@@ -211,7 +210,7 @@ export default function About() {
               {
                 title: 'Proven Results',
                 description: 'Join dozens of satisfied clients who&apos;ve seen real growth and improved conversions with their new websites.',
-                icon: <FaChartLine />,
+                icon: <i className="fa-duotone fa-thin fa-chart-line"></i>,
                 gradient: 'from-indigo-500 to-purple-500',
                 stat: '98%',
                 statLabel: 'Happy Clients'
@@ -255,19 +254,19 @@ export default function About() {
               {
                 title: 'Transparency',
                 description: 'Clear communication, honest pricing, and no hidden surprises. We believe in building trust through openness.',
-                icon: <FaUsers />,
+                icon: <i className="fa-duotone fa-thin fa-users"></i>,
                 color: 'from-blue-500 to-cyan-500'
               },
               {
                 title: 'Excellence',
                 description: 'We never settle for good enough. Every project gets our full attention and expertise for outstanding results.',
-                icon: <FaAward />,
+                icon: <i className="fa-duotone fa-thin fa-award"></i>,
                 color: 'from-purple-500 to-pink-500'
               },
               {
                 title: 'Partnership',
                 description: 'Your success is our success. We work alongside you as a dedicated partner, not just a service provider.',
-                icon: <FaHandshake />,
+                icon: <i className="fa-duotone fa-thin fa-handshake"></i>,
                 color: 'from-orange-500 to-red-500'
               }
             ].map((value, index) => (
@@ -297,14 +296,14 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 relative z-10">
               <div className="p-12 text-white">
                 <div className="inline-block p-4 bg-white/20 rounded-2xl mb-6">
-                  <FaMapMarkerAlt className="text-5xl" />
+                  <i className="fa-duotone fa-thin fa-location-dot text-5xl"></i>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">Based in Finland</h2>
                 <p className="text-xl leading-relaxed mb-6">
                   We&apos;re proudly located in <span className="font-bold">Espoo</span>, serving clients locally and globally.
                 </p>
                 <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full">
-                  <FaMapMarkerAlt className="text-white" />
+                  <i className="fa-duotone fa-thin fa-location-dot text-white"></i>
                   <p className="font-semibold">Espoo, Finland</p>
                 </div>
               </div>
@@ -358,21 +357,21 @@ export default function About() {
               <div className="bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl p-8 shadow-2xl">
                 <div className="bg-white rounded-2xl p-8 space-y-6">
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
-                    <FaRocket className="text-4xl" />
+                    <i className="fa-duotone fa-thin fa-rocket text-4xl"></i>
                     <div>
                       <h4 className="font-bold text-lg mb-1">Founded on Innovation</h4>
                       <p className="text-gray-600 text-sm">Started with a passion for creating exceptional digital experiences</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl">
-                    <FaBriefcase className="text-4xl" />
+                    <i className="fa-duotone fa-thin fa-briefcase text-4xl"></i>
                     <div>
                       <h4 className="font-bold text-lg mb-1">Business Focused</h4>
                       <p className="text-gray-600 text-sm">Every decision driven by your success and growth</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl">
-                    <FaStar className="text-4xl" />
+                    <i className="fa-duotone fa-thin fa-star text-4xl"></i>
                     <div>
                       <h4 className="font-bold text-lg mb-1">Future Ready</h4>
                       <p className="text-gray-600 text-sm">Building websites that grow with your business</p>
