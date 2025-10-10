@@ -304,7 +304,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 relative z-10">
               <div className="p-12 text-white">
-                <div className="inline-block p-4 bg-white/20 rounded-2xl mb-6">
+                <div className="inline-block mb-6">
                   <i className="fa-duotone fa-thin fa-location-dot text-5xl"></i>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">Based in Finland</h2>
