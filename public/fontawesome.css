@@ -1,6 +1,6 @@
-/* FontAwesome 6 Webfonts Setup */
+/* FontAwesome 7 Webfonts Setup */
 @font-face {
-  font-family: 'Font Awesome 6 Duotone';
+  font-family: 'Font Awesome 7 Duotone';
   font-style: normal;
   font-weight: 100;
   font-display: block;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Font Awesome 6 Brands';
+  font-family: 'Font Awesome 7 Brands';
   font-style: normal;
   font-weight: 400;
   font-display: block;
@@ -29,38 +29,83 @@
   text-rendering: auto;
 }
 
-.fa-duotone,
-.fa-thin {
-  font-family: 'Font Awesome 6 Duotone';
+/* Duotone + Thin combined style - FontAwesome 7 uses --fa-primary-color and --fa-secondary-color */
+.fa-duotone.fa-thin {
+  position: relative;
+  font-family: 'Font Awesome 7 Duotone';
   font-weight: 100;
+  --fa-primary-opacity: 1;
+  --fa-secondary-opacity: 0.4;
+}
+
+/* Primary layer (full opacity) - uses 10+ prefix in duotone fonts */
+.fa-duotone.fa-thin::before {
+  position: absolute;
+  left: 0;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+/* Secondary layer (lighter) - uses standard glyph */
+.fa-duotone.fa-thin::after {
+  opacity: var(--fa-primary-opacity, 1);
 }
 
 .fa-brands {
-  font-family: 'Font Awesome 6 Brands';
+  font-family: 'Font Awesome 7 Brands';
   font-weight: 400;
 }
 
-/* Icon Unicode Mappings */
-.fa-rocket::before { content: "\f135"; }
-.fa-lightbulb::before { content: "\f0eb"; }
-.fa-bolt::before { content: "\f0e7"; }
-.fa-bullseye::before { content: "\f140"; }
-.fa-check::before { content: "\f00c"; }
-.fa-heart::before { content: "\f004"; }
-.fa-star::before { content: "\f005"; }
-.fa-gem::before { content: "\f3a5"; }
-.fa-users::before { content: "\f0c0"; }
-.fa-award::before { content: "\f559"; }
-.fa-handshake::before { content: "\f2b5"; }
-.fa-palette::before { content: "\f53f"; }
-.fa-shield::before { content: "\f132"; }
-.fa-shield-halved::before { content: "\f3ed"; }
-.fa-chart-line::before { content: "\f201"; }
-.fa-location-dot::before { content: "\f3c5"; }
-.fa-map-marker-alt::before { content: "\f3c5"; }
-.fa-briefcase::before { content: "\f0b1"; }
+/* Icon Unicode Mappings - FontAwesome 7 Duotone format */
+/* Secondary layer (before) uses code+10, Primary layer (after) uses standard code */
+.fa-duotone.fa-thin.fa-rocket::before { content: "\10f135"; }
+.fa-duotone.fa-thin.fa-rocket::after { content: "\f135"; }
+
+.fa-duotone.fa-thin.fa-lightbulb::before { content: "\10f0eb"; }
+.fa-duotone.fa-thin.fa-lightbulb::after { content: "\f0eb"; }
+
+.fa-duotone.fa-thin.fa-bolt::before { content: "\10f0e7"; }
+.fa-duotone.fa-thin.fa-bolt::after { content: "\f0e7"; }
+
+.fa-duotone.fa-thin.fa-bullseye::before { content: "\10f140"; }
+.fa-duotone.fa-thin.fa-bullseye::after { content: "\f140"; }
+
+.fa-duotone.fa-thin.fa-check::before { content: "\10f00c"; }
+.fa-duotone.fa-thin.fa-check::after { content: "\f00c"; }
+
+.fa-duotone.fa-thin.fa-heart::before { content: "\10f004"; }
+.fa-duotone.fa-thin.fa-heart::after { content: "\f004"; }
+
+.fa-duotone.fa-thin.fa-star::before { content: "\10f005"; }
+.fa-duotone.fa-thin.fa-star::after { content: "\f005"; }
+
+.fa-duotone.fa-thin.fa-gem::before { content: "\10f3a5"; }
+.fa-duotone.fa-thin.fa-gem::after { content: "\f3a5"; }
+
+.fa-duotone.fa-thin.fa-users::before { content: "\10f0c0"; }
+.fa-duotone.fa-thin.fa-users::after { content: "\f0c0"; }
+
+.fa-duotone.fa-thin.fa-award::before { content: "\10f559"; }
+.fa-duotone.fa-thin.fa-award::after { content: "\f559"; }
+
+.fa-duotone.fa-thin.fa-handshake::before { content: "\10f2b5"; }
+.fa-duotone.fa-thin.fa-handshake::after { content: "\f2b5"; }
+
+.fa-duotone.fa-thin.fa-palette::before { content: "\10f53f"; }
+.fa-duotone.fa-thin.fa-palette::after { content: "\f53f"; }
+
+.fa-duotone.fa-thin.fa-shield::before { content: "\10f132"; }
+.fa-duotone.fa-thin.fa-shield::after { content: "\f132"; }
+
+.fa-duotone.fa-thin.fa-chart-line::before { content: "\10f201"; }
+.fa-duotone.fa-thin.fa-chart-line::after { content: "\f201"; }
+
+.fa-duotone.fa-thin.fa-location-dot::before { content: "\10f3c5"; }
+.fa-duotone.fa-thin.fa-location-dot::after { content: "\f3c5"; }
+
+.fa-duotone.fa-thin.fa-briefcase::before { content: "\10f0b1"; }
+.fa-duotone.fa-thin.fa-briefcase::after { content: "\f0b1"; }
 
 /* Brand Icons */
-.fa-hubspot::before { content: "\f3b2"; }
-.fa-wordpress::before { content: "\f19a"; }
-.fa-wix::before { content: "\f5cf"; }
+.fa-brands.fa-hubspot::before { content: "\f3b2"; }
+.fa-brands.fa-wordpress::before { content: "\f19a"; }
+.fa-brands.fa-wix::before { content: "\f5cf"; }
