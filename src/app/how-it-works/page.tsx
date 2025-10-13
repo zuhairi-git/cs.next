@@ -271,7 +271,10 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
-              <h3 className="text-3xl font-bold text-gradient mb-4">CoreScene</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} />
+                <h3 className="text-3xl font-bold text-gradient">CoreScene</h3>
+              </div>
               <p className="text-gray-400 leading-relaxed max-w-md">
                 Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
               </p>
