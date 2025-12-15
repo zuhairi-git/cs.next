@@ -24,7 +24,7 @@ export const useEmailJS = () => {
     try {
       // Validate required fields
       const formData = new FormData(formRef.current);
-      const requiredFields = ['user_name', 'user_email', 'subject', 'message'];
+      const requiredFields = ['user_name', 'user_email', 'message'];
       
       for (const field of requiredFields) {
         if (!formData.get(field) || formData.get(field).toString().trim() === '') {
