@@ -418,15 +418,6 @@ export default function Home() {
               />
             </div>
             <div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                required
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
-              />
-            </div>
-            <div>
               <textarea
                 name="message"
                 placeholder="Message"
