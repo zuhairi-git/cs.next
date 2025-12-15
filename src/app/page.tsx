@@ -3,46 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, FormEvent } from "react";
-import emailjs from '@emailjs/browser';
+import { useEmailJS } from '@/Email';
 import Icon from '@/components/Icon';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [formMessage, setFormMessage] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+  const { isLoading, showMessage, messageType, messageText, sendEmail, closeMessage } = useEmailJS();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (!formRef.current) return;
-    
-    setFormStatus('sending');
-    setFormMessage('');
-
-    try {
-      // Replace these with your actual EmailJS credentials
-      await emailjs.sendForm(
-        'YOUR_SERVICE_ID',      // Replace with your EmailJS Service ID
-        'YOUR_TEMPLATE_ID',     // Replace with your EmailJS Template ID
-        formRef.current,
-        'YOUR_PUBLIC_KEY'       // Replace with your EmailJS Public Key
-      );
-      
-      setFormStatus('success');
-      setFormMessage('Message sent successfully! We&apos;ll get back to you soon.');
-      formRef.current.reset();
-      
-      // Reset form status after 5 seconds
-      setTimeout(() => {
-        setFormStatus('idle');
-        setFormMessage('');
-      }, 5000);
-    } catch (error) {
-      setFormStatus('error');
-      setFormMessage('Failed to send message. Please try again or contact us directly.');
-      console.error('EmailJS error:', error);
-    }
+    await sendEmail(formRef);
   };
 
   return (
@@ -447,6 +418,15 @@ export default function Home() {
               />
             </div>
             <div>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
+              />
+            </div>
+            <div>
               <textarea
                 name="message"
                 placeholder="Message"
@@ -456,22 +436,23 @@ export default function Home() {
               ></textarea>
             </div>
             
-            {formMessage && (
-              <div className={`p-4 rounded-xl text-center font-semibold ${
-                formStatus === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+            {showMessage && (
+              <div className={`p-4 rounded-xl text-center font-semibold flex items-center justify-between ${
+                messageType === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
               }`}>
-                {formMessage}
+                <span>{messageText}</span>
+                <button type="button" onClick={closeMessage} className="ml-4 text-xl font-bold hover:opacity-70">&times;</button>
               </div>
             )}
             
             <button
               type="submit"
-              disabled={formStatus === 'sending'}
+              disabled={isLoading}
               className={`w-full bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 ${
-                formStatus === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
+                isLoading ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >
-              {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+              {isLoading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>

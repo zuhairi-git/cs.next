@@ -1,59 +1,96 @@
-import React, { useRef, useState } from 'react';
+'use client';
+import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-export const ContactUs = () => {
-  const form = useRef();
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+export const useEmailJS = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [messageType, setMessageType] = useState('success');
+  const [messageText, setMessageText] = useState('');
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const EMAIL_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_r98dsgw';
+  const EMAIL_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_vj2cvqm';
+  const EMAIL_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'meMciUZE0q6WnILnA';
 
-    emailjs.sendForm('service_dbe8k3i', 'template_1drte95', form.current, 'lQmVjHQr39L8vlG-T')
-      .then((result) => {
-        console.log(result.text);
-        setIsButtonDisabled(true);
-        setShowMessage(true);
-      }, (error) => {
-        console.log(error.text);
-      });
+  const sendEmail = async (formRef, onSuccess = null, onError = null) => {
+    if (!formRef.current) {
+      console.error('Form reference is not available');
+      return;
+    }
+
+    setIsLoading(true);
+    setShowMessage(false);
+
+    try {
+      // Validate required fields
+      const formData = new FormData(formRef.current);
+      const requiredFields = ['user_name', 'user_email', 'subject', 'message'];
+      
+      for (const field of requiredFields) {
+        if (!formData.get(field) || formData.get(field).toString().trim() === '') {
+          throw new Error(`${field.replace('user_', '').replace('_', ' ')} is required`);
+        }
+      }
+
+      // Validate email format
+      const email = formData.get('user_email').toString();
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!emailRegex.test(email)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      const result = await emailjs.sendForm(
+        EMAIL_SERVICE_ID,
+        EMAIL_TEMPLATE_ID,
+        formRef.current,
+        EMAIL_PUBLIC_KEY
+      );
+      
+      console.log('Email sent successfully:', result.text);
+      setMessageType('success');
+      setMessageText('Thank you for your message! We\'ll get back to you soon.');
+      setShowMessage(true);
+      
+      // Reset form after successful submission
+      formRef.current.reset();
+      
+      // Call success callback if provided
+      if (onSuccess) onSuccess(result);
+      
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setMessageType('error');
+      
+      // Handle different types of errors
+      if (error.message.includes('required') || error.message.includes('valid email')) {
+        setMessageText(error.message);
+      } else if (error.status === 429) {
+        setMessageText('Too many requests. Please wait a moment and try again.');
+      } else if (error.status === 400) {
+        setMessageText('Invalid form data. Please check your inputs and try again.');
+      } else {
+        setMessageText('Sorry, there was an error sending your message. Please try again.');
+      }
+      
+      setShowMessage(true);
+      
+      // Call error callback if provided
+      if (onError) onError(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const closeMessage = () => {
     setShowMessage(false);
   };
 
-  return (
-    <div>
-      <form ref={form} onSubmit={sendEmail} className="container mt-4 mb-4 max-width-email">
-        <div className="mb-3">
-          <label htmlFor="user_name" className="form-label float-start">Name</label>
-          <input type="text" className="form-control" name="user_name" id="user_name" required />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="user_email" className="form-label float-start">Email</label>
-          <input type="email" className="form-control" name="user_email" id="user_email" required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" />
-          <div className="invalid-feedback">
-            Please enter a valid email address.
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="message" className="form-label float-start">Message</label>
-          <textarea className="form-control" name="message" id="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" className="btn btn-warning rounded-pill ps-5 pe-5" disabled={isButtonDisabled}>
-          {isButtonDisabled ? 'Sent' : 'Send'}
-        </button>
-      </form>
-      {showMessage && (
-        <div className="max-width-email p-3">
-          <div className="alert alert-success text-center">
-            Thank you for submitting!
-            <button type="button" className="btn-close" onClick={closeMessage}></button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return {
+    isLoading,
+    showMessage,
+    messageType,
+    messageText,
+    sendEmail,
+    closeMessage
+  };
 };
