@@ -23,7 +23,7 @@ export default function HowItWorks() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-10 h-10 rounded-full object-contain bg-white/5 border border-white/10 p-1 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
+              className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
             />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
           </Link>
@@ -40,7 +40,7 @@ export default function HowItWorks() {
 
           {/* Mobile Toggle */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-            <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+            <i className={`fa-duotone fa-thin ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
 
@@ -116,7 +116,7 @@ export default function HowItWorks() {
             <div className="lg:col-span-5 order-3">
               <div className="glass-card p-8 transform group-hover:translate-x-2 transition-transform duration-500">
                 <div className="flex justify-between items-center mb-8">
-                  <i className="fa-duotone fa-radar text-4xl text-purple-400"></i>
+                  <i className="fa-duotone fa-thin fa-chart-line text-4xl text-purple-400"></i>
                   <span className="text-xs font-bold tracking-widest text-gray-500">ANALYZING...</span>
                 </div>
                 <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
@@ -131,7 +131,7 @@ export default function HowItWorks() {
             <div className="lg:col-span-5 order-3 lg:order-1">
               <div className="glass-card p-8 transform group-hover:-translate-x-2 transition-transform duration-500">
                 <div className="flex justify-between items-center mb-8">
-                  <i className="fa-duotone fa-microchip text-4xl text-blue-400"></i>
+                  <i className="fa-duotone fa-thin fa-gem text-4xl text-blue-400"></i>
                   <span className="text-xs font-bold tracking-widest text-gray-500">COMPILING...</span>
                 </div>
                 <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
@@ -168,7 +168,7 @@ export default function HowItWorks() {
             <div className="lg:col-span-5 order-3">
               <div className="glass-card p-8 transform group-hover:translate-x-2 transition-transform duration-500">
                 <div className="flex justify-between items-center mb-8">
-                  <i className="fa-duotone fa-rocket-launch text-4xl text-pink-400"></i>
+                  <i className="fa-duotone fa-thin fa-rocket text-4xl text-pink-400"></i>
                   <span className="text-xs font-bold tracking-widest text-gray-500">DEPLOYED</span>
                 </div>
                 <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
@@ -191,14 +191,14 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: 'fa-fingerprint', title: 'Custom Design', desc: 'Unique visual signature.' },
+              { icon: 'fa-palette', title: 'Custom Design', desc: 'Unique visual signature.' },
               { icon: 'fa-bolt', title: 'Hyper Speed', desc: 'Optimized for velocity.' },
-              { icon: 'fa-mobile-screen', title: 'Responsive', desc: 'Adapts to all viewports.' },
-              { icon: 'fa-shield-check', title: 'Secure', desc: 'Hardened defenses.' }
+              { icon: 'fa-users', title: 'Responsive', desc: 'Adapts to all viewports.' },
+              { icon: 'fa-shield', title: 'Secure', desc: 'Hardened defenses.' }
             ].map((item, i) => (
               <div key={i} className="glass-card p-8 hover:bg-white/5 transition-colors text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 mb-6 text-purple-400">
-                  <i className={`fa-duotone ${item.icon} text-xl`}></i>
+                  <i className={`fa-duotone fa-thin ${item.icon} text-xl`}></i>
                 </div>
                 <h4 className="font-bold text-white mb-2">{item.title}</h4>
                 <p className="text-sm text-gray-400">{item.desc}</p>
@@ -230,7 +230,7 @@ export default function HowItWorks() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-6 h-6 rounded-full object-contain bg-white/5 border border-white/10 p-[2px]"
+              className="w-9 h-9 object-contain"
             />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>

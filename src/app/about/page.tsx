@@ -23,7 +23,7 @@ export default function About() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-10 h-10 rounded-full object-contain bg-white/5 border border-white/10 p-1 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
+              className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
             />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
           </Link>
@@ -40,7 +40,7 @@ export default function About() {
 
           {/* Mobile Toggle */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-            <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+            <i className={`fa-duotone fa-thin ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
 
@@ -83,7 +83,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="glass-card p-12 group hover:bg-white/5 transition-colors">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-pink-500/10 border border-white/10 flex items-center justify-center mb-8 shadow-[0_0_30px_-12px_rgba(168,85,247,0.8)] group-hover:scale-110 transition-transform duration-500">
-              <i className="fa-duotone fa-thin fa-rocket-launch text-3xl text-purple-200"></i>
+              <i className="fa-duotone fa-thin fa-rocket text-3xl text-purple-200"></i>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Exploration</h3>
             <p className="text-gray-400 leading-relaxed">
@@ -92,7 +92,7 @@ export default function About() {
           </div>
           <div className="glass-card p-12 group hover:bg-white/5 transition-colors">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/10 border border-white/10 flex items-center justify-center mb-8 shadow-[0_0_30px_-12px_rgba(59,130,246,0.8)] group-hover:scale-110 transition-transform duration-500">
-              <i className="fa-duotone fa-thin fa-atom text-3xl text-blue-200"></i>
+              <i className="fa-duotone fa-thin fa-bullseye text-3xl text-blue-200"></i>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Gravity</h3>
             <p className="text-gray-400 leading-relaxed">
@@ -157,7 +157,7 @@ export default function About() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-6 h-6 rounded-full object-contain bg-white/5 border border-white/10 p-[2px]"
+              className="w-9 h-9 object-contain"
             />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>

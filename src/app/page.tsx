@@ -69,7 +69,7 @@ export default function Home() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-10 h-10 rounded-full object-contain bg-white/5 border border-white/10 p-1 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
+              className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
             />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
           </Link>
@@ -86,7 +86,7 @@ export default function Home() {
 
           {/* Mobile Toggle */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-            <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+            <i className={`fa-duotone fa-thin ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
 
@@ -187,7 +187,7 @@ export default function Home() {
                 <ul className="space-y-4 border-t border-white/10 pt-8">
                   {platform.features.map((feature, i) => (
                     <li key={i} className="text-sm text-gray-300 flex items-center gap-3">
-                      <i className="fa-duotone fa-check-circle text-purple-400"></i>
+                      <i className="fa-duotone fa-thin fa-check text-purple-400"></i>
                       {feature}
                     </li>
                   ))}
@@ -347,7 +347,7 @@ export default function Home() {
             <img
               src="/img/logo.png"
               alt="CoreScene logo"
-              className="w-6 h-6 rounded-full object-contain bg-white/5 border border-white/10 p-[2px]"
+              className="w-9 h-9 object-contain"
             />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>

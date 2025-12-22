@@ -69,6 +69,12 @@
 .fa-duotone.fa-thin.fa-bullseye::before { content: "\10f140"; }
 .fa-duotone.fa-thin.fa-bullseye::after { content: "\f140"; }
 
+.fa-duotone.fa-thin.fa-bars::before { content: "\10f0c9"; }
+.fa-duotone.fa-thin.fa-bars::after { content: "\f0c9"; }
+
+.fa-duotone.fa-thin.fa-xmark::before { content: "\10f00d"; }
+.fa-duotone.fa-thin.fa-xmark::after { content: "\f00d"; }
+
 .fa-duotone.fa-thin.fa-check::before { content: "\10f00c"; }
 .fa-duotone.fa-thin.fa-check::after { content: "\f00c"; }
 
