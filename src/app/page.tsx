@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, FormEvent } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
@@ -32,26 +33,26 @@ export default function Home() {
 
   const platforms = [
     {
-      id: 'wordpress',
-      name: 'WordPress',
-      icon: 'fa-wordpress',
-      color: 'text-blue-400',
-      desc: 'The world&apos;s most popular CMS, engineered for scale and flexibility.',
-      features: ['Custom Theme Development', 'WooCommerce Integration', 'Performance Optimization']
-    },
-    {
       id: 'hubspot',
       name: 'HubSpot',
       icon: 'fa-hubspot',
-      color: 'text-orange-500',
+      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] to-[#ff9a44]',
       desc: 'Marketing automation and CRM integration for growth-focused businesses.',
       features: ['CMS Hub Implementation', 'CRM Migration', 'Custom Modules']
+    },
+    {
+      id: 'wordpress',
+      name: 'WordPress',
+      icon: 'fa-wordpress',
+      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] to-[#38bdf8]',
+      desc: 'The world&apos;s most popular CMS, engineered for scale and flexibility.',
+      features: ['Custom Theme Development', 'WooCommerce Integration', 'Performance Optimization']
     },
     {
       id: 'wix',
       name: 'Wix Studio',
       icon: 'fa-wix',
-      color: 'text-white',
+      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#94a3b8]',
       desc: 'Rapid deployment with stunning visuals for creative brands.',
       features: ['Wix Studio Expert', 'Velo Development', 'Responsive Design']
     }
@@ -63,9 +64,13 @@ export default function Home() {
       <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
-              C
-            </div>
+            <Image 
+              src="/img/logo.png" 
+              alt="CoreScene Logo" 
+              width={40} 
+              height={40} 
+              className="w-10 h-10 group-hover:scale-105 transition-transform"
+            />
             <span className="font-bold text-xl tracking-tight">CoreScene</span>
           </Link>
 
@@ -103,12 +108,12 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-indigo-400 mb-8">
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                Accepting New Projects for 2025
+                Accepting New Projects for 2026
               </div>
               <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
-                HubSpot.<br />
-                WordPress.<br />
-                <span className="text-gradient">Wix Studio.</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] via-[#ff8c42] to-[#ffb347]">HubSpot.</span><br />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] via-[#38bdf8] to-[#67e8f9]">WordPress.</span><br />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] via-[#e2e8f0] to-[#94a3b8]">Wix Studio.</span>
               </h1>
               <p className="text-xl text-gray-400 max-w-lg mb-10 leading-relaxed">
                 We don&apos;t just build websites. We engineer digital experiences that drive growth, capture leads, and define brands.
@@ -126,23 +131,23 @@ export default function Home() {
             {/* Hero Visual - Abstract Representation of the 3 Platforms */}
             <div className="relative h-[500px] hidden lg:block">
               <div className="absolute top-0 right-0 w-full h-full">
-                {/* Card 1: WordPress */}
+                {/* Card 1: HubSpot */}
                 <div className="absolute top-10 right-10 w-64 h-80 bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 transform rotate-6 hover:rotate-0 transition-all duration-500 z-10 shadow-2xl">
-                  <i className="fa-brands fa-wordpress text-6xl text-blue-400 mb-4"></i>
+                  <i className="fa-brands fa-hubspot text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] to-[#ff9a44] mb-4"></i>
                   <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
                   <div className="h-2 w-32 bg-white/10 rounded"></div>
                 </div>
                 
-                {/* Card 2: HubSpot */}
+                {/* Card 2: WordPress */}
                 <div className="absolute top-20 right-40 w-64 h-80 bg-[#202020] border border-white/10 rounded-2xl p-6 transform -rotate-3 hover:rotate-0 transition-all duration-500 z-20 shadow-2xl">
-                  <i className="fa-brands fa-hubspot text-6xl text-orange-500 mb-4"></i>
+                  <i className="fa-brands fa-wordpress text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] to-[#38bdf8] mb-4"></i>
                   <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
                   <div className="h-2 w-32 bg-white/10 rounded"></div>
                 </div>
 
                 {/* Card 3: Wix */}
                 <div className="absolute top-40 right-20 w-64 h-80 bg-[#252525] border border-white/10 rounded-2xl p-6 transform rotate-12 hover:rotate-0 transition-all duration-500 z-30 shadow-2xl">
-                  <i className="fa-brands fa-wix text-6xl text-white mb-4"></i>
+                  <i className="fa-brands fa-wix text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#94a3b8] mb-4"></i>
                   <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
                   <div className="h-2 w-32 bg-white/10 rounded"></div>
                 </div>
@@ -330,9 +335,13 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-white/10 bg-[#020202]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-              C
-            </div>
+            <Image 
+              src="/img/logo.png" 
+              alt="CoreScene Logo" 
+              width={32} 
+              height={32} 
+              className="w-8 h-8"
+            />
             <span className="font-bold text-lg">CoreScene</span>
           </div>
           <div className="text-gray-500 text-sm">
