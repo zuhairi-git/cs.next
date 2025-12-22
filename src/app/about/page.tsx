@@ -30,9 +30,10 @@ export default function About() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <Link href="/about" className="text-white transition-colors">About</Link>
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <Link href="/#platforms" className="hover:text-white transition-colors">Systems</Link>
-            <Link href="/#process" className="hover:text-white transition-colors">Trajectory</Link>
+            <Link href="/how-it-works" className="hover:text-white transition-colors">Trajectory</Link>
+            <Link href="/about" className="text-white transition-colors">About</Link>
             <Link href="/#contact" className="btn-primary text-sm">
               Initiate Sequence
             </Link>
@@ -46,11 +47,14 @@ export default function About() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-[#050507]/95 backdrop-blur-xl border-b border-white/10 p-8 flex flex-col gap-6 text-lg font-medium z-50 animate-in slide-in-from-top-5">
-            <Link href="/about" className="text-purple-400" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <Link href="/#platforms" onClick={() => setIsMenuOpen(false)}>Systems</Link>
-            <Link href="/#process" onClick={() => setIsMenuOpen(false)}>Trajectory</Link>
-            <Link href="/#contact" className="text-white" onClick={() => setIsMenuOpen(false)}>Initiate Sequence</Link>
+          <div className="md:hidden fixed inset-x-0 top-20 bg-[#050507]/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-2 text-lg font-medium z-50 animate-in slide-in-from-top-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <Link href="/" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/#platforms" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Systems</Link>
+            <Link href="/how-it-works" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Trajectory</Link>
+            <Link href="/about" className="px-3 py-3 rounded-xl bg-white/5 border border-white/10 text-white" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <div className="pt-2">
+              <Link href="/#contact" className="btn-primary w-full justify-center text-base" onClick={() => setIsMenuOpen(false)}>Initiate Sequence</Link>
+            </div>
           </div>
         )}
       </nav>
