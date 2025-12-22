@@ -237,9 +237,14 @@ export default function HowItWorks() {
             <span>Est. 2025</span>
           </div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-white transition-colors">GitHub</a>
+            <a
+              href="https://www.linkedin.com/in/ali-zuhairi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </footer>
