@@ -36,32 +36,38 @@ export default function Home() {
       id: 'hubspot',
       name: 'HubSpot',
       icon: 'fa-hubspot',
-      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] to-[#ff9a44]',
-      desc: 'Marketing automation and CRM integration for growth-focused businesses.',
+      color: 'text-[#ffcf48]',
+      desc: 'The Giant. A massive ecosystem of marketing automation and CRM gravity.',
       features: ['CMS Hub Implementation', 'CRM Migration', 'Custom Modules']
     },
     {
       id: 'wordpress',
       name: 'WordPress',
       icon: 'fa-wordpress',
-      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] to-[#38bdf8]',
-      desc: 'The world&apos;s most popular CMS, engineered for scale and flexibility.',
+      color: 'text-[#3b82f6]',
+      desc: 'The Water Planet. Infinite flexibility and depth for those willing to explore.',
       features: ['Custom Theme Development', 'WooCommerce Integration', 'Performance Optimization']
     },
     {
       id: 'wix',
       name: 'Wix Studio',
       icon: 'fa-wix',
-      color: 'bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#94a3b8]',
-      desc: 'Rapid deployment with stunning visuals for creative brands.',
+      color: 'text-white',
+      desc: 'The Ice Cloud. Solid, structured, and stunningly beautiful rapid deployment.',
       features: ['Wix Studio Expert', 'Velo Development', 'Responsive Design']
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#030305] text-white selection:bg-[#ffcf48] selection:text-black overflow-hidden">
+      {/* Starfield Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="stars"></div>
+        <div className="twinkling"></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md">
+      <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#030305]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image 
@@ -69,18 +75,18 @@ export default function Home() {
               alt="CoreScene Logo" 
               width={40} 
               height={40} 
-              className="w-10 h-10 group-hover:scale-105 transition-transform"
+              className="w-10 h-10 group-hover:rotate-180 transition-transform duration-700"
             />
-            <span className="font-bold text-xl tracking-tight">CoreScene</span>
+            <span className="font-bold text-xl tracking-widest uppercase font-mono-tech">CoreScene</span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#platforms" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Platforms</Link>
-            <Link href="#process" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Process</Link>
-            <Link href="#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Pricing</Link>
-            <Link href="#contact" className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-colors">
-              Start Project
+          <div className="hidden md:flex items-center gap-8 font-mono-tech text-xs tracking-widest">
+            <Link href="/about" className="text-gray-400 hover:text-[#ffcf48] transition-colors">MISSION DATA</Link>
+            <Link href="#platforms" className="text-gray-400 hover:text-[#ffcf48] transition-colors">SYSTEMS</Link>
+            <Link href="#process" className="text-gray-400 hover:text-[#ffcf48] transition-colors">TRAJECTORY</Link>
+            <Link href="#contact" className="px-5 py-2.5 border border-white/20 hover:border-[#ffcf48] hover:text-[#ffcf48] transition-all">
+              INITIATE
             </Link>
           </div>
 
@@ -92,131 +98,108 @@ export default function Home() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-[#050505] border-b border-white/10 p-6 flex flex-col gap-4">
-            <Link href="#platforms" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Platforms</Link>
-            <Link href="#process" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Process</Link>
-            <Link href="#pricing" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
-            <Link href="#contact" className="text-lg text-indigo-400" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+          <div className="md:hidden absolute top-20 left-0 w-full bg-[#030305] border-b border-white/10 p-6 flex flex-col gap-4 font-mono-tech">
+            <Link href="/about" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>MISSION DATA</Link>
+            <Link href="#platforms" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>SYSTEMS</Link>
+            <Link href="#process" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>TRAJECTORY</Link>
+            <Link href="#contact" className="text-lg text-[#ffcf48]" onClick={() => setIsMenuOpen(false)}>INITIATE</Link>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-32 px-6 overflow-hidden bg-grid">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-indigo-400 mb-8">
-                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                Accepting New Projects for 2026
-              </div>
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] via-[#ff8c42] to-[#ffb347]">HubSpot.</span><br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] via-[#38bdf8] to-[#67e8f9]">WordPress.</span><br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] via-[#e2e8f0] to-[#94a3b8]">Wix Studio.</span>
-              </h1>
-              <p className="text-xl text-gray-400 max-w-lg mb-10 leading-relaxed">
-                We don&apos;t just build websites. We engineer digital experiences that drive growth, capture leads, and define brands.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full font-bold transition-all btn-glow">
-                  Get a Proposal
-                </Link>
-                <Link href="#platforms" className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold transition-all">
-                  Explore Platforms
-                </Link>
-              </div>
-            </div>
-            
-            {/* Hero Visual - Abstract Representation of the 3 Platforms */}
-            <div className="relative h-[500px] hidden lg:block">
-              <div className="absolute top-0 right-0 w-full h-full">
-                {/* Card 1: HubSpot */}
-                <div className="absolute top-10 right-10 w-64 h-80 bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 transform rotate-6 hover:rotate-0 transition-all duration-500 z-10 shadow-2xl">
-                  <i className="fa-brands fa-hubspot text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#ff5e3a] to-[#ff9a44] mb-4"></i>
-                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
-                  <div className="h-2 w-32 bg-white/10 rounded"></div>
-                </div>
-                
-                {/* Card 2: WordPress */}
-                <div className="absolute top-20 right-40 w-64 h-80 bg-[#202020] border border-white/10 rounded-2xl p-6 transform -rotate-3 hover:rotate-0 transition-all duration-500 z-20 shadow-2xl">
-                  <i className="fa-brands fa-wordpress text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#0073aa] to-[#38bdf8] mb-4"></i>
-                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
-                  <div className="h-2 w-32 bg-white/10 rounded"></div>
-                </div>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Gargantua Animation */}
+        <div className="gargantua-container">
+          <div className="accretion-disk"></div>
+          <div className="event-horizon"></div>
+        </div>
 
-                {/* Card 3: Wix */}
-                <div className="absolute top-40 right-20 w-64 h-80 bg-[#252525] border border-white/10 rounded-2xl p-6 transform rotate-12 hover:rotate-0 transition-all duration-500 z-30 shadow-2xl">
-                  <i className="fa-brands fa-wix text-6xl bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#94a3b8] mb-4"></i>
-                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
-                  <div className="h-2 w-32 bg-white/10 rounded"></div>
-                </div>
-              </div>
-            </div>
+        <div className="relative z-10 text-center max-w-5xl px-6">
+          <div className="inline-block mb-6 px-4 py-1 border border-[#ffcf48]/30 bg-[#ffcf48]/10 rounded-full">
+            <span className="font-mono-tech text-[#ffcf48] text-xs tracking-[0.2em]">T-MINUS 2026: LAUNCH IMMINENT</span>
+          </div>
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8 text-glow">
+            DO NOT GO GENTLE<br />
+            INTO THAT GOOD NIGHT.
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+            We are explorers, pioneers, not caretakers. We engineer digital experiences that defy gravity and define the future.
+          </p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <Link href="#contact" className="px-8 py-4 bg-[#ffcf48] text-black font-bold tracking-widest hover:bg-white transition-colors w-full md:w-auto">
+              BEGIN MISSION
+            </Link>
+            <Link href="/about" className="px-8 py-4 border border-white/30 hover:border-white text-white font-mono-tech text-xs tracking-widest w-full md:w-auto">
+              READ LOGS
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Platforms Section */}
-      <section id="platforms" className="py-32 px-6 border-t border-white/5">
+      {/* Platforms Section (The Systems) */}
+      <section id="platforms" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">The Trinity.</h2>
-            <p className="text-xl text-gray-400 max-w-2xl">
-              We specialize in the three most powerful platforms on the web. No distractions. Just mastery.
-            </p>
+          <div className="mb-20 border-l-2 border-[#ffcf48] pl-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-2">PLANETARY SYSTEMS</h2>
+            <p className="font-mono-tech text-[#ffcf48] text-sm tracking-widest">CHOOSE YOUR DESTINATION</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {platforms.map((platform) => (
-              <div key={platform.id} className="card-modern p-8 rounded-3xl group">
-                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <i className={`fa-brands ${platform.icon} text-3xl ${platform.color}`}></i>
+              <div key={platform.id} className="hud-card p-8 group hover:border-[#ffcf48]/50 transition-colors">
+                <div className="mb-8 flex justify-between items-start">
+                  <i className={`fa-brands ${platform.icon} text-4xl ${platform.color}`}></i>
+                  <span className="font-mono-tech text-xs text-gray-500">SYS.0{platforms.indexOf(platform) + 1}</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{platform.name}</h3>
-                <p className="text-gray-400 mb-8 leading-relaxed">
+                <p className="text-gray-400 mb-8 leading-relaxed h-20">
                   {platform.desc}
                 </p>
-                <ul className="space-y-3 mb-8">
+                <div className="border-t border-white/10 pt-6">
                   {platform.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
-                      <i className="fa-duotone fa-check text-indigo-500"></i>
+                    <div key={i} className="flex items-center gap-3 text-sm text-gray-300 mb-2 font-mono-tech text-xs">
+                      <span className="text-[#ffcf48]">{'>'}</span>
                       {feature}
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="process" className="py-32 px-6 bg-white/5 border-y border-white/5">
+      {/* Process Section (Trajectory) */}
+      <section id="process" className="py-32 px-6 relative z-10 bg-black/50 backdrop-blur-sm border-y border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">Precision<br />Engineering.</h2>
-              <p className="text-xl text-gray-400 mb-12">
-                Our process is stripped of fluff. We focus on what matters: shipping high-quality code that converts.
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">MISSION<br />TRAJECTORY.</h2>
+              <p className="text-xl text-gray-400 mb-12 font-light">
+                The only thing we can&apos;t cheat is physics. Our process is calculated, precise, and designed to withstand the pressures of the modern web.
               </p>
-              <Link href="#contact" className="text-indigo-400 font-bold hover:text-indigo-300 flex items-center gap-2">
-                Start your build <i className="fa-solid fa-arrow-right"></i>
-              </Link>
+              <div className="font-mono-tech text-xs text-[#ffcf48]">
+                STATUS: ALL SYSTEMS NOMINAL
+              </div>
             </div>
-            <div className="space-y-8">
+            <div className="space-y-12 relative">
+              {/* Timeline Line */}
+              <div className="absolute left-[19px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-[#ffcf48] to-transparent opacity-30"></div>
+              
               {[
-                { step: '01', title: 'Discovery', desc: 'We analyze your market, competitors, and goals to define the technical roadmap.' },
-                { step: '02', title: 'Development', desc: 'We build using clean, semantic code and modern frameworks. No bloat.' },
-                { step: '03', title: 'Deployment', desc: 'Rigorous testing, SEO optimization, and a seamless launch to production.' }
+                { step: '01', title: 'LIFT OFF', subtitle: 'Discovery & Strategy', desc: 'Analyzing atmospheric conditions. Defining mission parameters and fuel requirements.' },
+                { step: '02', title: 'HYPER SLEEP', subtitle: 'Development Phase', desc: 'Deep work. Building the vessel with semantic code and robust frameworks.' },
+                { step: '03', title: 'TOUCHDOWN', subtitle: 'Deployment & Launch', desc: 'Landing on the new world. SEO optimization and performance calibration.' }
               ].map((item) => (
-                <div key={item.step} className="flex gap-6 group">
-                  <div className="text-4xl font-bold text-white/10 group-hover:text-indigo-500 transition-colors font-mono">
+                <div key={item.step} className="flex gap-8 relative">
+                  <div className="w-10 h-10 rounded-full border border-[#ffcf48] bg-black flex items-center justify-center text-[#ffcf48] font-mono-tech text-xs z-10">
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-400">{item.desc}</p>
+                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                    <div className="text-[#ffcf48] font-mono-tech text-xs mb-3">{item.subtitle}</div>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -225,48 +208,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-32 px-6">
+      {/* Pricing Section (Resources) */}
+      <section id="pricing" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Transparent Investment.</h2>
-            <p className="text-xl text-gray-400">
-              Clear pricing for clear results.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">MISSION RESOURCES.</h2>
+            <p className="text-xl text-gray-400 font-light">
+              Transparent fuel costs for your journey.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Starter */}
-            <div className="card-modern p-8 rounded-3xl border border-white/10">
-              <div className="mb-4 text-indigo-400 font-bold text-sm tracking-wider uppercase">Starter</div>
+            <div className="hud-card p-8">
+              <div className="mb-4 text-gray-400 font-mono-tech text-xs tracking-widest">MODULE A</div>
               <div className="text-4xl font-bold mb-2">€2,499</div>
-              <div className="text-gray-500 text-sm mb-8">One-time payment</div>
-              <p className="text-gray-300 mb-8">Perfect for small businesses needing a professional presence.</p>
-              <Link href="#contact" className="block w-full py-3 rounded-xl border border-white/20 text-center font-bold hover:bg-white hover:text-black transition-all">
-                Select Plan
+              <div className="text-gray-500 text-sm mb-8">Single Ignition</div>
+              <p className="text-gray-300 mb-8 text-sm">Essential life support for small outposts.</p>
+              <Link href="#contact" className="block w-full py-3 border border-white/20 text-center font-mono-tech text-xs hover:bg-white hover:text-black transition-all">
+                SELECT MODULE
               </Link>
             </div>
 
             {/* Professional */}
-            <div className="card-modern p-8 rounded-3xl border border-indigo-500/50 bg-indigo-500/5 relative">
-              <div className="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">POPULAR</div>
-              <div className="mb-4 text-indigo-400 font-bold text-sm tracking-wider uppercase">Professional</div>
-              <div className="text-4xl font-bold mb-2">€4,999</div>
-              <div className="text-gray-400 text-sm mb-8">One-time payment</div>
-              <p className="text-gray-200 mb-8">For growing companies requiring advanced functionality and CMS.</p>
-              <Link href="#contact" className="block w-full py-3 rounded-xl bg-indigo-600 text-white text-center font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/25">
-                Select Plan
+            <div className="hud-card p-8 border-[#ffcf48]/50 relative">
+              <div className="absolute top-0 right-0 bg-[#ffcf48] text-black text-[10px] font-bold px-2 py-1 font-mono-tech">RECOMMENDED</div>
+              <div className="mb-4 text-[#ffcf48] font-mono-tech text-xs tracking-widest">MODULE B</div>
+              <div className="text-4xl font-bold mb-2 text-gold-glow">€4,999</div>
+              <div className="text-gray-400 text-sm mb-8">Single Ignition</div>
+              <p className="text-gray-200 mb-8 text-sm">Advanced telemetry and CMS capabilities for growing colonies.</p>
+              <Link href="#contact" className="block w-full py-3 bg-[#ffcf48] text-black text-center font-mono-tech text-xs font-bold hover:bg-white transition-all">
+                SELECT MODULE
               </Link>
             </div>
 
             {/* Enterprise */}
-            <div className="card-modern p-8 rounded-3xl border border-white/10">
-              <div className="mb-4 text-pink-500 font-bold text-sm tracking-wider uppercase">Enterprise</div>
-              <div className="text-4xl font-bold mb-2">Custom</div>
-              <div className="text-gray-500 text-sm mb-8">Tailored quote</div>
-              <p className="text-gray-300 mb-8">Complex integrations, custom development, and large-scale migrations.</p>
-              <Link href="#contact" className="block w-full py-3 rounded-xl border border-white/20 text-center font-bold hover:bg-white hover:text-black transition-all">
-                Contact Us
+            <div className="hud-card p-8">
+              <div className="mb-4 text-white font-mono-tech text-xs tracking-widest">MODULE C</div>
+              <div className="text-4xl font-bold mb-2">CUSTOM</div>
+              <div className="text-gray-500 text-sm mb-8">Variable Output</div>
+              <p className="text-gray-300 mb-8 text-sm">Interstellar travel. Complex integrations and large-scale terraforming.</p>
+              <Link href="#contact" className="block w-full py-3 border border-white/20 text-center font-mono-tech text-xs hover:bg-white hover:text-black transition-all">
+                OPEN CHANNEL
               </Link>
             </div>
           </div>
@@ -274,65 +257,65 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6 bg-grid border-t border-white/5">
+      <section id="contact" className="py-32 px-6 relative z-10 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to build?</h2>
-          <p className="text-xl text-gray-400 mb-12">
-            Tell us about your project. We&apos;ll get back to you within 24 hours.
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">INITIATE DOCKING.</h2>
+          <p className="text-xl text-gray-400 mb-12 font-light">
+            Transmit your coordinates. We will respond within 24 earth hours.
           </p>
 
-          <form ref={formRef} onSubmit={sendEmail} className="space-y-6 text-left">
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-6 text-left hud-card p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">IDENTIFIER</label>
                 <input 
                   type="text" 
                   name="user_name" 
                   required 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                  placeholder="John Doe"
+                  className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
+                  placeholder="Cooper"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">FREQUENCY</label>
                 <input 
                   type="email" 
                   name="user_email" 
                   required 
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                  placeholder="john@company.com"
+                  className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
+                  placeholder="cooper@nasa.gov"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+              <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">TRANSMISSION</label>
               <textarea 
                 name="message" 
                 required 
                 rows={4} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                placeholder="Tell us about your project goals..."
+                className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
+                placeholder="Describe your mission parameters..."
               ></textarea>
             </div>
             <button 
               type="submit" 
               disabled={loading}
-              className="w-full py-4 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+              className="w-full py-4 bg-white text-black font-bold tracking-widest hover:bg-[#ffcf48] transition-colors disabled:opacity-50 font-mono-tech"
             >
-              {loading ? 'Sending...' : 'Send Message'}
+              {loading ? 'TRANSMITTING...' : 'SEND TRANSMISSION'}
             </button>
             {status === 'success' && (
-              <p className="text-green-400 text-center">Message sent successfully!</p>
+              <p className="text-green-400 text-center font-mono-tech text-xs">TRANSMISSION RECEIVED.</p>
             )}
             {status === 'error' && (
-              <p className="text-red-400 text-center">Failed to send message. Please try again.</p>
+              <p className="text-red-400 text-center font-mono-tech text-xs">SIGNAL LOST. RETRY.</p>
             )}
           </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/10 bg-[#020202]">
+      <footer className="py-12 px-6 border-t border-white/10 bg-black relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
             <Image 
@@ -340,17 +323,17 @@ export default function Home() {
               alt="CoreScene Logo" 
               width={32} 
               height={32} 
-              className="w-8 h-8"
+              className="w-8 h-8 grayscale opacity-50 hover:opacity-100 transition-opacity"
             />
-            <span className="font-bold text-lg">CoreScene</span>
+            <span className="font-bold text-lg tracking-widest font-mono-tech text-gray-500">CORESCENE</span>
           </div>
-          <div className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} CoreScene. All rights reserved.
+          <div className="text-gray-600 text-xs font-mono-tech">
+            &copy; {new Date().getFullYear()} CORESCENE SYSTEMS. ENDURANCE.
           </div>
           <div className="flex gap-6">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-twitter"></i></a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-github"></i></a>
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-twitter"></i></a>
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-github"></i></a>
           </div>
         </div>
       </footer>
