@@ -4,7 +4,6 @@ import { useState, useRef, FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -109,30 +108,80 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Gargantua Animation */}
-        <div className="gargantua-container">
-          <div className="accretion-disk"></div>
-          <div className="event-horizon"></div>
+        {/* Spacetime Warp Background */}
+        <div className="spacetime-warp"></div>
+        
+        {/* Time Dilation Lines */}
+        <div className="time-dilation"></div>
+        
+        {/* Deep Shadow Overlay */}
+        <div className="deep-shadow-overlay"></div>
+
+        {/* Mini Planetary Systems */}
+        <div className="absolute top-1/4 left-1/4 opacity-60">
+          <div className="mini-system w-32 h-32 text-[#ffcf48]">
+            <div className="mini-system-star"></div>
+            <div className="mini-system-planet" style={{ '--orbit-radius': 60, '--orbit-duration': '8s' } as React.CSSProperties}></div>
+          </div>
         </div>
 
-        <div className="relative z-10 text-center max-w-5xl px-6">
-          <div className="inline-block mb-6 px-4 py-1 border border-[#ffcf48]/30 bg-[#ffcf48]/10 rounded-full">
+        <div className="absolute bottom-1/3 right-1/4 opacity-40">
+          <div className="mini-system w-48 h-48 text-[#3b82f6]">
+            <div className="mini-system-star"></div>
+            <div className="mini-system-planet" style={{ '--orbit-radius': 90, '--orbit-duration': '12s' } as React.CSSProperties}></div>
+            <div className="mini-system-planet" style={{ '--orbit-radius': 70, '--orbit-duration': '6s', animationDelay: '-2s' } as React.CSSProperties}></div>
+          </div>
+        </div>
+
+        <div className="absolute top-1/3 right-10 opacity-30">
+          <div className="mini-system w-24 h-24 text-[#ec4899]">
+            <div className="mini-system-star"></div>
+            <div className="mini-system-planet" style={{ '--orbit-radius': 45, '--orbit-duration': '5s' } as React.CSSProperties}></div>
+          </div>
+        </div>
+
+        {/* Spherical Wormhole */}
+        <div className="sphere-wormhole"></div>
+
+        <div className="relative z-20 text-center max-w-5xl px-6">
+          <div className="inline-block mb-6 px-4 py-1 border border-[#ffcf48]/30 bg-[#ffcf48]/10 rounded-full backdrop-blur-md">
             <span className="font-mono-tech text-[#ffcf48] text-xs tracking-[0.2em]">T-MINUS 2026: LAUNCH IMMINENT</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8 text-glow">
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8 text-glow mix-blend-overlay">
             DO NOT GO GENTLE<br />
             INTO THAT GOOD NIGHT.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed drop-shadow-lg">
             We are explorers, pioneers, not caretakers. We engineer digital experiences that defy gravity and define the future.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Link href="#contact" className="px-8 py-4 bg-[#ffcf48] text-black font-bold tracking-widest hover:bg-white transition-colors w-full md:w-auto">
+            <Link href="#contact" className="px-8 py-4 bg-[#ffcf48] text-black font-bold tracking-widest hover:bg-white transition-colors w-full md:w-auto shadow-[0_0_20px_rgba(255,207,72,0.3)]">
               BEGIN MISSION
             </Link>
-            <Link href="/about" className="px-8 py-4 border border-white/30 hover:border-white text-white font-mono-tech text-xs tracking-widest w-full md:w-auto">
+            <Link href="/about" className="px-8 py-4 border border-white/30 hover:border-white text-white font-mono-tech text-xs tracking-widest w-full md:w-auto backdrop-blur-sm">
               READ LOGS
             </Link>
+          </div>
+
+          {/* Animated Platform Cards */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 text-left hidden md:grid">
+            {platforms.map((platform, idx) => (
+              <div 
+                key={platform.id} 
+                className="hud-card p-6 bg-black/40 backdrop-blur-md border-white/10 hover:border-[#ffcf48]/50 transition-all duration-500 group animate-float"
+                style={{ animationDelay: `${idx * 1.5}s` }}
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-white/5 group-hover:bg-white/10 transition-colors`}>
+                    <i className={`fa-brands ${platform.icon} text-xl ${platform.color}`}></i>
+                  </div>
+                  <span className="font-bold text-sm tracking-wide">{platform.name}</span>
+                </div>
+                <p className="text-xs text-gray-400 leading-relaxed border-l border-white/10 pl-3">
+                  {platform.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -147,19 +196,26 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {platforms.map((platform) => (
-              <div key={platform.id} className="hud-card p-8 group hover:border-[#ffcf48]/50 transition-colors">
+              <div 
+                key={platform.id} 
+                className={`hud-card p-8 group card-shine transition-all duration-500 hover:-translate-y-2 hover:bg-white/5 border border-white/10 ${
+                  platform.id === 'hubspot' ? 'hover:border-[#ffcf48] hover:shadow-[0_0_30px_rgba(255,207,72,0.2)]' :
+                  platform.id === 'wordpress' ? 'hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]' :
+                  'hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]'
+                }`}
+              >
                 <div className="mb-8 flex justify-between items-start">
-                  <i className={`fa-brands ${platform.icon} text-4xl ${platform.color}`}></i>
-                  <span className="font-mono-tech text-xs text-gray-500">SYS.0{platforms.indexOf(platform) + 1}</span>
+                  <i className={`fa-brands ${platform.icon} text-4xl ${platform.color} group-hover:scale-110 transition-transform duration-500`}></i>
+                  <span className="font-mono-tech text-sm text-gray-400 group-hover:text-white transition-colors">SYS.0{platforms.indexOf(platform) + 1}</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{platform.name}</h3>
-                <p className="text-gray-400 mb-8 leading-relaxed h-20">
+                <h3 className="text-3xl font-bold mb-4 text-white tracking-wide">{platform.name}</h3>
+                <p className="text-gray-300 mb-8 leading-relaxed h-20 text-lg font-medium">
                   {platform.desc}
                 </p>
                 <div className="border-t border-white/10 pt-6">
                   {platform.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm text-gray-300 mb-2 font-mono-tech text-xs">
-                      <span className="text-[#ffcf48]">{'>'}</span>
+                    <div key={i} className="flex items-center gap-3 text-base text-gray-300 mb-3 font-mono-tech group-hover:text-white transition-colors">
+                      <span className={`${platform.color}`}>{'>'}</span>
                       {feature}
                     </div>
                   ))}
@@ -337,8 +393,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      <ScrollToTopButton />
     </div>
   );
 }

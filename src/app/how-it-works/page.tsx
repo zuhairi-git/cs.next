@@ -1,315 +1,233 @@
 'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HowItWorks() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center gap-3">
-                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} priority />
-                <span className="text-3xl font-bold text-gradient">CoreScene</span>
-              </Link>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-[#6366f1] transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-[#6366f1] transition-colors font-medium">
-                About
-              </Link>
-              <Link href="/how-it-works" className="text-[#6366f1] font-semibold">
-                How it works?
-              </Link>
-              <Link href="/#contact" className="bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Contact us
-              </Link>
-            </div>
+    <div className="min-h-screen bg-[#030305] text-white selection:bg-[#ffcf48] selection:text-black overflow-hidden">
+      {/* Starfield Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="stars"></div>
+        <div className="twinkling"></div>
+      </div>
 
-            {/* Mobile menu button */}
-            <button 
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+      {/* Navigation */}
+      <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#030305]/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image 
+              src="/img/logo.png" 
+              alt="CoreScene Logo" 
+              width={40} 
+              height={40} 
+              className="w-10 h-10 group-hover:rotate-180 transition-transform duration-700"
+            />
+            <span className="font-bold text-xl tracking-widest uppercase font-mono-tech">CoreScene</span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8 font-mono-tech text-xs tracking-widest">
+            <Link href="/about" className="text-gray-400 hover:text-[#ffcf48] transition-colors">MISSION DATA</Link>
+            <Link href="/#platforms" className="text-gray-400 hover:text-[#ffcf48] transition-colors">SYSTEMS</Link>
+            <Link href="/how-it-works" className="text-[#ffcf48] transition-colors">TRAJECTORY</Link>
+            <Link href="/#contact" className="px-5 py-2.5 border border-white/20 hover:border-[#ffcf48] hover:text-[#ffcf48] transition-all">
+              INITIATE
+            </Link>
           </div>
+
+          {/* Mobile Toggle */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
+            <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <div className="px-4 py-6 space-y-4">
-              <Link href="/" className="block text-gray-700 hover:text-[#6366f1] font-medium">Home</Link>
-              <Link href="/about" className="block text-gray-700 hover:text-[#6366f1] font-medium">About</Link>
-              <Link href="/how-it-works" className="block text-[#6366f1] font-semibold">How it works?</Link>
-              <Link href="/#contact" className="block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-6 py-3 rounded-full font-semibold text-center">
-                Contact us
-              </Link>
-            </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-[#030305] border-b border-white/10 p-6 flex flex-col gap-4 font-mono-tech">
+            <Link href="/about" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>MISSION DATA</Link>
+            <Link href="/#platforms" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>SYSTEMS</Link>
+            <Link href="/how-it-works" className="text-lg text-[#ffcf48]" onClick={() => setIsMenuOpen(false)}>TRAJECTORY</Link>
+            <Link href="/#contact" className="text-lg text-[#ffcf48]" onClick={() => setIsMenuOpen(false)}>INITIATE</Link>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0">
-          <Image 
-            src="/img/howitworks.jpg" 
-            alt="How it works" 
-            fill 
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/90 via-[#8b5cf6]/90 to-[#ec4899]/90"></div>
-        </div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-white rounded-full blur-3xl animate-pulse"></div>
-        </div>
-        <div className="max-w-7xl mx-auto text-center relative z-10 text-white w-full">
-          <div className="inline-block mb-8 px-8 py-3 bg-white/20 backdrop-blur-md rounded-full animate-float">
-            <span className="font-bold flex items-center justify-center gap-3 text-lg">
-              <i className="fa-duotone fa-thin fa-rocket text-2xl"></i> Simple, Bold, Beautiful
-            </span>
+      {/* Header */}
+      <section className="pt-40 pb-20 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-block mb-6 px-4 py-1 border border-[#ffcf48]/30 bg-[#ffcf48]/10 rounded-full">
+            <span className="font-mono-tech text-[#ffcf48] text-xs tracking-[0.2em]">OPERATIONAL PROTOCOLS</span>
           </div>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-10 leading-tight">
-            How it <span className="block mt-2">WORKS</span>
-          </h1>
-          <p className="text-2xl md:text-4xl font-bold mb-16 max-w-5xl mx-auto leading-tight opacity-95">
-            Three simple steps to your dream website
+          <h1 className="text-5xl md:text-7xl font-bold mb-8">MISSION<br />PARAMETERS.</h1>
+          <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+            Three phases to launch. A calculated trajectory from concept to deployment, ensuring structural integrity and maximum velocity.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <div className="text-6xl mb-4 font-black">01</div>
-              <div className="text-3xl font-bold mb-2">€1400+</div>
-              <div className="text-lg font-medium opacity-90">Starting Price</div>
+        </div>
+      </section>
+
+      {/* Stats Grid */}
+      <section className="py-10 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="hud-card p-8 text-center group hover:border-[#ffcf48]/50 transition-colors">
+            <div className="text-4xl font-bold mb-2 text-white group-hover:text-[#ffcf48] transition-colors">€1400+</div>
+            <div className="text-xs font-mono-tech text-gray-500 tracking-widest">FUEL COST</div>
+          </div>
+          <div className="hud-card p-8 text-center group hover:border-[#3b82f6]/50 transition-colors">
+            <div className="text-4xl font-bold mb-2 text-white group-hover:text-[#3b82f6] transition-colors">1-2 WEEKS</div>
+            <div className="text-xs font-mono-tech text-gray-500 tracking-widest">TIME TO ORBIT</div>
+          </div>
+          <div className="hud-card p-8 text-center group hover:border-[#ec4899]/50 transition-colors">
+            <div className="text-4xl font-bold mb-2 text-white group-hover:text-[#ec4899] transition-colors">100%</div>
+            <div className="text-xs font-mono-tech text-gray-500 tracking-widest">SYSTEM INTEGRITY</div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Process (Phases) */}
+      <section className="py-32 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto space-y-24 relative">
+          {/* Connecting Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent hidden md:block"></div>
+
+          {/* Phase 1 */}
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="md:text-right order-2 md:order-1">
+              <div className="text-[#ffcf48] font-mono-tech text-xs tracking-widest mb-2">PHASE 01</div>
+              <h3 className="text-3xl font-bold mb-4">COMMUNICATION & STRATEGY</h3>
+              <p className="text-gray-400 leading-relaxed">
+                We establish a secure uplink to discuss your vision. We analyze the target environment, define mission goals, and map out the most efficient trajectory for your brand.
+              </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <div className="text-6xl mb-4 font-black">02</div>
-              <div className="text-3xl font-bold mb-2">1-2 Weeks</div>
-              <div className="text-lg font-medium opacity-90">Fast Delivery</div>
+            <div className="relative order-1 md:order-2">
+              <div className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#030305] border border-[#ffcf48] rounded-full flex items-center justify-center z-10 text-[#ffcf48] font-bold">1</div>
+              <div className="hud-card p-8 border-[#ffcf48]/30">
+                <i className="fa-duotone fa-radar text-5xl text-[#ffcf48] mb-6"></i>
+                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#ffcf48] w-1/3"></div>
+                </div>
+                <div className="mt-2 flex justify-between text-xs font-mono-tech text-gray-500">
+                  <span>ANALYZING...</span>
+                  <span>33%</span>
+                </div>
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-white/30 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <div className="text-6xl mb-4 font-black">03</div>
-              <div className="text-3xl font-bold mb-2">Launch!</div>
-              <div className="text-lg font-medium opacity-90">Go Live</div>
+          </div>
+
+          {/* Phase 2 */}
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative order-1">
+              <div className="absolute left-0 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#030305] border border-[#3b82f6] rounded-full flex items-center justify-center z-10 text-[#3b82f6] font-bold">2</div>
+              <div className="hud-card p-8 border-[#3b82f6]/30">
+                <i className="fa-duotone fa-microchip text-5xl text-[#3b82f6] mb-6"></i>
+                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#3b82f6] w-2/3"></div>
+                </div>
+                <div className="mt-2 flex justify-between text-xs font-mono-tech text-gray-500">
+                  <span>COMPILING...</span>
+                  <span>66%</span>
+                </div>
+              </div>
+            </div>
+            <div className="order-2">
+              <div className="text-[#3b82f6] font-mono-tech text-xs tracking-widest mb-2">PHASE 02</div>
+              <h3 className="text-3xl font-bold mb-4">CONSTRUCTION & ASSEMBLY</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Our engineers begin the build. We construct your digital vessel using high-grade code and responsive frameworks. You receive regular telemetry updates and have 2-3 revision cycles to fine-tune the systems.
+              </p>
+            </div>
+          </div>
+
+          {/* Phase 3 */}
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="md:text-right order-2 md:order-1">
+              <div className="text-[#ec4899] font-mono-tech text-xs tracking-widest mb-2">PHASE 03</div>
+              <h3 className="text-3xl font-bold mb-4">LAUNCH & DEPLOYMENT</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Final system checks complete. We ignite the engines and launch your site into the public network. Post-launch support ensures your orbit remains stable.
+              </p>
+            </div>
+            <div className="relative order-1 md:order-2">
+              <div className="absolute left-0 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#030305] border border-[#ec4899] rounded-full flex items-center justify-center z-10 text-[#ec4899] font-bold">3</div>
+              <div className="hud-card p-8 border-[#ec4899]/30">
+                <i className="fa-duotone fa-rocket-launch text-5xl text-[#ec4899] mb-6"></i>
+                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#ec4899] w-full"></div>
+                </div>
+                <div className="mt-2 flex justify-between text-xs font-mono-tech text-gray-500">
+                  <span>DEPLOYED</span>
+                  <span>100%</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What You Get */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Payload Manifest (What You Get) */}
+      <section className="py-20 px-6 relative z-10 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
-              What You <span className="text-gradient">GET</span>
-            </h2>
-            <p className="text-3xl md:text-4xl text-gray-700 font-bold max-w-4xl mx-auto">
-              Everything you need for a stunning online presence
-            </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">PAYLOAD MANIFEST.</h2>
+            <p className="text-gray-400">Standard equipment included in every mission.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="group relative bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-lightbulb"></i></div>
-              <h3 className="text-3xl font-black mb-4">Custom Design</h3>
-              <p className="text-lg opacity-90 leading-relaxed">Unique, tailored design that perfectly captures your brand identity</p>
-            </div>
-            <div className="group relative bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-bolt"></i></div>
-              <h3 className="text-3xl font-black mb-4">Lightning Fast</h3>
-              <p className="text-lg opacity-90 leading-relaxed">Optimized performance for speed and seamless user experience</p>
-            </div>
-            <div className="group relative bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-12 text-white hover:scale-105 transition-all duration-300 shadow-2xl">
-              <div className="text-7xl mb-6"><i className="fa-duotone fa-thin fa-star"></i></div>
-              <h3 className="text-3xl font-black mb-4">Mobile Perfect</h3>
-              <p className="text-lg opacity-90 leading-relaxed">Flawless display on every device, from phone to desktop</p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 md:p-16 text-white text-center shadow-2xl">
-            <div className="text-7xl mb-8 flex justify-center">
-              <i className="fa-duotone fa-thin fa-gem text-yellow-400"></i>
-            </div>
-            <h3 className="text-4xl md:text-5xl font-black mb-6">All-Inclusive Package</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 justify-center">
-                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
-                <span className="text-lg font-semibold">Design Consultation</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: 'fa-fingerprint', title: 'CUSTOM DESIGN', desc: 'Unique visual signature.' },
+              { icon: 'fa-bolt', title: 'HYPER SPEED', desc: 'Optimized for velocity.' },
+              { icon: 'fa-mobile-screen', title: 'RESPONSIVE', desc: 'Adapts to all viewports.' },
+              { icon: 'fa-shield-check', title: 'SECURE', desc: 'Hardened defenses.' }
+            ].map((item, i) => (
+              <div key={i} className="hud-card p-6 hover:bg-white/5 transition-colors">
+                <i className={`fa-duotone ${item.icon} text-3xl text-white mb-4`}></i>
+                <h4 className="font-bold text-sm tracking-wide mb-2">{item.title}</h4>
+                <p className="text-xs text-gray-500 font-mono-tech">{item.desc}</p>
               </div>
-              <div className="flex items-center gap-3 justify-center">
-                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
-                <span className="text-lg font-semibold">Custom Branding</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center">
-                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
-                <span className="text-lg font-semibold">SEO Optimized</span>
-              </div>
-              <div className="flex items-center gap-3 justify-center">
-                <i className="fa-duotone fa-thin fa-check text-green-400 text-2xl flex-shrink-0"></i>
-                <span className="text-lg font-semibold">2-3 Revisions</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* The Process */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-6xl md:text-8xl font-black mb-8">
-              The <span className="text-gradient">PROCESS</span>
-            </h2>
-            <p className="text-3xl md:text-4xl text-gray-700 font-bold">
-              Simple, transparent, effective
+      {/* CTA */}
+      <section className="py-32 px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center hud-card p-12 md:p-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#ffcf48]/10 via-transparent to-[#3b82f6]/10"></div>
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8">READY FOR LIFT OFF?</h2>
+            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+              The window of opportunity is open. Initiate the launch sequence today.
             </p>
-          </div>
-
-          <div className="space-y-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#6366f1] hover:scale-105 transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="text-8xl font-black text-[#6366f1] flex-shrink-0">1</div>
-                <div>
-                  <h3 className="text-4xl font-black mb-4">Talk & Plan</h3>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    We discuss your vision, goals, and requirements. Share your ideas, and we&apos;ll craft the perfect strategy.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#ec4899] hover:scale-105 transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="text-8xl font-black text-[#ec4899] flex-shrink-0">2</div>
-                <div>
-                  <h3 className="text-4xl font-black mb-4">Design & Build</h3>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    Our team creates your stunning website. You review, we refine. 2-3 revision rounds ensure perfection.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-4 border-[#8b5cf6] hover:scale-105 transition-all duration-300">
-              <div className="flex items-start gap-6">
-                <div className="text-8xl font-black text-[#8b5cf6] flex-shrink-0">3</div>
-                <div>
-                  <h3 className="text-4xl font-black mb-4">Launch & Grow</h3>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    Go live in 1-2 weeks! Plus, optional maintenance support to keep your site fresh and secure.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1] via-[#8b5cf6] to-[#ec4899] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-white rounded-full blur-3xl animate-pulse"></div>
-        </div>
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <div className="mb-8">
-            <i className="fa-duotone fa-thin fa-heart inline-block text-8xl"></i>
-          </div>
-          <h2 className="text-5xl md:text-8xl font-black mb-10 leading-tight">
-            Ready to START?
-          </h2>
-          <p className="text-2xl md:text-4xl mb-16 font-bold max-w-4xl mx-auto leading-tight">
-            Let&apos;s create something amazing together
-          </p>
-          <Link href="/#contact" className="inline-flex items-center gap-4 bg-white text-[#6366f1] px-16 py-8 rounded-full font-black text-2xl md:text-3xl hover:shadow-2xl transition-all duration-300 hover:scale-110 shadow-2xl">
-            <span>Get Started Now</span>
-            <span>→</span>
-          </Link>
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
-              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">€1400+</div>
-              <div className="text-base sm:text-lg font-semibold opacity-90">Starting</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
-              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">1-2w</div>
-              <div className="text-base sm:text-lg font-semibold opacity-90">Delivery</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-5 sm:p-6 border border-white/30 text-center">
-              <div className="text-4xl sm:text-5xl font-black mb-1 sm:mb-2">100%</div>
-              <div className="text-base sm:text-lg font-semibold opacity-90">Quality</div>
-            </div>
+            <Link href="/#contact" className="inline-block px-10 py-4 bg-[#ffcf48] text-black font-bold tracking-widest hover:bg-white transition-colors shadow-[0_0_30px_rgba(255,207,72,0.3)]">
+              START COUNTDOWN
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image 
-            src="/img/footer.jpg" 
-            alt="Footer background" 
-            fill 
-            className="object-cover opacity-10"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} />
-                <h3 className="text-3xl font-bold text-gradient">CoreScene</h3>
-              </div>
-              <p className="text-gray-400 leading-relaxed max-w-md">
-                Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
-              </p>
-              <div className="mt-6">
-                <p className="font-semibold mb-2">Let&apos;s connect.</p>
-                <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
-                  LinkedIn →
-                </a>
-              </div>
-            </div>
-
-            <div className="md:text-right">
-              <h4 className="text-xl font-bold mb-4">Links</h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#contact" className="text-gray-400 hover:text-white transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
-                    About Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
+      <footer className="py-12 px-6 border-t border-white/10 bg-black relative z-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-2">
+            <Image 
+              src="/img/logo.png" 
+              alt="CoreScene Logo" 
+              width={32} 
+              height={32} 
+              className="w-8 h-8 grayscale opacity-50 hover:opacity-100 transition-opacity"
+            />
+            <span className="font-bold text-lg tracking-widest font-mono-tech text-gray-500">CORESCENE</span>
           </div>
-
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>CoreScene.com | 2025</p>
+          <div className="text-gray-600 text-xs font-mono-tech">
+            &copy; {new Date().getFullYear()} CORESCENE SYSTEMS. ENDURANCE.
+          </div>
+          <div className="flex gap-6">
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-twitter"></i></a>
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-github"></i></a>
           </div>
         </div>
       </footer>

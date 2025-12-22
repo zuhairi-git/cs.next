@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 export default function About() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -163,8 +162,6 @@ export default function About() {
           </div>
         </div>
       </footer>
-
-      <ScrollToTopButton />
     </div>
   );
 }

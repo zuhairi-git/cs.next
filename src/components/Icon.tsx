@@ -70,7 +70,7 @@ const Icon: React.FC<IconProps> = ({
         ${containerSizes[size]}
         inline-flex items-center justify-center
         ${sizeClasses[size]}
-        ${gradient ? `bg-gradient-to-br ${gradient}` : 'bg-gray-100'}
+        ${gradient ? `bg-gradient-to-br ${gradient}` : 'bg-white/10 backdrop-blur-md border border-white/10'}
         ${containerVariantClasses[variant]}
         shadow-lg text-white
         transition-transform duration-300 group-hover:scale-110
