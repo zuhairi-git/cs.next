@@ -20,9 +20,11 @@ export default function HowItWorks() {
       <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
-              <i className="fa-duotone fa-planet-ringed text-white text-lg"></i>
-            </div>
+            <img
+              src="/img/logo.png"
+              alt="CoreScene logo"
+              className="w-10 h-10 rounded-full object-contain bg-white/5 border border-white/10 p-1 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
+            />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
           </Link>
 
@@ -225,9 +227,11 @@ export default function HowItWorks() {
       <footer className="py-12 px-6 border-t border-white/5 bg-[#050507] relative z-10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center">
-              <i className="fa-duotone fa-planet-ringed text-white text-[10px]"></i>
-            </div>
+            <img
+              src="/img/logo.png"
+              alt="CoreScene logo"
+              className="w-6 h-6 rounded-full object-contain bg-white/5 border border-white/10 p-[2px]"
+            />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>
             <span>Est. 2025</span>
