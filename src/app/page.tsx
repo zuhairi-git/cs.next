@@ -213,6 +213,12 @@ export default function Home() {
               <p className="text-gray-400 leading-relaxed text-lg mb-12">
                 Chaos is the enemy of conversion. Our process is a linear progression through time and space, ensuring every milestone is reached with mathematical precision.
               </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Link href="/how-it-works" className="btn-primary text-base px-8 py-4 inline-flex items-center justify-center">
+                  View Full Trajectory
+                </Link>
+              </div>
               
               <div className="space-y-8">
                 {[
