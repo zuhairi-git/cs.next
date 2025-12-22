@@ -1,188 +1,185 @@
 'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState, useRef, FormEvent } from "react";
-import { useEmailJS } from '@/Email';
-import Icon from '@/components/Icon';
+import { useState, useRef, FormEvent } from 'react';
+import Link from 'next/link';
+import emailjs from '@emailjs/browser';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const { isLoading, showMessage, messageType, messageText, sendEmail, closeMessage } = useEmailJS();
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: FormEvent) => {
     e.preventDefault();
-    await sendEmail(formRef);
+    if (!formRef.current) return;
+
+    setLoading(true);
+    // Replace with your actual EmailJS credentials
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY')
+      .then(() => {
+        setStatus('success');
+        formRef.current?.reset();
+      })
+      .catch(() => {
+        setStatus('error');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center gap-3">
-                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} priority />
-                <span className="text-3xl font-bold text-gradient">CoreScene</span>
-              </Link>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-[#6366f1] transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-[#6366f1] transition-colors font-medium">
-                About
-              </Link>
-              <Link href="/how-it-works" className="text-gray-700 hover:text-[#6366f1] transition-colors font-medium">
-                How it works?
-              </Link>
-              <Link href="#contact" className="bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Contact us
-              </Link>
-            </div>
+  const platforms = [
+    {
+      id: 'wordpress',
+      name: 'WordPress',
+      icon: 'fa-wordpress',
+      color: 'text-blue-400',
+      desc: 'The world&apos;s most popular CMS, engineered for scale and flexibility.',
+      features: ['Custom Theme Development', 'WooCommerce Integration', 'Performance Optimization']
+    },
+    {
+      id: 'hubspot',
+      name: 'HubSpot',
+      icon: 'fa-hubspot',
+      color: 'text-orange-500',
+      desc: 'Marketing automation and CRM integration for growth-focused businesses.',
+      features: ['CMS Hub Implementation', 'CRM Migration', 'Custom Modules']
+    },
+    {
+      id: 'wix',
+      name: 'Wix Studio',
+      icon: 'fa-wix',
+      color: 'text-white',
+      desc: 'Rapid deployment with stunning visuals for creative brands.',
+      features: ['Wix Studio Expert', 'Velo Development', 'Responsive Design']
+    }
+  ];
 
-            {/* Mobile menu button */}
-            <button 
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+  return (
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-indigo-500 selection:text-white">
+      {/* Navigation */}
+      <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
+              C
+            </div>
+            <span className="font-bold text-xl tracking-tight">CoreScene</span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="#platforms" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Platforms</Link>
+            <Link href="#process" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Process</Link>
+            <Link href="#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">Pricing</Link>
+            <Link href="#contact" className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-colors">
+              Start Project
+            </Link>
           </div>
+
+          {/* Mobile Toggle */}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
+            <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <div className="px-4 py-6 space-y-4">
-              <Link href="/" className="block text-gray-700 hover:text-[#6366f1] font-medium">Home</Link>
-              <Link href="/about" className="block text-gray-700 hover:text-[#6366f1] font-medium">About</Link>
-              <Link href="/how-it-works" className="block text-gray-700 hover:text-[#6366f1] font-medium">How it works?</Link>
-              <Link href="#contact" className="block bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-6 py-3 rounded-full font-semibold text-center">
-                Contact us
-              </Link>
-            </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-[#050505] border-b border-white/10 p-6 flex flex-col gap-4">
+            <Link href="#platforms" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Platforms</Link>
+            <Link href="#process" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Process</Link>
+            <Link href="#pricing" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+            <Link href="#contact" className="text-lg text-indigo-400" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image 
-            src="/img/hero.jpg" 
-            alt="Hero background" 
-            fill 
-            className="object-cover opacity-5"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#ec4899]/5"></div>
-        </div>
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-[#6366f1]/10 to-[#ec4899]/10 rounded-full">
-              <span className="text-gradient font-semibold flex items-center justify-center gap-2"><i className="fa-duotone fa-thin fa-rocket"></i> Premium Web Design Solutions</span>
+      <section className="relative pt-40 pb-32 px-6 overflow-hidden bg-grid">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-indigo-400 mb-8">
+                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                Accepting New Projects for 2025
+              </div>
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-8">
+                HubSpot.<br />
+                WordPress.<br />
+                <span className="text-gradient">Wix Studio.</span>
+              </h1>
+              <p className="text-xl text-gray-400 max-w-lg mb-10 leading-relaxed">
+                We don&apos;t just build websites. We engineer digital experiences that drive growth, capture leads, and define brands.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="#contact" className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full font-bold transition-all btn-glow">
+                  Get a Proposal
+                </Link>
+                <Link href="#platforms" className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold transition-all">
+                  Explore Platforms
+                </Link>
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Don&apos;t miss out on potential leads because of a{", "}
-              <span className="text-gradient">poorly designed website</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed">
-              Choose your platform —<span className="font-semibold text-[#6366f1]">HubSpot</span>, 
-              <span className="font-semibold text-[#ec4899]"> Wix</span>, 
-              <span className="font-semibold text-[#6366f1]"> WordPress</span>— and we&apos;re here to help.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="#pricing" className="bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 inline-block w-full sm:w-auto text-center">
-                Get Started Now
-              </Link>
-              <Link href="#process" className="border-2 border-[#6366f1] text-[#6366f1] px-10 py-5 rounded-full font-bold text-lg hover:bg-[#6366f1] hover:text-white transition-all duration-300 inline-block w-full sm:w-auto text-center">
-                See How It Works
-              </Link>
+            
+            {/* Hero Visual - Abstract Representation of the 3 Platforms */}
+            <div className="relative h-[500px] hidden lg:block">
+              <div className="absolute top-0 right-0 w-full h-full">
+                {/* Card 1: WordPress */}
+                <div className="absolute top-10 right-10 w-64 h-80 bg-[#1a1a1a] border border-white/10 rounded-2xl p-6 transform rotate-6 hover:rotate-0 transition-all duration-500 z-10 shadow-2xl">
+                  <i className="fa-brands fa-wordpress text-6xl text-blue-400 mb-4"></i>
+                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
+                  <div className="h-2 w-32 bg-white/10 rounded"></div>
+                </div>
+                
+                {/* Card 2: HubSpot */}
+                <div className="absolute top-20 right-40 w-64 h-80 bg-[#202020] border border-white/10 rounded-2xl p-6 transform -rotate-3 hover:rotate-0 transition-all duration-500 z-20 shadow-2xl">
+                  <i className="fa-brands fa-hubspot text-6xl text-orange-500 mb-4"></i>
+                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
+                  <div className="h-2 w-32 bg-white/10 rounded"></div>
+                </div>
+
+                {/* Card 3: Wix */}
+                <div className="absolute top-40 right-20 w-64 h-80 bg-[#252525] border border-white/10 rounded-2xl p-6 transform rotate-12 hover:rotate-0 transition-all duration-500 z-30 shadow-2xl">
+                  <i className="fa-brands fa-wix text-6xl text-white mb-4"></i>
+                  <div className="h-2 w-20 bg-white/20 rounded mb-2"></div>
+                  <div className="h-2 w-32 bg-white/10 rounded"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Platforms Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+      <section id="platforms" className="py-32 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            <span className="text-gradient">Platforms</span> We Master
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: 'HubSpot', color: 'from-[#ff7a59] to-[#ff5c35]', iconColor: 'text-[#ff7a59]', bgHover: 'from-[#ff7a59]/10 to-[#ff5c35]/10' },
-              { name: 'WordPress', color: 'from-[#21759b] to-[#1e6a8d]', iconColor: 'text-[#21759b]', bgHover: 'from-[#21759b]/10 to-[#1e6a8d]/10' },
-              { name: 'Wix', color: 'from-[#0c6efd] to-[#0a58ca]', iconColor: 'text-[#0c6efd]', bgHover: 'from-[#0c6efd]/10 to-[#0a58ca]/10' }
-            ].map((platform, index) => (
-              <div key={platform.name} className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className={`absolute inset-0 bg-gradient-to-br ${platform.bgHover} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                <div className="relative">
-                  <div className={`text-6xl mb-4 ${platform.iconColor} transition-transform duration-300 group-hover:scale-110`}>
-                    {index === 0 ? <i className="fa-brands fa-hubspot"></i> : index === 1 ? <i className="fa-brands fa-wordpress"></i> : <i className="fa-brands fa-wix"></i>}
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3">{platform.name}</h3>
-                  <p className="text-gray-600">Professional design and development tailored for {platform.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" id="about">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Why choose <span className="text-gradient">CoreScene</span>?
-            </h2>
-            <p className="text-2xl text-gray-600">
-              Empowering Your Web Presence with<br />
-              <span className="font-semibold text-gradient">HubSpot, WordPress & Wix</span>
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">The Trinity.</h2>
+            <p className="text-xl text-gray-400 max-w-2xl">
+              We specialize in the three most powerful platforms on the web. No distractions. Just mastery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Innovative Edge',
-                description: 'CoreScene offers innovative and cutting-edge website solutions, setting your online presence apart.',
-                iconName: 'lightbulb',
-                gradient: 'from-blue-500 to-cyan-500'
-              },
-              {
-                title: 'Speed and Efficiency',
-                description: 'We provide fast, world-class design for HubSpot, WordPress or Wix websites, ensuring a swift and efficient launch.',
-                iconName: 'bolt',
-                gradient: 'from-purple-500 to-pink-500'
-              },
-              {
-                title: 'Exceptional Expertise',
-                description: 'With our team of seasoned professionals, you&apos;ll benefit from exceptional web design and development expertise to realize your vision.',
-                iconName: 'bullseye',
-                gradient: 'from-orange-500 to-red-500'
-              }
-            ].map((feature, index) => (
-              <div key={index} className="relative group">
-                <div className="gradient-border p-8 h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                  <Icon 
-                    name={feature.iconName} 
-                    size="xl" 
-                    gradient={feature.gradient} 
-                    variant="square"
-                    className="mb-6"
-                  />
-                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+            {platforms.map((platform) => (
+              <div key={platform.id} className="card-modern p-8 rounded-3xl group">
+                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/5 group-hover:bg-white/10 transition-colors">
+                  <i className={`fa-brands ${platform.icon} text-3xl ${platform.color}`}></i>
                 </div>
+                <h3 className="text-2xl font-bold mb-4">{platform.name}</h3>
+                <p className="text-gray-400 mb-8 leading-relaxed">
+                  {platform.desc}
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {platform.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
+                      <i className="fa-duotone fa-check text-indigo-500"></i>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -190,320 +187,166 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#6366f1]/5 to-[#ec4899]/5" id="process">
+      <section id="process" className="py-32 px-6 bg-white/5 border-y border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Quick Start Guide
-            </h2>
-            <p className="text-2xl text-gray-600">
-              <span className="font-bold text-gradient">6-step success:</span> Your design roadmap
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Discovery & Vision',
-                description: 'Define your project&apos;s objectives and vision. Understand your target audience, goals, and the message you want to convey through your design.'
-              },
-              {
-                step: '02',
-                title: 'Research & Inspiration',
-                description: 'Dive into research to gather insights and inspiration. Explore competitors, industry trends, and design styles to inform your creative direction.'
-              },
-              {
-                step: '03',
-                title: 'Concept Development',
-                description: 'Brainstorm and sketch out initial design concepts. Experiment with layouts, color schemes, typography, and imagery to find the perfect visual identity.'
-              },
-              {
-                step: '04',
-                title: 'Design & Iteration',
-                description: 'Bring your concepts to life by creating detailed designs. Iterate and refine, seeking feedback and making necessary adjustments to ensure your design aligns with your goals.'
-              },
-              {
-                step: '05',
-                title: 'Development & Execution',
-                description: 'Transform your finalized design into a functional product or website. Collaborate with developers to ensure seamless integration of design elements.'
-              },
-              {
-                step: '06',
-                title: 'Testing & Launch',
-                description: 'Conduct thorough testing to ensure your design functions flawlessly across devices and platforms. Once everything is set, launch your project, making it accessible to your audience.'
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 text-[120px] font-bold text-gray-50 group-hover:text-[#6366f1]/10 transition-colors duration-300">
-                  {item.step}
-                </div>
-                <div className="relative">
-                  <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white rounded-full font-bold mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">Precision<br />Engineering.</h2>
+              <p className="text-xl text-gray-400 mb-12">
+                Our process is stripped of fluff. We focus on what matters: shipping high-quality code that converts.
+              </p>
+              <Link href="#contact" className="text-indigo-400 font-bold hover:text-indigo-300 flex items-center gap-2">
+                Start your build <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+            <div className="space-y-8">
+              {[
+                { step: '01', title: 'Discovery', desc: 'We analyze your market, competitors, and goals to define the technical roadmap.' },
+                { step: '02', title: 'Development', desc: 'We build using clean, semantic code and modern frameworks. No bloat.' },
+                { step: '03', title: 'Deployment', desc: 'Rigorous testing, SEO optimization, and a seamless launch to production.' }
+              ].map((item) => (
+                <div key={item.step} className="flex gap-6 group">
+                  <div className="text-4xl font-bold text-white/10 group-hover:text-indigo-500 transition-colors font-mono">
                     {item.step}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-400">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white" id="pricing">
+      <section id="pricing" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Simple pricing
-            </h2>
-            <p className="text-3xl mb-4">
-              <span className="text-gradient">Minimal investment,</span>
-            </p>
-            <p className="text-3xl font-bold">
-              Maximum results
-            </p>
-            <p className="text-xl text-gray-300 mt-6">
-              Enjoy high-quality experiences at incredibly competitive prices.
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Transparent Investment.</h2>
+            <p className="text-xl text-gray-400">
+              Clear pricing for clear results.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Starter Plan */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 hover:border-[#6366f1]/50 transition-all duration-300 hover:scale-105">
-              <h3 className="text-2xl font-bold mb-2">Starter Plan</h3>
-              <p className="text-gray-400 mb-6">One-time Payment</p>
-              <div className="mb-8">
-                <span className="text-5xl font-bold">€1400</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>HubSpot, Wix, and WordPress</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Single Page Design</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Single Language</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Two Revisions</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>10 Euros / Professional Image</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300">
-                Choose Plan
-              </button>
+            {/* Starter */}
+            <div className="card-modern p-8 rounded-3xl border border-white/10">
+              <div className="mb-4 text-indigo-400 font-bold text-sm tracking-wider uppercase">Starter</div>
+              <div className="text-4xl font-bold mb-2">€2,499</div>
+              <div className="text-gray-500 text-sm mb-8">One-time payment</div>
+              <p className="text-gray-300 mb-8">Perfect for small businesses needing a professional presence.</p>
+              <Link href="#contact" className="block w-full py-3 rounded-xl border border-white/20 text-center font-bold hover:bg-white hover:text-black transition-all">
+                Select Plan
+              </Link>
             </div>
 
-            {/* Performance Plan */}
-            <div className="bg-gradient-to-br from-[#6366f1] to-[#ec4899] rounded-3xl p-8 transform scale-105 shadow-2xl relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-6 py-2 rounded-full font-bold text-sm">
-                MOST POPULAR
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Performance Plan</h3>
-              <p className="text-white/80 mb-6">One-time Payment</p>
-              <div className="mb-8">
-                <span className="text-5xl font-bold">€1900</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Everything in Starter Plan</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Up to 3 Pages</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Up to 2 Langs Per Page</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Up to 3 Revisions Per Page</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Custom Domain Setup</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-white mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Business E-mail Setup</span>
-                </li>
-              </ul>
-              <button className="w-full bg-white text-[#6366f1] py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300">
-                Choose Plan
-              </button>
+            {/* Professional */}
+            <div className="card-modern p-8 rounded-3xl border border-indigo-500/50 bg-indigo-500/5 relative">
+              <div className="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">POPULAR</div>
+              <div className="mb-4 text-indigo-400 font-bold text-sm tracking-wider uppercase">Professional</div>
+              <div className="text-4xl font-bold mb-2">€4,999</div>
+              <div className="text-gray-400 text-sm mb-8">One-time payment</div>
+              <p className="text-gray-200 mb-8">For growing companies requiring advanced functionality and CMS.</p>
+              <Link href="#contact" className="block w-full py-3 rounded-xl bg-indigo-600 text-white text-center font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/25">
+                Select Plan
+              </Link>
             </div>
 
-            {/* Elite Plan */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10 hover:border-[#ec4899]/50 transition-all duration-300 hover:scale-105">
-              <h3 className="text-2xl font-bold mb-2">Elite Plan</h3>
-              <p className="text-gray-400 mb-6">One-time or Subscription</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold">Let&apos;s Talk</span>
-              </div>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Product and Service Design</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Scope of Work</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Tech Stack (ReactJS & Flutter)</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Timeline</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Understanding Your Budget</span>
-                </li>
-                <li className="flex items-start">
-                  <i className="fa-duotone fa-thin fa-check text-green-400 mr-3 text-xl mt-1 flex-shrink-0"></i>
-                  <span>Streamline and Plan</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gradient-to-r from-[#ec4899] to-[#6366f1] text-white py-4 rounded-full font-bold hover:shadow-xl transition-all duration-300">
+            {/* Enterprise */}
+            <div className="card-modern p-8 rounded-3xl border border-white/10">
+              <div className="mb-4 text-pink-500 font-bold text-sm tracking-wider uppercase">Enterprise</div>
+              <div className="text-4xl font-bold mb-2">Custom</div>
+              <div className="text-gray-500 text-sm mb-8">Tailored quote</div>
+              <p className="text-gray-300 mb-8">Complex integrations, custom development, and large-scale migrations.</p>
+              <Link href="#contact" className="block w-full py-3 rounded-xl border border-white/20 text-center font-bold hover:bg-white hover:text-black transition-all">
                 Contact Us
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" id="contact">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Don&apos;t be shy
-            </h2>
-            <p className="text-3xl font-bold text-gradient">
-              Let&apos;s Talk
-            </p>
-          </div>
+      <section id="contact" className="py-32 px-6 bg-grid border-t border-white/5">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to build?</h2>
+          <p className="text-xl text-gray-400 mb-12">
+            Tell us about your project. We&apos;ll get back to you within 24 hours.
+          </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <input
-                type="text"
-                name="user_name"
-                placeholder="Name"
-                required
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
-              />
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-6 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                <input 
+                  type="text" 
+                  name="user_name" 
+                  required 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                <input 
+                  type="email" 
+                  name="user_email" 
+                  required 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                  placeholder="john@company.com"
+                />
+              </div>
             </div>
             <div>
-              <input
-                type="email"
-                name="user_email"
-                placeholder="Email"
-                required
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows={6}
-                required
-                className="w-full px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-[#6366f1] focus:outline-none transition-colors text-lg resize-none"
+              <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+              <textarea 
+                name="message" 
+                required 
+                rows={4} 
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                placeholder="Tell us about your project goals..."
               ></textarea>
             </div>
-            
-            {showMessage && (
-              <div className={`p-4 rounded-xl text-center font-semibold flex items-center justify-between ${
-                messageType === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
-              }`}>
-                <span>{messageText}</span>
-                <button type="button" onClick={closeMessage} className="ml-4 text-xl font-bold hover:opacity-70">&times;</button>
-              </div>
-            )}
-            
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`w-full bg-gradient-to-r from-[#6366f1] to-[#ec4899] text-white py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 ${
-                isLoading ? 'opacity-70 cursor-not-allowed' : ''
-              }`}
+            <button 
+              type="submit" 
+              disabled={loading}
+              className="w-full py-4 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              {isLoading ? 'Sending...' : 'Send Message'}
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
+            {status === 'success' && (
+              <p className="text-green-400 text-center">Message sent successfully!</p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-400 text-center">Failed to send message. Please try again.</p>
+            )}
           </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image 
-            src="/img/footer.jpg" 
-            alt="Footer background" 
-            fill 
-            className="object-cover opacity-10"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} />
-                <h3 className="text-3xl font-bold text-gradient">CoreScene</h3>
-              </div>
-              <p className="text-gray-400 leading-relaxed max-w-md">
-                Whether you&apos;re a seasoned entrepreneur or just starting, let us accompany you on this exhilarating adventure, where your aspirations and ambitions meet their true potential. Together, we can make your entrepreneurial dreams a reality.
-              </p>
-              <div className="mt-6">
-                <p className="font-semibold mb-2">Let&apos;s connect.</p>
-                <a href="https://www.linkedin.com/in/ali-zuhairi/" target="_blank" rel="noopener noreferrer" className="text-[#ec4899] hover:text-[#f472b6] transition-colors">
-                  LinkedIn →
-                </a>
-              </div>
+      <footer className="py-12 px-6 border-t border-white/10 bg-[#020202]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+              C
             </div>
-
-            <div className="md:text-right">
-              <h4 className="text-xl font-bold mb-4">Links</h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
-                    About Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <span className="font-bold text-lg">CoreScene</span>
           </div>
-
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>CoreScene.com | 2025</p>
+          <div className="text-gray-500 text-sm">
+            &copy; {new Date().getFullYear()} CoreScene. All rights reserved.
+          </div>
+          <div className="flex gap-6">
+            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-twitter"></i></a>
+            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="#" className="text-gray-500 hover:text-white transition-colors"><i className="fa-brands fa-github"></i></a>
           </div>
         </div>
       </footer>
+
+      <ScrollToTopButton />
     </div>
   );
 }
