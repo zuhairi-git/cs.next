@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, FormEvent } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import emailjs from '@emailjs/browser';
 
@@ -16,7 +15,6 @@ export default function Home() {
     if (!formRef.current) return;
 
     setLoading(true);
-    // Replace with your actual EmailJS credentials
     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY')
       .then(() => {
         setStatus('success');
@@ -35,361 +33,318 @@ export default function Home() {
       id: 'hubspot',
       name: 'HubSpot',
       icon: 'fa-hubspot',
-      color: 'text-[#ffcf48]',
-      desc: 'The Giant. A massive ecosystem of marketing automation and CRM gravity.',
-      features: ['CMS Hub Implementation', 'CRM Migration', 'Custom Modules']
+      desc: 'Enterprise CRM gravity well. Powerful, centralized, and infinitely scalable.',
+      features: ['CMS Implementation', 'Data Migration', 'Custom Modules']
     },
     {
       id: 'wordpress',
       name: 'WordPress',
       icon: 'fa-wordpress',
-      color: 'text-[#3b82f6]',
-      desc: 'The Water Planet. Infinite flexibility and depth for those willing to explore.',
-      features: ['Custom Theme Development', 'WooCommerce Integration', 'Performance Optimization']
+      desc: 'Infinite open source horizon. Flexible, vast, and community-driven.',
+      features: ['Theme Development', 'WooCommerce', 'Performance Optimization']
     },
     {
       id: 'wix',
       name: 'Wix Studio',
       icon: 'fa-wix',
-      color: 'text-white',
-      desc: 'The Ice Cloud. Solid, structured, and stunningly beautiful rapid deployment.',
-      features: ['Wix Studio Expert', 'Velo Development', 'Responsive Design']
+      desc: 'Rapid deployment structure. Fast, beautiful, and uncompromising.',
+      features: ['Studio Expert', 'Velo Code', 'Responsive Layouts']
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#030305] text-white selection:bg-[#ffcf48] selection:text-black overflow-hidden">
-      {/* Starfield Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="stars"></div>
-        <div className="twinkling"></div>
+    <div className="min-h-screen text-white selection:bg-purple-500 selection:text-white overflow-hidden">
+      {/* Nebula Background */}
+      <div className="nebula-bg">
+        <div className="nebula-blob nebula-blob-1"></div>
+        <div className="nebula-blob nebula-blob-2"></div>
+        <div className="nebula-blob nebula-blob-3"></div>
       </div>
+      <div className="stars"></div>
 
       {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 border-b border-white/10 bg-[#030305]/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
+        <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <Image 
-              src="/img/logo.png" 
-              alt="CoreScene Logo" 
-              width={40} 
-              height={40} 
-              className="w-10 h-10 group-hover:rotate-180 transition-transform duration-700"
-            />
-            <span className="font-bold text-xl tracking-widest uppercase font-mono-tech">CoreScene</span>
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+              <i className="fa-duotone fa-planet-ringed text-white text-lg"></i>
+            </div>
+            <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 font-mono-tech text-xs tracking-widest">
-            <Link href="/about" className="text-gray-400 hover:text-[#ffcf48] transition-colors">MISSION DATA</Link>
-            <Link href="#platforms" className="text-gray-400 hover:text-[#ffcf48] transition-colors">SYSTEMS</Link>
-            <Link href="#process" className="text-gray-400 hover:text-[#ffcf48] transition-colors">TRAJECTORY</Link>
-            <Link href="#contact" className="px-5 py-2.5 border border-white/20 hover:border-[#ffcf48] hover:text-[#ffcf48] transition-all">
-              INITIATE
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="#platforms" className="hover:text-white transition-colors">Systems</Link>
+            <Link href="#process" className="hover:text-white transition-colors">Trajectory</Link>
+            <Link href="#contact" className="btn-primary text-sm">
+              Initiate Sequence
             </Link>
           </div>
 
           {/* Mobile Toggle */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
             <i className={`fa-duotone ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full bg-[#030305] border-b border-white/10 p-6 flex flex-col gap-4 font-mono-tech">
-            <Link href="/about" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>MISSION DATA</Link>
-            <Link href="#platforms" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>SYSTEMS</Link>
-            <Link href="#process" className="text-lg text-gray-400" onClick={() => setIsMenuOpen(false)}>TRAJECTORY</Link>
-            <Link href="#contact" className="text-lg text-[#ffcf48]" onClick={() => setIsMenuOpen(false)}>INITIATE</Link>
+          <div className="md:hidden absolute top-20 left-0 w-full bg-[#050507]/95 backdrop-blur-xl border-b border-white/10 p-8 flex flex-col gap-6 text-lg font-medium z-50 animate-in slide-in-from-top-5">
+            <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="#platforms" onClick={() => setIsMenuOpen(false)}>Systems</Link>
+            <Link href="#process" onClick={() => setIsMenuOpen(false)}>Trajectory</Link>
+            <Link href="#contact" className="text-purple-400" onClick={() => setIsMenuOpen(false)}>Initiate Sequence</Link>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Spacetime Warp Background */}
-        <div className="spacetime-warp"></div>
-        
-        {/* Time Dilation Lines */}
-        <div className="time-dilation"></div>
-        
-        {/* Deep Shadow Overlay */}
-        <div className="deep-shadow-overlay"></div>
+      <section className="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Column: Main Text */}
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+              <span className="text-xs font-medium tracking-wide text-gray-300">SIGNAL DETECTED</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
+              We Build<br />
+              <span className="text-gradient-purple">Digital Gravity.</span>
+            </h1>
 
-        {/* Mini Planetary Systems */}
-        <div className="absolute top-1/4 left-1/4 opacity-60">
-          <div className="mini-system w-32 h-32 text-[#ffcf48]">
-            <div className="mini-system-star"></div>
-            <div className="mini-system-planet" style={{ '--orbit-radius': 60, '--orbit-duration': '8s' } as React.CSSProperties}></div>
-          </div>
-        </div>
+            <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-lg leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+              In a universe of noise, we create the signal. High-performance web architectures that pull the world to you.
+            </p>
 
-        <div className="absolute bottom-1/3 right-1/4 opacity-40">
-          <div className="mini-system w-48 h-48 text-[#3b82f6]">
-            <div className="mini-system-star"></div>
-            <div className="mini-system-planet" style={{ '--orbit-radius': 90, '--orbit-duration': '12s' } as React.CSSProperties}></div>
-            <div className="mini-system-planet" style={{ '--orbit-radius': 70, '--orbit-duration': '6s', animationDelay: '-2s' } as React.CSSProperties}></div>
-          </div>
-        </div>
-
-        <div className="absolute top-1/3 right-10 opacity-30">
-          <div className="mini-system w-24 h-24 text-[#ec4899]">
-            <div className="mini-system-star"></div>
-            <div className="mini-system-planet" style={{ '--orbit-radius': 45, '--orbit-duration': '5s' } as React.CSSProperties}></div>
-          </div>
-        </div>
-
-        {/* Spherical Wormhole */}
-        <div className="sphere-wormhole"></div>
-
-        <div className="relative z-20 text-center max-w-5xl px-6">
-          <div className="inline-block mb-6 px-4 py-1 border border-[#ffcf48]/30 bg-[#ffcf48]/10 rounded-full backdrop-blur-md">
-            <span className="font-mono-tech text-[#ffcf48] text-xs tracking-[0.2em]">T-MINUS 2026: LAUNCH IMMINENT</span>
-          </div>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8 text-glow mix-blend-overlay">
-            DO NOT GO GENTLE<br />
-            INTO THAT GOOD NIGHT.
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed drop-shadow-lg">
-            We are explorers, pioneers, not caretakers. We engineer digital experiences that defy gravity and define the future.
-          </p>
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Link href="#contact" className="px-8 py-4 bg-[#ffcf48] text-black font-bold tracking-widest hover:bg-white transition-colors w-full md:w-auto shadow-[0_0_20px_rgba(255,207,72,0.3)]">
-              BEGIN MISSION
-            </Link>
-            <Link href="/about" className="px-8 py-4 border border-white/30 hover:border-white text-white font-mono-tech text-xs tracking-widest w-full md:w-auto backdrop-blur-sm">
-              READ LOGS
-            </Link>
+            <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+              <Link href="#contact" className="btn-primary text-base px-8 py-4 shadow-lg shadow-purple-500/25">
+                Initialize Project
+              </Link>
+              <Link href="#platforms" className="px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all backdrop-blur-sm font-medium">
+                Analyze Systems
+              </Link>
+            </div>
           </div>
 
-          {/* Animated Platform Cards */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 text-left hidden md:grid">
-            {platforms.map((platform, idx) => (
-              <div 
-                key={platform.id} 
-                className="hud-card p-6 bg-black/40 backdrop-blur-md border-white/10 hover:border-[#ffcf48]/50 transition-all duration-500 group animate-float"
-                style={{ animationDelay: `${idx * 1.5}s` }}
-              >
-                <div className="flex items-center gap-4 mb-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-white/5 group-hover:bg-white/10 transition-colors`}>
-                    <i className={`fa-brands ${platform.icon} text-xl ${platform.color}`}></i>
-                  </div>
-                  <span className="font-bold text-sm tracking-wide">{platform.name}</span>
-                </div>
-                <p className="text-xs text-gray-400 leading-relaxed border-l border-white/10 pl-3">
-                  {platform.desc}
-                </p>
+          {/* Right Column: Visuals */}
+          <div className="relative hidden lg:block h-[600px]">
+            {/* Floating Cards */}
+            <div className="absolute top-1/4 right-0 w-72 h-72 glass-card p-8 animate-float z-20">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg">
+                <i className="fa-brands fa-hubspot text-2xl text-white"></i>
               </div>
-            ))}
+              <h3 className="text-xl font-bold mb-2">HubSpot</h3>
+              <p className="text-sm text-gray-400">Centralized gravity for enterprise scale.</p>
+            </div>
+
+            <div className="absolute bottom-1/4 left-10 w-64 h-64 glass-card p-8 animate-float z-10" style={{ animationDelay: '-2s' }}>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
+                <i className="fa-brands fa-wordpress text-2xl text-white"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-2">WordPress</h3>
+              <p className="text-sm text-gray-400">Infinite expansion capabilities.</p>
+            </div>
+
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] -z-10"></div>
           </div>
         </div>
       </section>
 
-      {/* Platforms Section (The Systems) */}
+      {/* Platforms Section */}
       <section id="platforms" className="py-32 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-20 border-l-2 border-[#ffcf48] pl-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-2">PLANETARY SYSTEMS</h2>
-            <p className="font-mono-tech text-[#ffcf48] text-sm tracking-widest">CHOOSE YOUR DESTINATION</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {platforms.map((platform) => (
-              <div 
-                key={platform.id} 
-                className={`hud-card p-8 group card-shine transition-all duration-500 hover:-translate-y-2 hover:bg-white/5 border border-white/10 ${
-                  platform.id === 'hubspot' ? 'hover:border-[#ffcf48] hover:shadow-[0_0_30px_rgba(255,207,72,0.2)]' :
-                  platform.id === 'wordpress' ? 'hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]' :
-                  'hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]'
-                }`}
-              >
-                <div className="mb-8 flex justify-between items-start">
-                  <i className={`fa-brands ${platform.icon} text-4xl ${platform.color} group-hover:scale-110 transition-transform duration-500`}></i>
-                  <span className="font-mono-tech text-sm text-gray-400 group-hover:text-white transition-colors">SYS.0{platforms.indexOf(platform) + 1}</span>
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-white tracking-wide">{platform.name}</h3>
-                <p className="text-gray-300 mb-8 leading-relaxed h-20 text-lg font-medium">
-                  {platform.desc}
-                </p>
-                <div className="border-t border-white/10 pt-6">
-                  {platform.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-3 text-base text-gray-300 mb-3 font-mono-tech group-hover:text-white transition-colors">
-                      <span className={`${platform.color}`}>{'>'}</span>
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section (Trajectory) */}
-      <section id="process" className="py-32 px-6 relative z-10 bg-black/50 backdrop-blur-sm border-y border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">MISSION<br />TRAJECTORY.</h2>
-              <p className="text-xl text-gray-400 mb-12 font-light">
-                The only thing we can&apos;t cheat is physics. Our process is calculated, precise, and designed to withstand the pressures of the modern web.
-              </p>
-              <div className="font-mono-tech text-xs text-[#ffcf48]">
-                STATUS: ALL SYSTEMS NOMINAL
-              </div>
-            </div>
-            <div className="space-y-12 relative">
-              {/* Timeline Line */}
-              <div className="absolute left-[19px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-[#ffcf48] to-transparent opacity-30"></div>
-              
-              {[
-                { step: '01', title: 'LIFT OFF', subtitle: 'Discovery & Strategy', desc: 'Analyzing atmospheric conditions. Defining mission parameters and fuel requirements.' },
-                { step: '02', title: 'HYPER SLEEP', subtitle: 'Development Phase', desc: 'Deep work. Building the vessel with semantic code and robust frameworks.' },
-                { step: '03', title: 'TOUCHDOWN', subtitle: 'Deployment & Launch', desc: 'Landing on the new world. SEO optimization and performance calibration.' }
-              ].map((item) => (
-                <div key={item.step} className="flex gap-8 relative">
-                  <div className="w-10 h-10 rounded-full border border-[#ffcf48] bg-black flex items-center justify-center text-[#ffcf48] font-mono-tech text-xs z-10">
-                    {item.step}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                    <div className="text-[#ffcf48] font-mono-tech text-xs mb-3">{item.subtitle}</div>
-                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section (Resources) */}
-      <section id="pricing" className="py-32 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">MISSION RESOURCES.</h2>
-            <p className="text-xl text-gray-400 font-light">
-              Transparent fuel costs for your journey.
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">The <span className="text-gradient-blue">Trinity</span> Engine</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+              We don&apos;t guess. We deploy the three most powerful engines in the known web universe.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Starter */}
-            <div className="hud-card p-8">
-              <div className="mb-4 text-gray-400 font-mono-tech text-xs tracking-widest">MODULE A</div>
-              <div className="text-4xl font-bold mb-2">€2,499</div>
-              <div className="text-gray-500 text-sm mb-8">Single Ignition</div>
-              <p className="text-gray-300 mb-8 text-sm">Essential life support for small outposts.</p>
-              <Link href="#contact" className="block w-full py-3 border border-white/20 text-center font-mono-tech text-xs hover:bg-white hover:text-black transition-all">
-                SELECT MODULE
-              </Link>
+            {platforms.map((platform) => (
+              <div key={platform.id} className="glass-card p-10 flex flex-col group hover:bg-white/5">
+                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                  <i className={`fa-brands ${platform.icon} text-4xl text-white`}></i>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">{platform.name}</h3>
+                <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
+                  {platform.desc}
+                </p>
+                <ul className="space-y-4 border-t border-white/10 pt-8">
+                  {platform.features.map((feature, i) => (
+                    <li key={i} className="text-sm text-gray-300 flex items-center gap-3">
+                      <i className="fa-duotone fa-check-circle text-purple-400"></i>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process" className="py-32 px-6 relative z-10">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8">
+                Calculated <span className="text-gradient-purple">Trajectory.</span>
+              </h2>
+              <p className="text-gray-400 leading-relaxed text-lg mb-12">
+                Chaos is the enemy of conversion. Our process is a linear progression through time and space, ensuring every milestone is reached with mathematical precision.
+              </p>
+              
+              <div className="space-y-8">
+                {[
+                  { step: '01', title: 'Analysis', desc: 'Deep scanning of your market position and objectives.' },
+                  { step: '02', title: 'Synthesis', desc: 'Architecting the solution in the development void.' },
+                  { step: '03', title: 'Launch', desc: 'Deploying your signal to the global network.' }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 group">
+                    <div className="flex flex-col items-center">
+                      <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-sm font-bold text-gray-500 group-hover:border-purple-500 group-hover:text-purple-500 transition-colors bg-[#050507]">
+                        {item.step}
+                      </div>
+                      {i !== 2 && <div className="w-px h-full bg-white/10 my-2 group-hover:bg-purple-500/50 transition-colors"></div>}
+                    </div>
+                    <div className="pb-12">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">{item.title}</h3>
+                      <p className="text-gray-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Professional */}
-            <div className="hud-card p-8 border-[#ffcf48]/50 relative">
-              <div className="absolute top-0 right-0 bg-[#ffcf48] text-black text-[10px] font-bold px-2 py-1 font-mono-tech">RECOMMENDED</div>
-              <div className="mb-4 text-[#ffcf48] font-mono-tech text-xs tracking-widest">MODULE B</div>
-              <div className="text-4xl font-bold mb-2 text-gold-glow">€4,999</div>
-              <div className="text-gray-400 text-sm mb-8">Single Ignition</div>
-              <p className="text-gray-200 mb-8 text-sm">Advanced telemetry and CMS capabilities for growing colonies.</p>
-              <Link href="#contact" className="block w-full py-3 bg-[#ffcf48] text-black text-center font-mono-tech text-xs font-bold hover:bg-white transition-all">
-                SELECT MODULE
-              </Link>
+            <div className="relative h-[600px] glass-card overflow-hidden hidden lg:block">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+              {/* Abstract visual representation of a wormhole or tunnel */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border border-white/10 rounded-full animate-[spin_10s_linear_infinite]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_40px_20px_rgba(255,255,255,0.5)] animate-pulse"></div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Enterprise */}
-            <div className="hud-card p-8">
-              <div className="mb-4 text-white font-mono-tech text-xs tracking-widest">MODULE C</div>
-              <div className="text-4xl font-bold mb-2">CUSTOM</div>
-              <div className="text-gray-500 text-sm mb-8">Variable Output</div>
-              <p className="text-gray-300 mb-8 text-sm">Interstellar travel. Complex integrations and large-scale terraforming.</p>
-              <Link href="#contact" className="block w-full py-3 border border-white/20 text-center font-mono-tech text-xs hover:bg-white hover:text-black transition-all">
-                OPEN CHANNEL
-              </Link>
-            </div>
+      {/* Pricing / Resources */}
+      <section id="pricing" className="py-32 px-6 relative z-10">
+        <div className="max-w-[1400px] mx-auto">
+          <h2 className="text-center text-4xl md:text-5xl font-bold mb-20">Engagement <span className="text-gradient-blue">Protocols</span></h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: 'Core', price: '€2,499', type: 'Essential', features: ['Single Page Architecture', 'Basic SEO Telemetry', 'Contact Interface'] },
+              { name: 'Velocity', price: '€4,999', type: 'Advanced', features: ['Multi-page Ecosystem', 'CMS Integration', 'Analytics Dashboard'] },
+              { name: 'Singularity', price: 'Custom', type: 'Enterprise', features: ['Full Customization', 'API Integration', 'Priority Support Channel'] }
+            ].map((plan, i) => (
+              <div key={i} className={`glass-card p-10 flex flex-col items-center text-center relative overflow-hidden ${i === 1 ? 'border-purple-500/50 shadow-[0_0_40px_-10px_rgba(124,58,237,0.3)]' : ''}`}>
+                {i === 1 && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500"></div>}
+                <div className="text-sm font-bold tracking-widest text-gray-500 mb-6 uppercase">{plan.name}</div>
+                <div className="text-5xl font-bold text-white mb-2">{plan.price}</div>
+                <div className="text-sm text-purple-400 mb-8 font-medium">{plan.type}</div>
+                
+                <ul className="space-y-4 mb-10 w-full">
+                  {plan.features.map((f, idx) => (
+                    <li key={idx} className="text-gray-400 text-sm border-b border-white/5 pb-2 last:border-0">{f}</li>
+                  ))}
+                </ul>
+
+                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all ${i === 1 ? 'bg-white text-black hover:bg-gray-200' : 'border border-white/20 hover:bg-white/10'}`}>
+                  Initialize Protocol
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6 relative z-10 border-t border-white/5">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">INITIATE DOCKING.</h2>
-          <p className="text-xl text-gray-400 mb-12 font-light">
-            Transmit your coordinates. We will respond within 24 earth hours.
-          </p>
+      <section id="contact" className="py-32 px-6 relative z-10">
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-card p-12 md:p-20 relative overflow-hidden">
+            {/* Decorative glow */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-purple-600/30 rounded-full blur-[80px]"></div>
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-600/30 rounded-full blur-[80px]"></div>
 
-          <form ref={formRef} onSubmit={sendEmail} className="space-y-6 text-left hud-card p-8 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">IDENTIFIER</label>
-                <input 
-                  type="text" 
-                  name="user_name" 
-                  required 
-                  className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
-                  placeholder="Cooper"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">FREQUENCY</label>
-                <input 
-                  type="email" 
-                  name="user_email" 
-                  required 
-                  className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
-                  placeholder="cooper@nasa.gov"
-                />
-              </div>
+            <div className="relative z-10 text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Establish <span className="text-gradient-purple">Connection</span></h2>
+              <p className="text-gray-400">Secure channel open. Awaiting input.</p>
             </div>
-            <div>
-              <label className="block text-xs font-mono-tech text-[#ffcf48] mb-2">TRANSMISSION</label>
-              <textarea 
-                name="message" 
-                required 
-                rows={4} 
-                className="w-full bg-black/50 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#ffcf48] transition-colors font-mono"
-                placeholder="Describe your mission parameters..."
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              disabled={loading}
-              className="w-full py-4 bg-white text-black font-bold tracking-widest hover:bg-[#ffcf48] transition-colors disabled:opacity-50 font-mono-tech"
-            >
-              {loading ? 'TRANSMITTING...' : 'SEND TRANSMISSION'}
-            </button>
-            {status === 'success' && (
-              <p className="text-green-400 text-center font-mono-tech text-xs">TRANSMISSION RECEIVED.</p>
-            )}
-            {status === 'error' && (
-              <p className="text-red-400 text-center font-mono-tech text-xs">SIGNAL LOST. RETRY.</p>
-            )}
-          </form>
+
+            <form ref={formRef} onSubmit={sendEmail} className="relative z-10 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2 text-left">
+                  <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">CALLSIGN</label>
+                  <input 
+                    type="text" 
+                    name="user_name" 
+                    required 
+                    className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    placeholder="Name"
+                  />
+                </div>
+                <div className="space-y-2 text-left">
+                  <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">FREQUENCY (EMAIL)</label>
+                  <input 
+                    type="email" 
+                    name="user_email" 
+                    required 
+                    className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2 text-left">
+                <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">TRANSMISSION DATA</label>
+                <textarea 
+                  name="message" 
+                  required 
+                  rows={4} 
+                  className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
+                  placeholder="Enter transmission..."
+                ></textarea>
+              </div>
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="w-full btn-primary py-4 text-lg shadow-lg shadow-purple-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Broadcasting...' : 'Broadcast Signal'}
+              </button>
+              {status === 'success' && (
+                <p className="text-green-400 text-center text-sm font-medium animate-in fade-in">Transmission Received.</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-400 text-center text-sm font-medium animate-in fade-in">Signal Lost. Retry.</p>
+              )}
+            </form>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/10 bg-black relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <footer className="py-12 px-6 border-t border-white/5 bg-[#050507] relative z-10">
+        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <Image 
-              src="/img/logo.png" 
-              alt="CoreScene Logo" 
-              width={32} 
-              height={32} 
-              className="w-8 h-8 grayscale opacity-50 hover:opacity-100 transition-opacity"
-            />
-            <span className="font-bold text-lg tracking-widest font-mono-tech text-gray-500">CORESCENE</span>
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center">
+              <i className="fa-duotone fa-planet-ringed text-white text-[10px]"></i>
+            </div>
+            <span className="font-bold text-gray-300">CoreScene Systems</span>
+            <span className="mx-2 text-gray-700">|</span>
+            <span>Est. 2025</span>
           </div>
-          <div className="text-gray-600 text-xs font-mono-tech">
-            &copy; {new Date().getFullYear()} CORESCENE SYSTEMS. ENDURANCE.
-          </div>
-          <div className="flex gap-6">
-            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-twitter"></i></a>
-            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="#" className="text-gray-600 hover:text-[#ffcf48] transition-colors"><i className="fa-brands fa-github"></i></a>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Twitter</a>
+            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-white transition-colors">GitHub</a>
           </div>
         </div>
       </footer>
