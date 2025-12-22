@@ -135,11 +135,16 @@ body {
 
 /* --- Buttons --- */
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, var(--nebula-purple), var(--nebula-blue));
   color: white;
   border-radius: 9999px;
   padding: 12px 32px;
   font-weight: 600;
+  line-height: 1;
+  text-align: center;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
