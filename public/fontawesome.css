@@ -115,3 +115,7 @@
 .fa-brands.fa-hubspot::before { content: "\f3b2"; }
 .fa-brands.fa-wordpress::before { content: "\f19a"; }
 .fa-brands.fa-wix::before { content: "\f5cf"; }
+.fa-brands.fa-linkedin-in::before { content: "\f0e1"; }
+
+.fa-duotone.fa-thin.fa-envelope::before { content: "\10f0e0"; }
+.fa-duotone.fa-thin.fa-envelope::after { content: "\f0e0"; }
