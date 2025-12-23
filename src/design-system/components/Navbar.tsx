@@ -22,6 +22,14 @@ export default function Navbar({ active = 'none' }: { active?: ActiveKey }) {
     </Link>
   );
 
+  const mobileLinkClass = (key: ActiveKey) => {
+    const base = 'px-3 py-3 rounded-xl hover:bg-white/5 transition-colors';
+    if (key !== 'none' && active === key) {
+      return `${base} bg-white/5 border border-white/10 text-white`;
+    }
+    return base;
+  };
+
   return (
     <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
@@ -54,16 +62,16 @@ export default function Navbar({ active = 'none' }: { active?: ActiveKey }) {
 
       {isMenuOpen && (
         <div className="md:hidden fixed inset-x-0 top-20 bg-[#050507]/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-2 text-lg font-medium z-50 animate-in slide-in-from-top-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
-          <Link href="/" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/" className={mobileLinkClass('home')} onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
-          <Link href="/#platforms" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/#platforms" className={mobileLinkClass('none')} onClick={() => setIsMenuOpen(false)}>
             Systems
           </Link>
-          <Link href="/how-it-works" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/how-it-works" className={mobileLinkClass('trajectory')} onClick={() => setIsMenuOpen(false)}>
             Trajectory
           </Link>
-          <Link href="/about" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>
+          <Link href="/about" className={mobileLinkClass('about')} onClick={() => setIsMenuOpen(false)}>
             About
           </Link>
           <div className="pt-2">

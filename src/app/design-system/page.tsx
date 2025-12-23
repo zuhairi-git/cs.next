@@ -25,7 +25,7 @@ export default function DesignSystemPage() {
   return (
     <PageShell>
       <NebulaBackground />
-      <Navbar active="home" />
+      <Navbar active="none" />
 
       <main className="pt-32 pb-20 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto">

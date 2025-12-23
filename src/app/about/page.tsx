@@ -1,67 +1,15 @@
 'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import NebulaBackground from '@/design-system/components/NebulaBackground';
+import PageShell from '@/design-system/components/PageShell';
+import Navbar from '@/design-system/components/Navbar';
+import Footer from '@/design-system/components/Footer';
+import GlassCard from '@/design-system/components/GlassCard';
 
 export default function About() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <div className="min-h-screen text-white selection:bg-purple-500 selection:text-white overflow-hidden">
-      {/* Nebula Background */}
-      <div className="nebula-bg">
-        <div className="nebula-blob nebula-blob-1"></div>
-        <div className="nebula-blob nebula-blob-2"></div>
-        <div className="nebula-blob nebula-blob-3"></div>
-      </div>
-      <div className="stars"></div>
-
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
-        <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/img/logo.png"
-              alt="CoreScene logo"
-              width={56}
-              height={56}
-              priority
-              className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
-            />
-            <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/#platforms" className="hover:text-white transition-colors">Systems</Link>
-            <Link href="/how-it-works" className="hover:text-white transition-colors">Trajectory</Link>
-            <Link href="/about" className="text-white transition-colors">About</Link>
-            <Link href="/#contact" className="btn-primary text-sm">
-              Initiate Sequence
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-            <i className={`fa-duotone fa-thin ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 top-20 bg-[#050507]/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-2 text-lg font-medium z-50 animate-in slide-in-from-top-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
-            <Link href="/" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/#platforms" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Systems</Link>
-            <Link href="/how-it-works" className="px-3 py-3 rounded-xl hover:bg-white/5 transition-colors" onClick={() => setIsMenuOpen(false)}>Trajectory</Link>
-            <Link href="/about" className="px-3 py-3 rounded-xl bg-white/5 border border-white/10 text-white" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <div className="pt-2">
-              <Link href="/#contact" className="btn-primary w-full justify-center text-base" onClick={() => setIsMenuOpen(false)}>Initiate Sequence</Link>
-            </div>
-          </div>
-        )}
-      </nav>
+    <PageShell>
+      <NebulaBackground />
+      <Navbar active="about" />
 
       {/* Header */}
       <section className="pt-40 pb-20 px-6 relative z-10">
@@ -78,9 +26,11 @@ export default function About() {
               </h1>
             </div>
             <div className="flex items-end pb-2">
-              <p className="text-lg text-gray-400 leading-relaxed max-w-xl glass-card p-8 border-l-4 border-l-purple-500">
+              <GlassCard className="p-8 border-l-4 border-l-purple-500">
+                <p className="text-lg text-gray-400 leading-relaxed max-w-xl">
                 We are a team of digital astronauts based in Espoo, Finland. Our mission is to explore the unknown and bring back the future of web design.
-              </p>
+                </p>
+              </GlassCard>
             </div>
           </div>
         </div>
@@ -89,7 +39,7 @@ export default function About() {
       {/* Mission Values */}
       <section className="py-20 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="glass-card p-12 group hover:bg-white/5 transition-colors">
+          <GlassCard className="p-12 group hover:bg-white/5 transition-colors">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-pink-500/10 border border-white/10 flex items-center justify-center mb-8 shadow-[0_0_30px_-12px_rgba(168,85,247,0.8)] group-hover:scale-110 transition-transform duration-500">
               <i className="fa-duotone fa-thin fa-rocket text-3xl text-purple-200"></i>
             </div>
@@ -97,8 +47,8 @@ export default function About() {
             <p className="text-gray-400 leading-relaxed">
               &quot;We&apos;ve always defined ourselves by the ability to overcome the impossible.&quot; We push the boundaries of what&apos;s possible in the browser, venturing into new territories of design and interaction.
             </p>
-          </div>
-          <div className="glass-card p-12 group hover:bg-white/5 transition-colors">
+          </GlassCard>
+          <GlassCard className="p-12 group hover:bg-white/5 transition-colors">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/10 border border-white/10 flex items-center justify-center mb-8 shadow-[0_0_30px_-12px_rgba(59,130,246,0.8)] group-hover:scale-110 transition-transform duration-500">
               <i className="fa-duotone fa-thin fa-bullseye text-3xl text-blue-200"></i>
             </div>
@@ -106,7 +56,7 @@ export default function About() {
             <p className="text-gray-400 leading-relaxed">
               &quot;Gravity crosses all dimensions, including time.&quot; We create digital gravity that pulls customers in and keeps them in your orbit through compelling storytelling and immersive experiences.
             </p>
-          </div>
+          </GlassCard>
         </div>
       </section>
 
@@ -135,7 +85,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="glass-card aspect-video relative overflow-hidden group flex items-center justify-center">
+            <GlassCard className="aspect-video relative overflow-hidden group flex items-center justify-center">
               {/* Abstract Map Representation */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
               
@@ -153,32 +103,12 @@ export default function About() {
                   ESPOO, FINLAND
                 </div>
               </div>
-            </div>
+            </GlassCard>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/5 bg-[#050507] relative z-10">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} className="w-9 h-9 object-contain" />
-            <span className="font-bold text-gray-300">CoreScene Systems</span>
-            <span className="mx-2 text-gray-700">|</span>
-            <span>Est. 2025</span>
-          </div>
-          <div className="flex gap-8">
-            <a
-              href="https://www.linkedin.com/in/ali-zuhairi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
+      <Footer />
+    </PageShell>
   );
 }
