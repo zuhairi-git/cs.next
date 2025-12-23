@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HowItWorks() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +21,12 @@ export default function HowItWorks() {
       <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <img
+            <Image
               src="/img/logo.png"
               alt="CoreScene logo"
+              width={56}
+              height={56}
+              priority
               className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
             />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
@@ -86,16 +90,25 @@ export default function HowItWorks() {
       <section className="py-10 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="glass-card p-10 text-center group hover:bg-white/5 transition-colors">
-            <div className="text-4xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors">€1400+</div>
+            <div className="text-4xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors">€2,499</div>
             <div className="text-sm font-medium text-gray-500 tracking-wide">FUEL COST</div>
+            <div className="mt-3 text-sm text-gray-400 leading-relaxed">
+              Starting package price for a Core launch.
+            </div>
           </div>
           <div className="glass-card p-10 text-center group hover:bg-white/5 transition-colors">
-            <div className="text-4xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">1-2 Weeks</div>
+            <div className="text-4xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">2-4 Weeks</div>
             <div className="text-sm font-medium text-gray-500 tracking-wide">TIME TO ORBIT</div>
+            <div className="mt-3 text-sm text-gray-400 leading-relaxed">
+              Typical timeline from kickoff to live deployment.
+            </div>
           </div>
           <div className="glass-card p-10 text-center group hover:bg-white/5 transition-colors">
             <div className="text-4xl font-bold mb-2 text-white group-hover:text-pink-400 transition-colors">100%</div>
             <div className="text-sm font-medium text-gray-500 tracking-wide">SYSTEM INTEGRITY</div>
+            <div className="mt-3 text-sm text-gray-400 leading-relaxed">
+              QA pass: responsive, performance, and core UX checks.
+            </div>
           </div>
         </div>
       </section>
@@ -231,11 +244,7 @@ export default function HowItWorks() {
       <footer className="py-12 px-6 border-t border-white/5 bg-[#050507] relative z-10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <img
-              src="/img/logo.png"
-              alt="CoreScene logo"
-              className="w-9 h-9 object-contain"
-            />
+            <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} className="w-9 h-9 object-contain" />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>
             <span>Est. 2025</span>

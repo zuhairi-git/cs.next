@@ -2,6 +2,7 @@
 
 import { useState, useRef, FormEvent } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
@@ -66,9 +67,12 @@ export default function Home() {
       <nav className="fixed w-full z-50 top-0 border-b border-white/5 bg-[#050507]/80 backdrop-blur-md">
         <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <img
+            <Image
               src="/img/logo.png"
               alt="CoreScene logo"
+              width={56}
+              height={56}
+              priority
               className="w-14 h-14 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.25)] group-hover:scale-110 transition-transform"
             />
             <span className="font-bold text-xl tracking-tight text-white">CoreScene</span>
@@ -146,7 +150,7 @@ export default function Home() {
               <p className="text-sm text-gray-400">Centralized gravity for enterprise scale.</p>
             </div>
 
-            <div className="absolute bottom-1/4 left-10 w-64 h-64 glass-card p-8 animate-float z-10" style={{ animationDelay: '-2s' }}>
+            <div className="absolute bottom-10 left-8 w-64 h-64 glass-card p-8 animate-float z-10" style={{ animationDelay: '-2s' }}>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
                 <i className="fa-brands fa-wordpress text-2xl text-white"></i>
               </div>
@@ -154,7 +158,7 @@ export default function Home() {
               <p className="text-sm text-gray-400">Infinite expansion capabilities.</p>
             </div>
 
-            <div className="absolute top-14 left-24 w-60 h-60 glass-card p-8 animate-float z-30" style={{ animationDelay: '-4s' }}>
+            <div className="absolute top-10 left-16 w-60 h-60 glass-card p-8 animate-float z-30" style={{ animationDelay: '-4s' }}>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center mb-6 shadow-lg">
                 <i className="fa-brands fa-wix text-2xl text-white"></i>
               </div>
@@ -354,11 +358,7 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-white/5 bg-[#050507] relative z-10">
         <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <img
-              src="/img/logo.png"
-              alt="CoreScene logo"
-              className="w-9 h-9 object-contain"
-            />
+            <Image src="/img/logo.png" alt="CoreScene logo" width={36} height={36} className="w-9 h-9 object-contain" />
             <span className="font-bold text-gray-300">CoreScene Systems</span>
             <span className="mx-2 text-gray-700">|</span>
             <span>Est. 2025</span>
