@@ -81,7 +81,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-              <Link href="#contact" className="btn-primary text-base px-8 py-4 shadow-lg shadow-purple-500/25">
+              <Link href="#contact" className="btn-primary text-base px-8 py-4 shadow-lg shadow-purple-500/25 border border-transparent">
                 Initialize Project
               </Link>
               <Link href="#platforms" className="px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all backdrop-blur-sm font-medium">
