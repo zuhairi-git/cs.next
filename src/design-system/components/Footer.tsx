@@ -88,13 +88,13 @@ export default function Footer() {
               <li>
                 <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Data Protocols
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group">
                   <span className="w-1 h-1 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Mission Directives
+                  Terms of Service
                 </Link>
               </li>
             </ul>
