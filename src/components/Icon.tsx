@@ -70,9 +70,9 @@ const Icon: React.FC<IconProps> = ({
         ${containerSizes[size]}
         inline-flex items-center justify-center
         ${sizeClasses[size]}
-        ${gradient ? `bg-gradient-to-br ${gradient}` : 'bg-white/10 backdrop-blur-md border border-white/10'}
+        ${gradient ? `bg-gradient-to-br ${gradient}` : 'bg-[var(--glass-border)] backdrop-blur-md border border-[var(--glass-border)]'}
         ${containerVariantClasses[variant]}
-        shadow-lg text-white
+        shadow-lg text-[var(--starlight)]
         transition-transform duration-300 group-hover:scale-110
         ${className}
       `.trim().replace(/\s+/g, ' ')}

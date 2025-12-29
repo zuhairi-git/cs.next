@@ -12,9 +12,9 @@ const dotClass: Record<DotColor, string> = {
 
 export default function Badge({ dot = 'purple', children }: { dot?: DotColor; children: ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-sm">
       <span className={`w-2 h-2 rounded-full ${dotClass[dot]} animate-pulse`}></span>
-      <span className="text-xs font-medium tracking-wide text-gray-300">{children}</span>
+      <span className="text-xs font-medium tracking-wide text-[var(--text-muted)]">{children}</span>
     </div>
   );
 }

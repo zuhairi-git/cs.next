@@ -8,7 +8,7 @@ interface PageShellProps {
 
 export default function PageShell({ children }: PageShellProps) {
   return (
-    <div className="min-h-screen text-white selection:bg-purple-500 selection:text-white overflow-hidden">
+    <div className="min-h-screen text-[var(--starlight)] selection:bg-purple-500 selection:text-white overflow-hidden">
       {children}
     </div>
   );

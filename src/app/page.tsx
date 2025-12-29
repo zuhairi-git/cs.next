@@ -66,9 +66,9 @@ export default function Home() {
           
           {/* Left Column: Main Text */}
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-sm mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-              <span className="text-xs font-medium tracking-wide text-gray-300">SIGNAL DETECTED</span>
+              <span className="text-xs font-medium tracking-wide text-[var(--text-muted)]">SIGNAL DETECTED</span>
             </div>
             
             <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
@@ -76,7 +76,7 @@ export default function Home() {
               <span className="text-gradient-purple">Digital Gravity.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-lg leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            <p className="text-lg md:text-xl text-[var(--text-muted)] mb-10 max-w-lg leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
               In a universe of noise, we create the signal. High-performance web architectures that pull the world to you.
             </p>
 
@@ -84,7 +84,7 @@ export default function Home() {
               <Link href="#contact" className="btn-primary text-base px-8 py-4 shadow-lg shadow-purple-500/25 border border-transparent">
                 Initialize Project
               </Link>
-              <Link href="#platforms" className="px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all backdrop-blur-sm font-medium">
+              <Link href="#platforms" className="px-8 py-4 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-white/10 transition-all backdrop-blur-sm font-medium text-[var(--starlight)]">
                 Analyze Systems
               </Link>
             </div>
@@ -97,24 +97,24 @@ export default function Home() {
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg">
                 <i className="fa-brands fa-hubspot text-2xl text-white"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">HubSpot</h3>
-              <p className="text-sm text-gray-400">Centralized gravity for enterprise scale.</p>
+              <h3 className="text-xl font-bold mb-2 text-[var(--starlight)]">HubSpot</h3>
+              <p className="text-sm text-[var(--text-muted)]">Centralized gravity for enterprise scale.</p>
             </div>
 
             <div className="absolute bottom-10 left-8 w-64 h-64 glass-card p-8 animate-float z-10" style={{ animationDelay: '-2s' }}>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
                 <i className="fa-brands fa-wordpress text-2xl text-white"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">WordPress</h3>
-              <p className="text-sm text-gray-400">Infinite expansion capabilities.</p>
+              <h3 className="text-xl font-bold mb-2 text-[var(--starlight)]">WordPress</h3>
+              <p className="text-sm text-[var(--text-muted)]">Infinite expansion capabilities.</p>
             </div>
 
             <div className="absolute top-10 left-16 w-60 h-60 glass-card p-8 animate-float z-30" style={{ animationDelay: '-4s' }}>
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center mb-6 shadow-lg">
                 <i className="fa-brands fa-wix text-2xl text-white"></i>
               </div>
-              <h3 className="text-xl font-bold mb-2">Wix Studio</h3>
-              <p className="text-sm text-gray-400">Fast, polished sites with total control.</p>
+              <h3 className="text-xl font-bold mb-2 text-[var(--starlight)]">Wix Studio</h3>
+              <p className="text-sm text-[var(--text-muted)]">Fast, polished sites with total control.</p>
             </div>
 
             {/* Background Glow */}
@@ -128,25 +128,25 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-bold mb-6">The <span className="text-gradient-blue">Trinity</span> Engine</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-[var(--text-muted)] max-w-2xl mx-auto text-lg">
               We don&apos;t guess. We deploy the three most powerful engines in the known web universe.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {platforms.map((platform) => (
-              <div key={platform.id} className="glass-card p-10 flex flex-col group hover:bg-white/5">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                  <i className={`fa-brands ${platform.icon} text-4xl text-white`}></i>
+              <div key={platform.id} className="glass-card p-10 flex flex-col group">
+                <div className="w-16 h-16 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                  <i className={`fa-brands ${platform.icon} text-4xl text-[var(--starlight)]`}></i>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{platform.name}</h3>
-                <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
+                <h3 className="text-2xl font-bold text-[var(--starlight)] mb-4">{platform.name}</h3>
+                <p className="text-[var(--text-muted)] leading-relaxed mb-8 flex-grow">
                   {platform.desc}
                 </p>
-                <ul className="space-y-4 border-t border-white/10 pt-8">
+                <ul className="space-y-4 border-t border-[var(--glass-border)] pt-8">
                   {platform.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-gray-300 flex items-center gap-3">
-                      <i className="fa-duotone fa-thin fa-check text-purple-400"></i>
+                    <li key={i} className="text-sm text-[var(--text-muted)] flex items-center gap-3">
+                      <i className="fa-duotone fa-thin fa-check text-[var(--icon-purple)]"></i>
                       {feature}
                     </li>
                   ))}
@@ -165,7 +165,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-6xl font-bold mb-8">
                 Calculated <span className="text-gradient-purple">Trajectory.</span>
               </h2>
-              <p className="text-gray-400 leading-relaxed text-lg mb-12">
+              <p className="text-[var(--text-muted)] leading-relaxed text-lg mb-12">
                 Chaos is the enemy of conversion. Our process is a linear progression through time and space, ensuring every milestone is reached with mathematical precision.
               </p>
 
@@ -183,14 +183,14 @@ export default function Home() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                     <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-sm font-bold text-gray-500 group-hover:border-purple-500 group-hover:text-purple-500 transition-colors bg-[#050507]">
+                      <div className="w-12 h-12 rounded-full border border-[var(--glass-border)] flex items-center justify-center text-sm font-bold text-[var(--text-muted)] group-hover:border-purple-500 group-hover:text-purple-500 transition-colors bg-[var(--space-black)]">
                         {item.step}
                       </div>
-                      {i !== 2 && <div className="w-px h-full bg-white/10 my-2 group-hover:bg-purple-500/50 transition-colors"></div>}
+                      {i !== 2 && <div className="w-px h-full bg-[var(--glass-border)] my-2 group-hover:bg-purple-500/50 transition-colors"></div>}
                     </div>
                     <div className="pb-12">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">{item.title}</h3>
-                      <p className="text-gray-400">{item.desc}</p>
+                      <h3 className="text-xl font-bold text-[var(--starlight)] mb-2 group-hover:text-[var(--icon-purple)] transition-colors">{item.title}</h3>
+                      <p className="text-[var(--text-muted)]">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -200,9 +200,9 @@ export default function Home() {
             <div className="relative h-[600px] glass-card overflow-hidden hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
               {/* Abstract visual representation of a wormhole or tunnel */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border border-white/10 rounded-full animate-[spin_10s_linear_infinite]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[var(--glass-border)] rounded-full animate-[spin_20s_linear_infinite]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-[var(--glass-border)] rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border border-[var(--glass-border)] rounded-full animate-[spin_10s_linear_infinite]"></div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_40px_20px_rgba(255,255,255,0.5)] animate-pulse"></div>
             </div>
           </div>
@@ -222,17 +222,17 @@ export default function Home() {
             ].map((plan, i) => (
               <div key={i} className={`glass-card p-10 flex flex-col items-center text-center relative overflow-hidden ${i === 1 ? 'border-purple-500/50 shadow-[0_0_40px_-10px_rgba(124,58,237,0.3)]' : ''}`}>
                 {i === 1 && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500"></div>}
-                <div className="text-sm font-bold tracking-widest text-gray-500 mb-6 uppercase">{plan.name}</div>
-                <div className="text-5xl font-bold text-white mb-2">{plan.price}</div>
-                <div className="text-sm text-purple-400 mb-8 font-medium">{plan.type}</div>
+                <div className="text-sm font-bold tracking-widest text-[var(--text-muted)] mb-6 uppercase">{plan.name}</div>
+                <div className="text-5xl font-bold text-[var(--starlight)] mb-2">{plan.price}</div>
+                <div className="text-sm text-[var(--icon-purple)] mb-8 font-medium">{plan.type}</div>
                 
                 <ul className="space-y-4 mb-10 w-full">
                   {plan.features.map((f, idx) => (
-                    <li key={idx} className="text-gray-400 text-sm border-b border-white/5 pb-2 last:border-0">{f}</li>
+                    <li key={idx} className="text-[var(--text-muted)] text-sm border-b border-[var(--glass-border)] pb-2 last:border-0">{f}</li>
                   ))}
                 </ul>
 
-                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all ${i === 1 ? 'bg-white text-black hover:bg-gray-200' : 'border border-white/20 hover:bg-white/10'}`}>
+                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all ${i === 1 ? 'bg-[var(--starlight)] text-[var(--space-black)] hover:bg-gray-200' : 'border border-[var(--glass-border)] hover:bg-[var(--glass-bg-hover)] text-[var(--starlight)]'}`}>
                   Initialize Protocol
                 </Link>
               </div>
@@ -251,39 +251,39 @@ export default function Home() {
 
             <div className="relative z-10 text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Establish <span className="text-gradient-purple">Connection</span></h2>
-              <p className="text-gray-400">Secure channel open. Awaiting input.</p>
+              <p className="text-[var(--text-muted)]">Secure channel open. Awaiting input.</p>
             </div>
 
             <form ref={formRef} onSubmit={sendEmail} className="relative z-10 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 text-left">
-                  <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">CALLSIGN</label>
+                  <label className="text-xs font-bold tracking-widest text-[var(--text-muted)] ml-4">CALLSIGN</label>
                   <input 
                     type="text" 
                     name="user_name" 
                     required 
-                    className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
                     placeholder="Name"
                   />
                 </div>
                 <div className="space-y-2 text-left">
-                  <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">FREQUENCY (EMAIL)</label>
+                  <label className="text-xs font-bold tracking-widest text-[var(--text-muted)] ml-4">FREQUENCY (EMAIL)</label>
                   <input 
                     type="email" 
                     name="user_email" 
                     required 
-                    className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
                     placeholder="Email"
                   />
                 </div>
               </div>
               <div className="space-y-2 text-left">
-                <label className="text-xs font-bold tracking-widest text-gray-500 ml-4">TRANSMISSION DATA</label>
+                <label className="text-xs font-bold tracking-widest text-[var(--text-muted)] ml-4">TRANSMISSION DATA</label>
                 <textarea 
                   name="message" 
                   required 
                   rows={4} 
-                  className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-4 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
+                  className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
                   placeholder="Enter transmission..."
                 ></textarea>
               </div>

@@ -25,7 +25,7 @@ type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 function getClasses(variant: ButtonVariant, className: string | undefined) {
   const base = variant === 'primary'
     ? 'btn-primary'
-    : 'rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all backdrop-blur-sm font-medium';
+    : 'rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-border)] transition-all backdrop-blur-sm font-medium text-[var(--starlight)]';
 
   return `${base} ${className ?? ''}`.trim();
 }
