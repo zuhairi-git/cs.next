@@ -119,3 +119,9 @@
 
 .fa-duotone.fa-thin.fa-envelope::before { content: "\10f0e0"; }
 .fa-duotone.fa-thin.fa-envelope::after { content: "\f0e0"; }
+
+.fa-duotone.fa-thin.fa-atom::before { content: "\10f5d2"; }
+.fa-duotone.fa-thin.fa-atom::after { content: "\f5d2"; }
+
+.fa-duotone.fa-thin.fa-clock::before { content: "\10f017"; }
+.fa-duotone.fa-thin.fa-clock::after { content: "\f017"; }
