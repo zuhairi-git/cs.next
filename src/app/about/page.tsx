@@ -72,19 +72,35 @@ export default function About() {
 
       {/* Location / Team - Minimal */}
       <section className="py-20 px-6 relative z-10">
-        <div className="max-w-[1000px] mx-auto">
-            <GlassCard className="p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
-                <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-3xl font-bold text-[var(--starlight)] mb-4">Base of Operations</h2>
-                    <p className="text-[var(--text-muted)] text-lg mb-6">
-                        Espoo, Finland. <br/>
-                        60.2055° N, 24.6559° E
-                    </p>
+        <div className="max-w-[1200px] mx-auto">
+            <div className="relative rounded-3xl overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-xl shadow-2xl">
+                {/* Background Gradient for depth */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--space-black)]/50 to-[var(--nebula-purple)]/20 pointer-events-none"></div>
+                
+                {/* Background Stars/Dots */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-10 left-20 w-1 h-1 bg-[var(--starlight)]/20 rounded-full"></div>
+                    <div className="absolute top-40 left-60 w-0.5 h-0.5 bg-[var(--starlight)]/20 rounded-full"></div>
+                    <div className="absolute bottom-20 right-40 w-1 h-1 bg-[var(--starlight)]/20 rounded-full"></div>
+                    <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[var(--starlight)]/20 rounded-full"></div>
                 </div>
-                <div className="relative w-64 h-64 flex-shrink-0">
-                     <Globe />
+
+                <div className="p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+                    <div className="flex-1 text-center md:text-left">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[var(--starlight)] mb-6 tracking-tight">Base of Operations</h2>
+                        <div className="space-y-2">
+                            <p className="text-[var(--text-muted)] text-xl">Espoo, Finland.</p>
+                            <div className="font-mono text-[var(--text-muted)] opacity-80 text-lg">
+                                <p>N: 60.188877°</p>
+                                <p>E: 24.742082°</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="relative w-80 h-80 flex-shrink-0 flex items-center justify-center">
+                         <Globe />
+                    </div>
                 </div>
-            </GlassCard>
+            </div>
         </div>
       </section>
 
