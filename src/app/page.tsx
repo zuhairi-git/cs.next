@@ -7,6 +7,7 @@ import NebulaBackground from '@/design-system/components/NebulaBackground';
 import PageShell from '@/design-system/components/PageShell';
 import Navbar from '@/design-system/components/Navbar';
 import Footer from '@/design-system/components/Footer';
+import PlatformIcon, { PlatformType } from '@/design-system/components/PlatformIcon';
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -136,8 +137,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {platforms.map((platform) => (
               <div key={platform.id} className="glass-card p-10 flex flex-col group">
-                <div className="w-16 h-16 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                  <i className={`fa-brands ${platform.icon} text-4xl text-[var(--starlight)]`}></i>
+                <div className="mb-8 group-hover:scale-110 transition-transform duration-500">
+                  <PlatformIcon platform={platform.id as PlatformType} />
                 </div>
                 <h3 className="text-2xl font-bold text-[var(--starlight)] mb-4">{platform.name}</h3>
                 <p className="text-[var(--text-muted)] leading-relaxed mb-8 flex-grow">

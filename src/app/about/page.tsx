@@ -4,6 +4,7 @@ import PageShell from '@/design-system/components/PageShell';
 import Navbar from '@/design-system/components/Navbar';
 import Footer from '@/design-system/components/Footer';
 import GlassCard from '@/design-system/components/GlassCard';
+import PlatformIcon from '@/design-system/components/PlatformIcon';
 
 export default function About() {
   return (
@@ -56,6 +57,58 @@ export default function About() {
             <p className="text-[var(--text-muted)] leading-relaxed">
               &quot;Gravity crosses all dimensions, including time.&quot; We create digital gravity that pulls customers in and keeps them in your orbit through compelling storytelling and immersive experiences.
             </p>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Design Philosophy & Services */}
+      <section className="py-20 px-6 relative z-10">
+        <div className="max-w-[1400px] mx-auto">
+          <GlassCard className="p-12 md:p-16 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-[var(--starlight)] mb-6">
+                  Inspired by the <span className="text-gradient-blue">Cosmos</span>
+                </h2>
+                <p className="text-[var(--text-muted)] leading-relaxed mb-6">
+                  Our design philosophy draws deep inspiration from the cinematic masterpiece <em>Interstellar</em>. Just as the movie explores the boundaries of space, time, and human connection, we aim to push the limits of digital experiences.
+                </p>
+                <p className="text-[var(--text-muted)] leading-relaxed mb-8">
+                  We use cosmic terminology—gravity, singularity, horizons—not just for style, but to represent the powerful pull of a well-crafted brand. We build digital universes that capture attention and hold it.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-bold text-[var(--starlight)]">Mission Capabilities</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <PlatformIcon platform="hubspot" size="sm" />
+                    <div>
+                      <h4 className="text-[var(--starlight)] font-medium mb-1">HubSpot Development</h4>
+                      <p className="text-sm text-[var(--text-muted)]">Scalable CRM-integrated websites.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <PlatformIcon platform="wordpress" size="sm" />
+                    <div>
+                      <h4 className="text-[var(--starlight)] font-medium mb-1">WordPress Solutions</h4>
+                      <p className="text-sm text-[var(--text-muted)]">Custom themes and plugins.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <PlatformIcon platform="wix" size="sm" />
+                    <div>
+                      <h4 className="text-[var(--starlight)] font-medium mb-1">Wix Studio Design</h4>
+                      <p className="text-sm text-[var(--text-muted)]">Stunning, rapid-deployment sites.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </GlassCard>
         </div>
       </section>
