@@ -145,6 +145,15 @@ body {
   box-shadow: var(--glass-shadow-hover);
 }
 
+/* --- Custom Shadows --- */
+.shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='light'] .shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 /* --- Typography & Gradients --- */
 .text-gradient {
   background: linear-gradient(135deg, var(--starlight) 0%, #a5b4fc 100%);
@@ -186,6 +195,11 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* shadow-soft */
+}
+
+[data-theme='light'] .btn-primary {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary::before {

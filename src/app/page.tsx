@@ -84,7 +84,7 @@ export default function Home() {
               <Link href="#contact" className="btn-primary text-base px-8 py-4 shadow-lg shadow-purple-500/25 border border-transparent">
                 Initialize Project
               </Link>
-              <Link href="#platforms" className="px-8 py-4 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-white/10 transition-all backdrop-blur-sm font-medium text-[var(--starlight)]">
+              <Link href="#platforms" className="px-8 py-4 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-white/10 transition-all backdrop-blur-sm font-medium text-[var(--starlight)] shadow-soft">
                 Analyze Systems
               </Link>
             </div>
@@ -183,7 +183,7 @@ export default function Home() {
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                     <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 rounded-full border border-[var(--glass-border)] flex items-center justify-center text-sm font-bold text-[var(--text-muted)] group-hover:border-purple-500 group-hover:text-purple-500 transition-colors bg-[var(--space-black)]">
+                      <div className="w-12 h-12 rounded-full border border-[var(--glass-border)] flex items-center justify-center text-sm font-bold text-[var(--text-muted)] group-hover:border-purple-500 group-hover:text-purple-500 transition-colors bg-[var(--space-black)] shadow-soft">
                         {item.step}
                       </div>
                       {i !== 2 && <div className="w-px h-full bg-[var(--glass-border)] my-2 group-hover:bg-purple-500/50 transition-colors"></div>}
@@ -232,7 +232,7 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all ${i === 1 ? 'bg-[var(--starlight)] text-[var(--space-black)] hover:bg-gray-200' : 'border border-[var(--glass-border)] hover:bg-[var(--glass-bg-hover)] text-[var(--starlight)]'}`}>
+                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all shadow-soft ${i === 1 ? 'bg-[var(--starlight)] text-[var(--space-black)] hover:bg-gray-200' : 'border border-[var(--glass-border)] hover:bg-[var(--glass-bg-hover)] text-[var(--starlight)]'}`}>
                   Initialize Protocol
                 </Link>
               </div>
@@ -262,7 +262,7 @@ export default function Home() {
                     type="text" 
                     name="user_name" 
                     required 
-                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all shadow-soft"
                     placeholder="Name"
                   />
                 </div>
@@ -272,7 +272,7 @@ export default function Home() {
                     type="email" 
                     name="user_email" 
                     required 
-                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all"
+                    className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-full px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all shadow-soft"
                     placeholder="Email"
                   />
                 </div>
@@ -283,7 +283,7 @@ export default function Home() {
                   name="message" 
                   required 
                   rows={4} 
-                  className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none"
+                  className="w-full bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl px-6 py-4 text-[var(--starlight)] focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all resize-none shadow-soft"
                   placeholder="Enter transmission..."
                 ></textarea>
               </div>
