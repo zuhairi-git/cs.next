@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -9,6 +9,18 @@ type ActiveKey = 'home' | 'trajectory' | 'about' | 'none';
 
 export default function Navbar({ active = 'none' }: { active?: ActiveKey }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const desktopLink = (key: ActiveKey, label: string, href: string) => (
     <Link
@@ -24,17 +36,17 @@ export default function Navbar({ active = 'none' }: { active?: ActiveKey }) {
   );
 
   const mobileLinkClass = (key: ActiveKey) => {
-    const base = 'px-3 py-3 rounded-xl hover:bg-white/5 transition-colors text-[var(--text-muted)] hover:text-[var(--starlight)]';
+    const base = 'text-3xl font-bold tracking-tight transition-all duration-300 hover:text-[var(--starlight)] hover:scale-105';
     if (key !== 'none' && active === key) {
-      return `${base} bg-white/5 border border-[var(--glass-border)] text-[var(--starlight)]`;
+      return `${base} text-[var(--starlight)] text-gradient-purple`;
     }
-    return base;
+    return `${base} text-[var(--text-muted)]`;
   };
 
   return (
-    <nav className="fixed w-full z-50 top-0 border-b border-[var(--nav-border)] bg-[var(--nav-bg)] backdrop-blur-md transition-colors duration-300">
-      <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
+    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${isMenuOpen ? 'bg-[var(--nav-bg)]' : 'bg-[var(--nav-bg)]/80 backdrop-blur-md border-b border-[var(--nav-border)]'}`}>
+      <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between relative z-50">
+        <Link href="/" className="flex items-center gap-3 group" onClick={() => setIsMenuOpen(false)}>
           <Image
             src="/img/logo.png"
             alt="CoreScene logo"
@@ -59,37 +71,80 @@ export default function Navbar({ active = 'none' }: { active?: ActiveKey }) {
 
         <div className="md:hidden flex items-center gap-4">
           <ThemeSwitcher />
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[var(--starlight)] p-2">
-            <i className={`fa-duotone fa-thin ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-2xl`}></i>
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="text-[var(--starlight)] p-2 relative z-50 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-end gap-1.5">
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`}></span>
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'w-4'}`}></span>
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'w-6 -rotate-45 -translate-y-2' : 'w-5'}`}></span>
+            </div>
           </button>
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-20 bg-[var(--nav-bg)] backdrop-blur-xl border-b border-[var(--nav-border)] p-6 flex flex-col gap-2 text-lg font-medium z-50 animate-in slide-in-from-top-5 max-h-[calc(100vh-5rem)] overflow-y-auto">
-          <Link href="/" className={mobileLinkClass('home')} onClick={() => setIsMenuOpen(false)}>
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`md:hidden fixed inset-0 bg-[var(--space-black)]/95 backdrop-blur-2xl z-40 transition-all duration-500 ease-in-out flex flex-col justify-center items-center ${
+          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        }`}
+      >
+        {/* Background Elements */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600/20 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+
+        <div className="flex flex-col items-center gap-8 text-center relative z-10">
+          <Link 
+            href="/" 
+            className={mobileLinkClass('home')} 
+            onClick={() => setIsMenuOpen(false)}
+            style={{ transitionDelay: '100ms' }}
+          >
             Home
           </Link>
-          <Link href="/#platforms" className={mobileLinkClass('none')} onClick={() => setIsMenuOpen(false)}>
+          <Link 
+            href="/#platforms" 
+            className={mobileLinkClass('none')} 
+            onClick={() => setIsMenuOpen(false)}
+            style={{ transitionDelay: '150ms' }}
+          >
             Systems
           </Link>
-          <Link href="/how-it-works" className={mobileLinkClass('trajectory')} onClick={() => setIsMenuOpen(false)}>
+          <Link 
+            href="/how-it-works" 
+            className={mobileLinkClass('trajectory')} 
+            onClick={() => setIsMenuOpen(false)}
+            style={{ transitionDelay: '200ms' }}
+          >
             Trajectory
           </Link>
-          <Link href="/about" className={mobileLinkClass('about')} onClick={() => setIsMenuOpen(false)}>
+          <Link 
+            href="/about" 
+            className={mobileLinkClass('about')} 
+            onClick={() => setIsMenuOpen(false)}
+            style={{ transitionDelay: '250ms' }}
+          >
             About
           </Link>
-          <div className="pt-2">
+          
+          <div className="pt-8" style={{ transitionDelay: '300ms' }}>
             <Link
               href="/#contact"
-              className="btn-primary w-full justify-center text-base"
+              className="btn-primary text-lg px-10 py-4 shadow-lg shadow-purple-500/20"
               onClick={() => setIsMenuOpen(false)}
             >
               Initiate Sequence
             </Link>
           </div>
         </div>
-      )}
+
+        {/* Footer Info in Menu */}
+        <div className="absolute bottom-10 text-[var(--text-muted)] text-sm">
+          <p>© 2025 CoreScene</p>
+        </div>
+      </div>
     </nav>
   );
 }
