@@ -2,43 +2,55 @@ import React from 'react';
 
 export default function Globe() {
   return (
-    <div className="relative w-64 h-64 flex items-center justify-center">
-      {/* Globe Sphere */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border border-indigo-500/30 shadow-[0_0_40px_rgba(79,70,229,0.4)] overflow-hidden backdrop-blur-sm">
+    <div className="relative w-full h-full flex items-center justify-center">
+      {/* Ambient Glow - Subtle */}
+      <div className="absolute w-40 h-40 bg-[var(--nebula-blue)]/10 rounded-full blur-3xl"></div>
+
+      {/* Decorative Rings */}
+      <div className="absolute w-[110%] h-[110%] border border-[var(--text-muted)]/10 rounded-full"></div>
+      <div className="absolute w-[130%] h-[130%] border border-dashed border-[var(--text-muted)]/10 rounded-full animate-[spin_60s_linear_infinite]"></div>
+
+      {/* Main Globe */}
+      <div className="relative w-64 h-64 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-[2px] overflow-hidden shadow-lg shadow-[var(--nebula-blue)]/5">
         
-        {/* Grid Lines */}
+        {/* Grid Pattern */}
         <div className="absolute inset-0 opacity-20">
-            <svg viewBox="0 0 100 100" className="w-full h-full stroke-indigo-300 fill-none stroke-[0.5]">
+            <svg viewBox="0 0 100 100" className="w-full h-full stroke-[var(--starlight)] fill-none stroke-[0.5]">
                 <circle cx="50" cy="50" r="49.5" />
-                <ellipse cx="50" cy="50" rx="20" ry="50" />
-                <ellipse cx="50" cy="50" rx="40" ry="50" />
-                <path d="M0,50 L100,50" />
-                <path d="M50,0 L50,100" />
-                <path d="M2,30 Q50,40 98,30" fill="none" />
-                <path d="M2,70 Q50,60 98,70" fill="none" />
+                
+                {/* Meridians */}
+                <ellipse cx="50" cy="50" rx="15" ry="50" />
+                <ellipse cx="50" cy="50" rx="30" ry="50" />
+                <line x1="50" y1="0" x2="50" y2="100" />
+                
+                {/* Parallels */}
+                <line x1="0" y1="50" x2="100" y2="50" />
+                <path d="M2,30 Q50,35 98,30" />
+                <path d="M2,70 Q50,65 98,70" />
+                <path d="M7,15 Q50,20 93,15" />
+                <path d="M7,85 Q50,80 93,85" />
             </svg>
         </div>
 
-        {/* Simplified Landmasses (Abstract) - REMOVED */}
-
-        {/* Espoo Marker */}
-        {/* Approx location on this abstract map (Europe is top-center-ish) */}
-        <div className="absolute top-[25%] left-[55%] transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="relative flex items-center justify-center group">
-                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-ping absolute opacity-75"></div>
-                <div className="w-2 h-2 bg-cyan-300 rounded-full relative shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
+        {/* Location Marker */}
+        <div className="absolute top-[28%] left-[58%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="flex flex-col items-center gap-1 group cursor-default">
+                <div className="relative">
+                    <div className="w-2 h-2 bg-[var(--nebula-blue)] rounded-full relative z-10"></div>
+                    <div className="w-2 h-2 bg-[var(--nebula-blue)] rounded-full absolute inset-0 animate-ping opacity-75"></div>
+                    <div className="w-8 h-8 bg-[var(--nebula-blue)]/20 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-sm"></div>
+                </div>
                 
-                {/* Label */}
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 backdrop-blur-sm border border-white/10 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-200 whitespace-nowrap">
-                    Espoo
+                {/* Label - Minimal */}
+                <div className="text-[10px] font-mono text-[var(--starlight)] tracking-widest opacity-80 bg-[var(--space-black)]/50 px-2 rounded backdrop-blur-sm border border-[var(--glass-border)]">
+                    ESPOO
                 </div>
             </div>
         </div>
+        
+        {/* Reflection/Shine */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[var(--starlight)]/5 to-transparent pointer-events-none"></div>
       </div>
-
-      {/* Outer Rings */}
-      <div className="absolute inset-[-10%] border border-indigo-500/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-      <div className="absolute inset-[-20%] border border-purple-500/10 rounded-full animate-[spin_15s_linear_infinite_reverse] border-dashed"></div>
     </div>
   );
 }
