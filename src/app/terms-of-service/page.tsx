@@ -46,6 +46,9 @@ export default function TermsOfService() {
               <p>
                 To the fullest extent permitted by law, CoreScene shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues.
               </p>
+              <p className="mt-4">
+                We are not responsible for performance issues, including delays or slowdowns, caused by server limitations or third-party, pre-built components used within the platform. We utilize available infrastructure and integrations in accordance with industry best practices and make reasonable efforts to ensure reliable performance, but we cannot guarantee uninterrupted or optimal speed at all times.
+              </p>
             </section>
 
             <section>
