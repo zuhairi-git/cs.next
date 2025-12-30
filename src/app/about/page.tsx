@@ -5,6 +5,7 @@ import Navbar from '@/design-system/components/Navbar';
 import Footer from '@/design-system/components/Footer';
 import GlassCard from '@/design-system/components/GlassCard';
 import PlatformIcon from '@/design-system/components/PlatformIcon';
+import Globe from '@/components/Globe';
 
 export default function About() {
   return (
@@ -81,12 +82,7 @@ export default function About() {
                     </p>
                 </div>
                 <div className="relative w-64 h-64 flex-shrink-0">
-                     {/* Simple Abstract Planet */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 opacity-20 animate-pulse-slow"></div>
-                    <div className="absolute inset-4 rounded-full border border-[var(--glass-border)] animate-[spin_10s_linear_infinite]"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-3 h-3 bg-white rounded-full shadow-[0_0_20px_white]"></div>
-                    </div>
+                     <Globe />
                 </div>
             </GlassCard>
         </div>
