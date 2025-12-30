@@ -216,7 +216,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Core', price: '€2,499', type: 'Essential', features: ['Single Page Architecture', 'Basic SEO Telemetry', 'Contact Interface'] },
+              { name: 'Core', price: '€1,499', type: 'Essential', features: ['Single Page Architecture', 'Basic SEO Telemetry', 'Contact Interface'] },
               { name: 'Velocity', price: '€4,999', type: 'Advanced', features: ['Multi-page Ecosystem', 'CMS Integration', 'Analytics Dashboard'] },
               { name: 'Singularity', price: 'Custom', type: 'Enterprise', features: ['Full Customization', 'API Integration', 'Priority Support Channel'] }
             ].map((plan, i) => (

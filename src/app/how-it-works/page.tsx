@@ -42,7 +42,7 @@ export default function HowItWorks() {
       <section className="py-10 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           <GlassCard className="p-10 text-center group transition-colors">
-            <div className="text-4xl font-bold mb-2 text-[var(--starlight)] group-hover:text-[var(--icon-purple)] transition-colors">€2,499</div>
+            <div className="text-4xl font-bold mb-2 text-[var(--starlight)] group-hover:text-[var(--icon-purple)] transition-colors">€1,499</div>
             <div className="text-sm font-medium text-[var(--text-muted)] tracking-wide">FUEL COST</div>
             <div className="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
               Starting package price for a Core launch.
