@@ -4,6 +4,7 @@ import "./globals.css";
 import "../../public/fontawesome.css";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { ThemeProvider } from "@/design-system/context/ThemeContext";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,6 +115,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-JC5HT4SX05" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
