@@ -217,9 +217,43 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Core', price: '€1,499', type: 'Essential', features: ['Single Page Architecture', 'Basic SEO Telemetry', 'Contact Interface'] },
-              { name: 'Velocity', price: '€4,999', type: 'Advanced', features: ['Multi-page Ecosystem', 'CMS Integration', 'Analytics Dashboard'] },
-              { name: 'Singularity', price: 'Custom', type: 'Enterprise', features: ['Full Customization', 'API Integration', 'Priority Support Channel'] }
+              { 
+                name: 'Core', 
+                price: '€1,499', 
+                type: 'Essential', 
+                features: [
+                  'CMS Integration',
+                  'Single Page Architecture',
+                  'Basic SEO Setup',
+                  'Single Language',
+                  '2 Design Revisions',
+                  '€10/Professional Image'
+                ] 
+              },
+              { 
+                name: 'Velocity', 
+                price: '€4,999', 
+                type: 'Advanced', 
+                features: [
+                  'Multi-page Ecosystem (Max 6 Pages)',
+                  'Dual Language Support',
+                  '4 Revisions per Page',
+                  'Custom Domain Setup',
+                  'Business Email Setup',
+                  'Analytics Dashboard'
+                ] 
+              },
+              { 
+                name: 'Singularity', 
+                price: 'Custom', 
+                type: 'Enterprise', 
+                features: [
+                  'Full Customization',
+                  'API Integration',
+                  'Product & Service Design',
+                  'Custom Scope of Work'
+                ] 
+              }
             ].map((plan, i) => (
               <div key={i} className={`glass-card p-10 flex flex-col items-center text-center relative overflow-hidden ${i === 1 ? 'border-purple-500/50 shadow-[0_0_40px_-10px_rgba(124,58,237,0.3)]' : ''}`}>
                 {i === 1 && <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500"></div>}
