@@ -125,3 +125,9 @@
 
 .fa-duotone.fa-thin.fa-clock::before { content: "\10f017"; }
 .fa-duotone.fa-thin.fa-clock::after { content: "\f017"; }
+
+.fa-duotone.fa-thin.fa-sun::before { content: "\10f185"; }
+.fa-duotone.fa-thin.fa-sun::after { content: "\f185"; }
+
+.fa-duotone.fa-thin.fa-moon::before { content: "\10f186"; }
+.fa-duotone.fa-thin.fa-moon::after { content: "\f186"; }

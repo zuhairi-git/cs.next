@@ -38,7 +38,7 @@ export default function ThemeSwitcher() {
       <i className={`
         fa-duotone fa-thin text-lg transition-all duration-500 transform group-hover:scale-110 z-10
         ${theme === 'dark' 
-          ? 'fa-sun-bright text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.6)] group-hover:rotate-90' 
+          ? 'fa-sun text-yellow-300 drop-shadow-[0_0_8px_rgba(253,224,71,0.6)] group-hover:rotate-90' 
           : 'fa-moon text-indigo-600 drop-shadow-[0_0_8px_rgba(79,70,229,0.4)] group-hover:-rotate-12'
         }
       `}></i>
