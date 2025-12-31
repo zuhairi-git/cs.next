@@ -3,7 +3,7 @@
 import Link, { type LinkProps } from 'next/link';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary';
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'contrast';
 
 type CommonProps = {
   children: ReactNode;
@@ -23,9 +23,21 @@ type ButtonAsLinkProps = CommonProps & {
 type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 function getClasses(variant: ButtonVariant, className: string | undefined) {
-  const base = variant === 'primary'
-    ? 'btn-primary'
-    : 'rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:bg-[var(--glass-border)] transition-all backdrop-blur-sm font-medium text-[var(--starlight)] shadow-soft';
+  let base = '';
+  switch (variant) {
+    case 'primary':
+      base = 'btn-primary';
+      break;
+    case 'contrast':
+      base = 'btn-contrast';
+      break;
+    case 'outline':
+    case 'secondary':
+      base = 'btn-outline';
+      break;
+    default:
+      base = 'btn-primary';
+  }
 
   return `${base} ${className ?? ''}`.trim();
 }

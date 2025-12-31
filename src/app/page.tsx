@@ -8,6 +8,7 @@ import PageShell from '@/design-system/components/PageShell';
 import Navbar from '@/design-system/components/Navbar';
 import Footer from '@/design-system/components/Footer';
 import PlatformIcon, { PlatformType } from '@/design-system/components/PlatformIcon';
+import Button from '@/design-system/components/Button';
 
 export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -222,7 +223,6 @@ export default function Home() {
                 price: '€1,499', 
                 type: 'Essential', 
                 features: [
-                  'CMS Integration',
                   'Single Page Architecture',
                   'Basic SEO Setup',
                   'Single Language',
@@ -238,7 +238,6 @@ export default function Home() {
                   'Multi-page Ecosystem (Max 6 Pages)',
                   'Dual Language Support',
                   '4 Revisions per Page',
-                  'Custom Domain Setup',
                   'Business Email Setup',
                   'Analytics Dashboard'
                 ] 
@@ -267,9 +266,9 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <Link href="#contact" className={`w-full py-3 rounded-full font-bold text-sm transition-all shadow-soft ${i === 1 ? 'bg-[var(--starlight)] text-[var(--space-black)] hover:bg-gray-200' : 'border border-[var(--glass-border)] hover:bg-[var(--glass-bg-hover)] text-[var(--starlight)]'}`}>
+                <Button href="#contact" variant={i === 1 ? 'contrast' : 'outline'} className="w-full">
                   Initialize Protocol
-                </Link>
+                </Button>
               </div>
             ))}
           </div>
