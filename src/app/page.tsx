@@ -253,6 +253,7 @@ export default function Home() {
                   'Full Customization',
                   'API Integration',
                   'Product & Service Design',
+                  'Branding',
                   'Custom Scope of Work'
                 ] 
               }
