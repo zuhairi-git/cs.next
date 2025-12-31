@@ -214,7 +214,10 @@ export default function Home() {
       {/* Pricing / Resources */}
       <section id="pricing" className="py-32 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto">
-          <h2 className="text-center text-4xl md:text-5xl font-bold mb-20">Engagement <span className="text-gradient-blue">Protocols</span></h2>
+          <h2 className="text-center text-4xl md:text-5xl font-bold mb-6">Engagement <span className="text-gradient-blue">Protocols</span></h2>
+          <p className="text-[var(--text-muted)] max-w-2xl mx-auto text-lg text-center mb-20">
+            One-time payment with full ownership — after launch, you’ll have full control to add, edit, and publish content anytime with ease.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
