@@ -39,7 +39,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] flex items-center justify-center text-[var(--text-muted)] hover:bg-white/10 hover:text-[var(--starlight)] hover:border-purple-500/50 transition-all group shadow-soft"
                 aria-label="LinkedIn"
               >
-                <i className="fa-brands fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
+                <i className="fa-duotone fa-thin fa-share-nodes text-lg group-hover:scale-110 transition-transform"></i>
               </a>
             </div>
           </div>

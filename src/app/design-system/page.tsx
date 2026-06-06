@@ -231,13 +231,13 @@ export default function DesignSystemPage() {
                 <div className="text-xs font-bold tracking-widest text-[var(--text-muted)] mb-6">BRANDS</div>
                 <div className="flex flex-wrap items-center gap-6">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg">
-                    <i className="fa-brands fa-hubspot text-2xl text-white"></i>
+                    <i className="fa-duotone fa-thin fa-magnet text-2xl text-white"></i>
                   </div>
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center shadow-lg">
-                    <i className="fa-brands fa-wordpress text-2xl text-white"></i>
+                    <i className="fa-duotone fa-thin fa-blog text-2xl text-white"></i>
                   </div>
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center shadow-lg">
-                    <i className="fa-brands fa-wix text-2xl text-white"></i>
+                    <i className="fa-duotone fa-thin fa-palette text-2xl text-white"></i>
                   </div>
                 </div>
               </GlassCard>

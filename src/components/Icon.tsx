@@ -6,8 +6,8 @@ interface IconProps {
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   /** Background gradient colors (e.g., 'from-blue-500 to-cyan-500') */
   gradient?: string;
-  /** Icon type: duotone-thin, brands, or inline */
-  type?: 'duotone-thin' | 'brands' | 'inline';
+  /** Icon type: duotone-thin or inline */
+  type?: 'duotone-thin' | 'inline';
   /** Additional CSS classes */
   className?: string;
   /** Background container style */
@@ -43,7 +43,6 @@ const Icon: React.FC<IconProps> = ({
   // Icon type classes
   const iconTypeClasses = {
     'duotone-thin': 'fa-duotone fa-thin',
-    'brands': 'fa-brands',
     'inline': 'fa-duotone fa-thin',
   };
 

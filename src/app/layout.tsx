@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "../../public/fontawesome.css";
+import "../../public/fa-kit-60396e54cd-web/css/fontawesome.css";
+import "../../public/fa-kit-60396e54cd-web/css/duotone-thin.min.css";
+import "../../public/fa-kit-60396e54cd-web/css/brands.min.css";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { ThemeProvider } from "@/design-system/context/ThemeContext";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
