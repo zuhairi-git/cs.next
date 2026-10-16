@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { FaArrowUp } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,14 +15,16 @@ export default function ScrollToTopButton() {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
     });
   };
 
@@ -33,7 +35,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 p-3 bg-[#ffcf48] text-black rounded-full shadow-[0_0_20px_rgba(255,207,72,0.3)] transition-all duration-300 ease-in-out transform hover:scale-110 hover:bg-[var(--starlight)] hover:text-[var(--space-black)] border border-[var(--glass-border)]"
+      className="fixed bottom-8 right-8 z-50 p-3 bg-[var(--accent)] text-[var(--on-accent)] rounded-sm transition-all duration-300 ease-in-out transform hover:scale-110 hover:bg-[var(--starlight)] hover:text-[var(--space-black)] border border-[var(--glass-border)]"
       aria-label="Scroll to top"
     >
       <FaArrowUp className="w-5 h-5" />

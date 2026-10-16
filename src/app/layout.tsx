@@ -1,119 +1,112 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "../../public/fa-kit-60396e54cd-web/css/fontawesome.css";
 import "../../public/fa-kit-60396e54cd-web/css/duotone-thin.min.css";
 import "../../public/fa-kit-60396e54cd-web/css/brands.min.css";
-import ScrollToTopButton from "../components/ScrollToTopButton";
-import { ThemeProvider } from "@/design-system/context/ThemeContext";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-
-const geistSans = Geist({
+import { ThemeProvider } from "@/design-system/context/ThemeContext";
+import { themeScript } from "@/design-system/epicThemes";
+const geistSans = localFont({
+  src: "../../public/fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  display: "swap",
+  weight: "100 900",
 });
-
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../../public/fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  weight: "100 900",
 });
-
+const description =
+  "CoreScene connects websites, CRM, and useful AI into practical growth systems for small service businesses. Human strategy, thoughtful design, and connected workflows. Based in Espoo, Finland.";
 export const metadata: Metadata = {
   title: {
-    default: "CoreScene - Premium Web Design for HubSpot, WordPress & Wix",
-    template: "%s | CoreScene"
+    default: "CoreScene — Human ambition. Useful AI. Connected business.",
+    template: "%s | CoreScene",
   },
-  description: "Empowering Your Web Presence with innovative, cutting-edge website solutions for HubSpot, WordPress & Wix. Based in Espoo, Finland.",
-  keywords: ["Web Design", "HubSpot", "WordPress", "Wix", "Web Development", "Digital Agency", "Espoo", "Finland", "SEO", "Next.js"],
-  authors: [{ name: "CoreScene Team" }],
+  description,
+  keywords: [
+    "AI implementation",
+    "Workflow automation",
+    "CRM integration",
+    "Web design",
+    "HubSpot",
+    "WordPress",
+    "Wix Studio",
+    "Espoo",
+    "Finland",
+  ],
+  authors: [{ name: "CoreScene" }],
   creator: "CoreScene",
   publisher: "CoreScene",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://www.corescene.com'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL("https://www.corescene.com"),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "CoreScene - Premium Web Design Agency",
-    description: "Specializing in high-performance websites using HubSpot, WordPress, and Wix.",
-    url: 'https://www.corescene.com',
-    siteName: 'CoreScene',
-    locale: 'en_US',
-    type: 'website',
+    title: "CoreScene — Small team. Cosmic potential.",
+    description,
+    url: "https://www.corescene.com",
+    siteName: "CoreScene",
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: '/img/og-image.jpg', // Ensure this image exists or update path
-        width: 1200,
-        height: 630,
-        alt: 'CoreScene Digital Agency',
+        url: "/img/hero.jpg",
+        alt: "CoreScene — an independent digital and AI studio",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: "CoreScene - Premium Web Design",
-    description: "Innovative web solutions for HubSpot, WordPress & Wix.",
-    images: ['/img/og-image.jpg'], // Ensure this image exists
+    card: "summary_large_image",
+    title: "CoreScene — Small team. Cosmic potential.",
+    description,
+    images: ["/img/hero.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: { index: true, follow: true },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "CoreScene",
-    "url": "https://www.corescene.com",
-    "logo": "https://www.corescene.com/img/logo.png",
-    "image": "https://www.corescene.com/img/og-image.jpg",
-    "description": "Premium Web Design Agency specializing in HubSpot, WordPress, and Wix solutions.",
-    "address": {
+    name: "CoreScene",
+    url: "https://www.corescene.com",
+    logo: "https://www.corescene.com/img/logo.png",
+    description,
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": "Espoo",
-      "addressCountry": "FI"
+      addressLocality: "Espoo",
+      addressCountry: "FI",
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "60.2055",
-      "longitude": "24.6559"
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Connected business services",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Signal — business and workflow diagnostic",
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Launch — website, CRM, and workflow implementation",
+        },
+        { "@type": "OfferCatalog", name: "Orbit — ongoing system improvement" },
+      ],
     },
-    "priceRange": "€1499-€10000+",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Core Plan",
-        "price": "1499",
-        "priceCurrency": "EUR"
-      },
-      {
-        "@type": "Offer",
-        "name": "Velocity Plan",
-        "price": "4999",
-        "priceCurrency": "EUR"
-      }
-    ]
   };
-
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      data-theme="dark"
+      data-epic-theme="interstellar"
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

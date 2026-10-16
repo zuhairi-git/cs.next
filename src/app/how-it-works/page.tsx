@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import HowItWorksClient from "./HowItWorksClient";
-
+const description =
+  "Find the friction, connect the pieces, and keep improving. See how CoreScene turns a business problem into a practical website, CRM, and AI workflow.";
 export const metadata: Metadata = {
-  title: "How It Works - CoreScene Process",
-  description: "Discover our 3-step web design process: Analysis, Synthesis, and Launch. We ensure a smooth trajectory for your digital presence.",
+  title: "Our approach",
+  description,
+  alternates: { canonical: "/how-it-works" },
   openGraph: {
-    title: "How It Works - CoreScene Process",
-    description: "Discover our 3-step web design process: Analysis, Synthesis, and Launch. We ensure a smooth trajectory for your digital presence.",
-    url: 'https://www.corescene.com/how-it-works',
+    title: "Our approach | CoreScene",
+    description,
+    url: "https://www.corescene.com/how-it-works",
   },
 };
-
 export default function HowItWorksPage() {
   return <HowItWorksClient />;
 }

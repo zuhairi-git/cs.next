@@ -1,14 +1,7 @@
-'use client';
-
-import type { ReactNode } from 'react';
-
-interface PageShellProps {
-  children: ReactNode;
-}
-
-export default function PageShell({ children }: PageShellProps) {
+import type { ReactNode } from "react";
+export default function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen text-[var(--starlight)] selection:bg-purple-500 selection:text-white overflow-hidden">
+    <div className="site-shell min-h-screen text-[var(--starlight)]">
       {children}
     </div>
   );
