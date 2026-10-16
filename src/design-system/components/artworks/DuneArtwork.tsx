@@ -31,10 +31,10 @@ export default function DuneArtwork() {
   }, [gusts]);
   const stirSand = (point: DOMPoint, force = false) => {
     const now = performance.now();
-    if (!force && now - lastGust.current < 110) return;
+    if (!force && now - lastGust.current < 240) return;
     lastGust.current = now;
     const gust = { x: point.x, y: point.y, key: ++gustId.current };
-    setGusts(previous => [...previous.slice(-4), gust]);
+    setGusts(previous => [...previous.slice(-1), gust]);
   };
   const respond = (event: PointerEvent<SVGSVGElement>) => {
     if (!event.isPrimary) return null;
@@ -68,6 +68,11 @@ export default function DuneArtwork() {
       if (point) stirSand(point, true);
     }}>
     <defs>
+      <linearGradient id={id("touch-sand")} x1="-28" y1="0" x2="66" y2="0" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#f4ce92" stopOpacity="0" />
+        <stop offset=".45" stopColor="#f4ce92" stopOpacity=".7" />
+        <stop offset="1" stopColor="#f4ce92" stopOpacity="0" />
+      </linearGradient>
       <clipPath id={id("portal")}>
         <path d="M72 752V358a328 328 0 0 1 656 0v394Z" />
       </clipPath>
@@ -256,15 +261,13 @@ export default function DuneArtwork() {
       </g>
       {gusts.map(gust => <g key={gust.key} transform={`translate(${gust.x} ${gust.y})`} pointerEvents="none">
         <g className={styles.sandBurst}>
-          <g className={styles.touchWind} stroke="#ffe0a0" strokeWidth="1" strokeLinecap="round">
-            <path d="M-32 12Q-4 -14 39 -9T88 -24" />
-            <path d="M-20 21Q14 -1 53 3T104 -13" />
-            <path d="M-8 29Q21 12 65 16" />
+          <g className={styles.touchWind} stroke={paint("touch-sand")} strokeWidth="1.2" strokeLinecap="round">
+            <path d="M-28 8Q6 -8 32 -3T66 -7" />
           </g>
-          {Array.from({ length: 18 }, (_, i) => <circle key={i} className={styles.spiceGrain}
-            cx={(i * 17) % 32 - 16} cy={(i * 11) % 20 - 10} r={i % 4 === 0 ? 2 : 1}
-            fill={i % 4 === 0 ? "#b9e2f0" : "#ffcf83"}
-            style={{ "--grain-x": `${30 + (i * 23) % 94}px`, "--grain-y": `${-18 - (i * 19) % 65}px`, "--grain-delay": `${i % 5 * 35}ms` } as CSSProperties} />)}
+          {Array.from({ length: 6 }, (_, i) => <circle key={i} className={styles.spiceGrain}
+            cx={i * 6 - 15} cy={(i * 7) % 12 - 6} r={i % 3 === 0 ? 1.2 : .7}
+            fill="#f4ce92"
+            style={{ "--grain-x": `${16 + i * 4}px`, "--grain-y": `${-6 - i * 3}px`, "--grain-delay": `${i * 30}ms` } as CSSProperties} />)}
         </g>
       </g>)}
       <g clipPath={paint("portal")} className={styles.grain} opacity=".065">
