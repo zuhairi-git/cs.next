@@ -1,0 +1,21 @@
+.scene { overflow: visible; --pointer-x: 0; --pointer-y: 0; touch-action: pan-y pinch-zoom; }
+.scene > * { pointer-events: none; }
+.reference { stroke: var(--ink-muted); opacity: .24; transition: opacity 350ms; }
+.scene[data-engaged="true"] .reference { opacity: .5; }
+.coordinates { fill: var(--ink-muted); opacity: .6; font: 8px ui-monospace, monospace; letter-spacing: 1px; }
+.body { offset-distance: var(--position); offset-rotate: 0deg; }
+.bodyLabel { font: 10px ui-monospace, monospace; letter-spacing: 1.5px; }
+.caption { fill: var(--ds-accent); font: 9px ui-monospace, monospace; letter-spacing: 2.5px; }
+.subcaption { fill: var(--ink-muted); font-size: 7px; letter-spacing: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .scene > g {
+    transform: translate(calc(var(--pointer-x) * 10px), calc(var(--pointer-y) * 7px));
+    transition: transform 650ms cubic-bezier(.2, .7, .2, 1);
+  }
+  .scene > .reference {
+    transform: translate(calc(var(--pointer-x) * -5px), calc(var(--pointer-y) * -4px));
+    transition: transform 650ms cubic-bezier(.2, .7, .2, 1), opacity 350ms;
+  }
+  .body { animation: travel var(--duration) var(--delay) linear infinite; }
+}
+@keyframes travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }

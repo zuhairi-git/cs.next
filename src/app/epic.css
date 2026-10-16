@@ -1432,3 +1432,13 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Source artwork uses these local color tokens for its gallery details. */
+.cinematic-artwork {
+  --ds-accent: var(--accent);
+  --ink-muted: var(--text-muted);
+  --surface: var(--space-black);
+}
+.cinematic-artwork > .ds-artwork-horizon { display: none; }
+[data-epic-theme="dune"] .cinematic-artwork > .ds-artwork-orbital { display: none; }
+[data-epic-theme="dune"] .cinematic-artwork > .ds-artwork-horizon { display: block; }

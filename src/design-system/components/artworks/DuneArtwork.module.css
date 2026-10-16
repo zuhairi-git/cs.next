@@ -1,0 +1,152 @@
+.scene {
+  overflow: visible;
+  isolation: isolate;
+  --pointer-x: 0;
+  --pointer-y: 0;
+  pointer-events: auto;
+  touch-action: pan-y pinch-zoom;
+}
+
+.scene > * { pointer-events: none; }
+
+.stars, .eclipse, .middleDune, .nearDune, .wind {
+  transition: transform 650ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.ripple, .rippleEcho { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+.grain {
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.contours { opacity: .18; }
+.corona { transform-origin: 452px 255px; }
+.eclipse { filter: brightness(1); transition: transform 650ms cubic-bezier(.2, .7, .2, 1), filter 350ms; }
+.scene[data-engaged="true"] .eclipse { filter: brightness(1.15); }
+.haze { opacity: .9; }
+.dust { opacity: .65; }
+.windStreaks { opacity: 0; }
+.birdWings { transform-origin: 0 2px; }
+.travelerLegs, .scarf { transform-box: fill-box; transform-origin: top center; }
+.scarf { transform-origin: right center; }
+
+/* Only lightweight transforms and opacity animate; the textured terrain stays still. */
+@media (prefers-reduced-motion: no-preference) {
+  .stars { transform: translate(calc(var(--pointer-x) * -5px), calc(var(--pointer-y) * -4px)); }
+  .eclipse { transform: translate(calc(var(--pointer-x) * -10px), calc(var(--pointer-y) * -7px)); }
+  .middleDune { transform: translate(calc(var(--pointer-x) * 5px), calc(var(--pointer-y) * 3px)); }
+  .nearDune { transform: translate(calc(var(--pointer-x) * 10px), calc(var(--pointer-y) * 5px)); }
+  .wind { transform: translate(calc(var(--pointer-x) * 16px), calc(var(--pointer-y) * 10px)); }
+  .stars circle { animation: twinkle 7s ease-in-out infinite alternate; }
+  .stars circle:nth-child(3n) { animation-delay: -3s; }
+  .stars circle:nth-child(3n + 1) { animation-delay: -5s; }
+  .ripple { animation: ripple 1.6s ease-out both; }
+  .rippleEcho { animation: ripple 1.6s .15s ease-out both; }
+  .corona { animation: breathe 12s ease-in-out infinite alternate; }
+  .haze { animation: haze 19s ease-in-out infinite alternate; }
+  .dust { animation: drift 24s ease-in-out infinite alternate; }
+  .dust circle { animation: sandFloat 13s ease-in-out infinite; }
+  .dust circle:nth-child(3n) { animation-delay: -4s; animation-duration: 17s; }
+  .dust circle:nth-child(3n + 1) { animation-delay: -9s; animation-duration: 21s; }
+  .birdFlight { animation: glide 24s ease-in-out infinite; }
+  .birdWings { animation: wings 3.2s ease-in-out infinite; }
+  .travelers { animation: journey 32s linear infinite; }
+  .travelerStep { animation: step 2.8s ease-in-out infinite; }
+  .secondTraveler { animation-delay: -1.4s; }
+  .travelerLegs { animation: stride 2.8s ease-in-out infinite; }
+  .secondTraveler .travelerLegs { animation-delay: -1.4s; }
+  .scarf { animation: flutter 3.6s ease-in-out infinite; }
+  .windStreaks path { animation: gust 12s ease-in-out infinite; }
+  .windStreaks path:nth-child(2) { animation-delay: -3s; }
+  .windStreaks path:nth-child(3) { animation-delay: -7s; }
+  .windStreaks path:nth-child(4) { animation-delay: -10s; }
+}
+
+@keyframes glide {
+  0%, 100% { transform: translate(0, 0); }
+  35% { transform: translate(150px, -38px); }
+  70% { transform: translate(65px, 15px); }
+}
+
+@keyframes wings {
+  0%, 60%, 100% { transform: scaleY(1); }
+  20% { transform: scaleY(.15); }
+  40% { transform: scaleY(1.3); }
+}
+
+/* Fade at the loop seam so the travelers never visibly walk backwards. */
+@keyframes journey {
+  0% { transform: translate(-16px, 11px); opacity: 1; }
+  85% { opacity: 1; }
+  95% { transform: translate(19px, -13px); opacity: 0; }
+  96% { transform: translate(-16px, 11px); opacity: 0; }
+  100% { transform: translate(-16px, 11px); opacity: 1; }
+}
+
+@keyframes step {
+  0%, 50%, 100% { transform: translateY(0); }
+  25%, 75% { transform: translateY(-1.2px); }
+}
+
+@keyframes stride {
+  0%, 100% { transform: skewX(-7deg); }
+  50% { transform: skewX(7deg); }
+}
+
+@keyframes flutter {
+  0%, 100% { transform: rotate(-4deg) scaleX(1); }
+  50% { transform: rotate(7deg) scaleX(1.16); }
+}
+
+@keyframes sandFloat {
+  0%, 100% { transform: translate(-24px, 8px); opacity: .08; }
+  45% { opacity: .8; }
+  85% { transform: translate(65px, -22px); opacity: .08; }
+}
+
+@keyframes gust {
+  0%, 15%, 85%, 100% { opacity: 0; }
+  40% { opacity: .4; }
+  0% { transform: translate(-60px, 8px); }
+  100% { transform: translate(110px, -15px); }
+}
+
+@keyframes twinkle {
+  from { opacity: .35; }
+  to { opacity: 1; }
+}
+
+@keyframes ripple {
+  from { opacity: .7; transform: scale(.5); }
+  to { opacity: 0; transform: scale(12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple { animation: feedback 1s ease-out both; }
+}
+
+@keyframes feedback {
+  from { opacity: .5; }
+  to { opacity: 0; }
+}
+
+@keyframes breathe {
+  from { opacity: .7; transform: scale(.98); }
+  to { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes haze {
+  from { opacity: .65; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(6px); }
+}
+
+@keyframes drift {
+  from { opacity: .35; transform: translate(-5px, 4px); }
+  to { opacity: .85; transform: translate(8px, -6px); }
+}
+
+@media (max-width: 479px) {
+  .registration { opacity: .4; }
+  .contours { opacity: .12; }
+}
