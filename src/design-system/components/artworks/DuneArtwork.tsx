@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState, type PointerEvent } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import styles from "./DuneArtwork.module.css";
 
 // Fixed coordinates make the scene deterministic during server rendering.
@@ -20,7 +20,22 @@ export default function DuneArtwork() {
   const instance = useId().replace(/:/g, "");
   const id = (name: string) => `dune-${instance}-${name}`;
   const paint = (name: string) => `url(#${id(name)})`;
-  const [ripple, setRipple] = useState<{ x: number; y: number; key: number } | null>(null);
+  const [gusts, setGusts] = useState<{ x: number; y: number; key: number }[]>([]);
+  const lastGust = useRef(0);
+  const gustId = useRef(0);
+  useEffect(() => {
+    if (!gusts.length) return;
+    // Also clears feedback when reduced-motion styles disable animations.
+    const timeout = window.setTimeout(() => setGusts([]), 1600);
+    return () => window.clearTimeout(timeout);
+  }, [gusts]);
+  const stirSand = (point: DOMPoint, force = false) => {
+    const now = performance.now();
+    if (!force && now - lastGust.current < 110) return;
+    lastGust.current = now;
+    const gust = { x: point.x, y: point.y, key: ++gustId.current };
+    setGusts(previous => [...previous.slice(-4), gust]);
+  };
   const respond = (event: PointerEvent<SVGSVGElement>) => {
     if (!event.isPrimary) return null;
     const scene = event.currentTarget;
@@ -28,8 +43,10 @@ export default function DuneArtwork() {
     if (!matrix) return null;
     scene.dataset.engaged = "true";
     const point = new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse());
-    scene.style.setProperty("--pointer-x", `${Math.max(-1, Math.min(1, (point.x - 400) / 400))}`);
-    scene.style.setProperty("--pointer-y", `${Math.max(-1, Math.min(1, (point.y - 425) / 425))}`);
+    if (event.pointerType === "mouse") {
+      scene.style.setProperty("--pointer-x", `${Math.max(-1, Math.min(1, (point.x - 400) / 400))}`);
+      scene.style.setProperty("--pointer-y", `${Math.max(-1, Math.min(1, (point.y - 425) / 425))}`);
+    }
     return point;
   };
   const reset = (event: PointerEvent<SVGSVGElement>) => {
@@ -40,12 +57,15 @@ export default function DuneArtwork() {
   };
 
   return <svg className={`ds-artwork-horizon ${styles.scene}`} viewBox="0 0 800 850" fill="none" aria-hidden="true" focusable="false"
-    onPointerMove={respond} onPointerLeave={reset} onPointerCancel={reset}
+    onPointerMove={event => {
+      const point = respond(event);
+      if (point && (event.buttons & 1)) stirSand(point);
+    }} onPointerLeave={reset} onPointerCancel={reset}
     onPointerUp={event => { if (event.pointerType !== "mouse") reset(event); }}
     onPointerDown={event => {
       if (!event.isPrimary || event.button !== 0) return;
       const point = respond(event);
-      if (point) setRipple(previous => ({ x: point.x, y: point.y, key: (previous?.key ?? 0) + 1 }));
+      if (point) stirSand(point, true);
     }}>
     <defs>
       <clipPath id={id("portal")}>
@@ -234,10 +254,19 @@ export default function DuneArtwork() {
         {dust.map((particle, index) => <circle key={index} cx={particle.x} cy={particle.y} r={particle.radius} opacity={.12 + (index % 4) * .1} />)}
       </g>
       </g>
-      {ripple && <g key={ripple.key} className={styles.ripplePosition} transform={`translate(${ripple.x} ${ripple.y})`} pointerEvents="none">
-        <circle className={styles.ripple} r="12" stroke="#ffdf9f" strokeWidth="1.5" />
-        <circle className={styles.rippleEcho} r="12" stroke="#f4ce92" strokeWidth=".7" />
-      </g>}
+      {gusts.map(gust => <g key={gust.key} transform={`translate(${gust.x} ${gust.y})`} pointerEvents="none">
+        <g className={styles.sandBurst}>
+          <g className={styles.touchWind} stroke="#ffe0a0" strokeWidth="1" strokeLinecap="round">
+            <path d="M-32 12Q-4 -14 39 -9T88 -24" />
+            <path d="M-20 21Q14 -1 53 3T104 -13" />
+            <path d="M-8 29Q21 12 65 16" />
+          </g>
+          {Array.from({ length: 18 }, (_, i) => <circle key={i} className={styles.spiceGrain}
+            cx={(i * 17) % 32 - 16} cy={(i * 11) % 20 - 10} r={i % 4 === 0 ? 2 : 1}
+            fill={i % 4 === 0 ? "#b9e2f0" : "#ffcf83"}
+            style={{ "--grain-x": `${30 + (i * 23) % 94}px`, "--grain-y": `${-18 - (i * 19) % 65}px`, "--grain-delay": `${i % 5 * 35}ms` } as CSSProperties} />)}
+        </g>
+      </g>)}
       <g clipPath={paint("portal")} className={styles.grain} opacity=".065">
         <rect x="72" y="29" width="656" height="750" filter={paint("grain")} />
       </g>

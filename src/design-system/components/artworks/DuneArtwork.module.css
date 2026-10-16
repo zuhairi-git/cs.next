@@ -13,7 +13,7 @@
   transition: transform 650ms cubic-bezier(.2, .7, .2, 1);
 }
 
-.ripple, .rippleEcho { opacity: 0; transform-box: fill-box; transform-origin: center; }
+.sandBurst { opacity: 0; }
 
 .grain {
   mix-blend-mode: soft-light;
@@ -41,8 +41,9 @@
   .stars circle { animation: twinkle 7s ease-in-out infinite alternate; }
   .stars circle:nth-child(3n) { animation-delay: -3s; }
   .stars circle:nth-child(3n + 1) { animation-delay: -5s; }
-  .ripple { animation: ripple 1.6s ease-out both; }
-  .rippleEcho { animation: ripple 1.6s .15s ease-out both; }
+  .sandBurst { animation: sandBurst 1.5s ease-out both; }
+  .spiceGrain { animation: spiceLift 1.3s var(--grain-delay) ease-out both; }
+  .touchWind { animation: touchGust 1.4s ease-out both; }
   .corona { animation: breathe 12s ease-in-out infinite alternate; }
   .haze { animation: haze 19s ease-in-out infinite alternate; }
   .dust { animation: drift 24s ease-in-out infinite alternate; }
@@ -117,18 +118,10 @@
   to { opacity: 1; }
 }
 
-@keyframes ripple {
-  from { opacity: .7; transform: scale(.5); }
-  to { opacity: 0; transform: scale(12); }
-}
+
 
 @media (prefers-reduced-motion: reduce) {
-  .ripple { animation: feedback 1s ease-out both; }
-}
-
-@keyframes feedback {
-  from { opacity: .5; }
-  to { opacity: 0; }
+  .sandBurst { opacity: .65; }
 }
 
 @keyframes breathe {
@@ -149,4 +142,20 @@
 @media (max-width: 479px) {
   .registration { opacity: .4; }
   .contours { opacity: .12; }
+}
+
+@keyframes sandBurst {
+  0% { opacity: 0; }
+  12%, 45% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes spiceLift {
+  from { transform: translate(0, 0); opacity: 0; }
+  15% { opacity: 1; }
+  to { transform: translate(var(--grain-x), var(--grain-y)); opacity: 0; }
+}
+@keyframes touchGust {
+  from { transform: translate(-12px, 8px); opacity: 0; }
+  25% { opacity: .65; }
+  to { transform: translate(52px, -22px); opacity: 0; }
 }
