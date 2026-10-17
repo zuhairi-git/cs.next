@@ -47,6 +47,15 @@ export default function InterstellarArtwork() {
         <linearGradient id={id("reflection")} x1="0" y1="0" x2="0" y2="1">
           <stop stopColor="#d9eee2" stopOpacity=".65" /><stop offset="1" stopColor="#92c7cc" stopOpacity="0" />
         </linearGradient>
+        <linearGradient id={id("hull")} x1="0" y1="0" x2="1" y2="0">
+          <stop stopColor="#344652" /><stop offset=".18" stopColor="#a6bac0" /><stop offset=".43" stopColor="#edf1e8" /><stop offset=".7" stopColor="#9baeb3" /><stop offset="1" stopColor="#344552" />
+        </linearGradient>
+        <linearGradient id={id("booster")} x1="0" y1="0" x2="1" y2="0">
+          <stop stopColor="#283946" /><stop offset=".35" stopColor="#94aab1" /><stop offset=".7" stopColor="#d9e1dc" /><stop offset="1" stopColor="#475d68" />
+        </linearGradient>
+        <linearGradient id={id("flame")} x1="0" y1="0" x2="0" y2="1">
+          <stop stopColor="#fff8dc" /><stop offset=".24" stopColor="#cdefff" stopOpacity=".95" /><stop offset=".7" stopColor="#69b9da" stopOpacity=".55" /><stop offset="1" stopColor="#69b9da" stopOpacity="0" />
+        </linearGradient>
         <linearGradient id={id("fade")} x1="0" y1="0" x2="0" y2="1">
           <stop offset=".72" stopColor="white" /><stop offset="1" stopColor="black" />
         </linearGradient>
@@ -114,12 +123,31 @@ export default function InterstellarArtwork() {
 
       <g className={styles.probeDepth}>
         <g className={styles.probe}>
-          <path d="M559 514l-4 28" stroke="#c2efff" strokeWidth="3" opacity=".7" filter={paint("glow")} />
-          <path d="M559 493L536 515L555 510L562 520L566 508L585 506Z" fill="#b5c5c9" stroke="#edf5ee" strokeWidth=".8" />
-          <path d="M559 493L555 510L562 520L566 508Z" fill="#536d7c" />
-          <path d="M559 499L558 505L565 505Z" fill="#132637" />
-          <circle cx="540" cy="513" r="1" fill="#f8cb93" />
-          <circle cx="580" cy="506" r="1" fill="#f8cb93" />
+          <g transform="translate(558 494) rotate(25)">
+            <path d="M-20 37Q-20 67 -13 88Q-10 68 -9 40ZM9 40Q10 68 13 88Q20 67 20 37Z" fill={paint("flame")} opacity=".7" filter={paint("glow")} />
+            <path d="M-17 39Q-17 62 -13 78Q-10 60 -11 41ZM11 41Q10 60 13 78Q17 62 17 39Z" fill={paint("flame")} opacity=".8" />
+            <path d="M-5 43Q-6 74 0 103Q6 74 5 43Z" fill={paint("flame")} opacity=".7" filter={paint("glow")} />
+            <path d="M-3 43Q-3 71 0 86Q3 71 3 43Z" fill={paint("flame")} />
+
+            <path d="M-12 9L-29 21L-37 48L-22 40L-13 32Z" fill="#5a707a" stroke="#d3e0dc" strokeWidth=".8" />
+            <path d="M12 9L29 21L37 48L22 40L13 32Z" fill="#374e5b" stroke="#b6cbd0" strokeWidth=".8" />
+            <path d="M-13 28L-38 37L-43 46L-13 39ZM13 28L38 37L43 46L13 39Z" fill="#263c49" stroke="#a5bac0" strokeWidth=".7" />
+
+            <path d="M-23 -8Q-22 -15 -19 -19Q-16 -15 -15 -8V38H-23Z" fill={paint("booster")} stroke="#a9bec2" strokeWidth=".8" />
+            <path d="M15 -8Q16 -15 19 -19Q22 -15 23 -8V38H15Z" fill={paint("booster")} stroke="#849ca5" strokeWidth=".8" />
+            <path d="M-23 26H-15M15 26H23" stroke="#263a45" strokeWidth="2" />
+            <path d="M-22 34H-16V42H-22ZM16 34H22V42H16Z" fill="#202e38" stroke="#a9bfc4" strokeWidth=".8" />
+            <path d="M-11 -26Q-8 -43 0 -55Q8 -43 11 -26L12 34Q10 39 7 42H-7Q-10 39 -12 34Z" fill={paint("hull")} stroke="#e5ede6" strokeWidth="1" />
+            <path d="M-7 -35Q-4 -45 0 -51Q4 -45 7 -35Z" fill="#d7ded9" opacity=".8" />
+            <path d="M-7 -22Q0 -27 7 -22L8 -11Q0 -14 -8 -11Z" fill="#142b3b" stroke="#a8c9d3" strokeWidth=".8" />
+            <path d="M-5 -21Q-1 -23 3 -22" stroke="#d3e7eb" strokeWidth=".8" opacity=".7" />
+            <path d="M-11 -5H11M-11 20H11M-8 36H8" stroke="#354d59" strokeWidth="1.5" opacity=".9" />
+            <path d="M-8 3H-5M5 3H8M-7 27H7" stroke="#e7eee9" strokeWidth="1" opacity=".65" />
+            <path d="M-7 41L-5 47H5L7 41Z" fill="#263641" stroke="#abbec1" strokeWidth=".8" />
+            <ellipse cx="0" cy="47" rx="4" ry="2" fill="#e6f7f3" />
+            <circle cx="-35" cy="43" r="1.5" fill="#e8a56d" />
+            <circle cx="35" cy="43" r="1.5" fill="#e8a56d" />
+          </g>
         </g>
       </g>
       <path d="M63 384V364a337 337 0 0 1 674 0v20" stroke="var(--accent)" strokeOpacity=".2" strokeWidth=".7" />
