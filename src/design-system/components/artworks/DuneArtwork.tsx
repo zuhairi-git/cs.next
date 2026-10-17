@@ -260,12 +260,12 @@ export default function DuneArtwork() {
       </g>
       </g>
       {gusts.map(gust => <g key={gust.key} transform={`translate(${gust.x} ${gust.y})`} pointerEvents="none">
-        <g className={styles.sandBurst}>
+        <g transform="scale(1.8)" className={styles.sandBurst}>
           <g className={styles.touchWind} stroke={paint("touch-sand")} strokeWidth="1.2" strokeLinecap="round">
             <path d="M-28 8Q6 -8 32 -3T66 -7" />
           </g>
           {Array.from({ length: 6 }, (_, i) => <circle key={i} className={styles.spiceGrain}
-            cx={i * 6 - 15} cy={(i * 7) % 12 - 6} r={i % 3 === 0 ? 1.2 : .7}
+            cx={i * 6 - 15} cy={(i * 7) % 12 - 6} r={i % 3 === 0 ? 2.4 : 1.4}
             fill="#f4ce92"
             style={{ "--grain-x": `${16 + i * 4}px`, "--grain-y": `${-6 - i * 3}px`, "--grain-delay": `${i * 30}ms` } as CSSProperties} />)}
         </g>
